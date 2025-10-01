@@ -1,3 +1,79 @@
+/* ===== ESTILOS PARA LOGO SIMPLIFICADO ===== */
+.portada-header {
+    margin-bottom: 40px;
+}
+
+.logo-completo {
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+.logo-imagen {
+    margin-bottom: 15px;
+}
+
+.logo-principal {
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+.logo-eslogan p {
+    font-size: 1.4em;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    margin: 0;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Animación de entrada suave */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE PARA LOGO ===== */
+@media (max-width: 768px) {
+    .logo-principal {
+        max-width: 250px;
+    }
+    
+    .logo-eslogan p {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-principal {
+        max-width: 200px;
+    }
+    
+    .logo-eslogan p {
+        font-size: 1.1em;
+        padding: 0 20px;
+    }
+}
+
+/* Ajuste para pantallas muy grandes */
+@media (min-width: 1200px) {
+    .logo-principal {
+        max-width: 350px;
+    }
+    
+    .logo-eslogan p {
+        font-size: 1.6em;
+    }
+}
+
 /* ===== ESTILOS PARA LA PORTADA ===== */
 .portada {
     min-height: 100vh;
@@ -47,7 +123,7 @@
 }
 
 .cta-button {
-    background: #e74c3c;
+    background: #f28d00;
     color: white;
     border: none;
     padding: 15px 40px;
@@ -59,7 +135,7 @@
 }
 
 .cta-button:hover {
-    background: #c0392b;
+    background: #e83d0b;
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
 }
