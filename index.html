@@ -13,7 +13,7 @@
 <header class="portada-header">
     <div class="logo-completo">
         <div class="logo-imagen">
-            <img src="../imagenes/logo-zona-creativa.png" alt="Zona Creativa" class="logo-principal">
+            <img src="imagenes/logo-zona-creativa.png" alt="Zona Creativa" class="logo-principal">
         </div>
         <div class="logo-eslogan">
             <p>Tú lo sueñas, nosotros lo creamos</p>
@@ -26,7 +26,7 @@
                 <div class="hero-section">
                     <h2>Bienvenido a Nuestro Catálogo Digital</h2>
                     <p>Descubre productos únicos y personalizados para cada ocasión</p>
-                    <button class="cta-button" onclick="irAlCatalogo()">Explorar Catálogo</button>
+                    <button class="cta-button" onclick="irAlCatalogo()">Explora el  catálogo</button>
                 </div>
 
                 <!-- Preview de categorías -->
@@ -71,6 +71,7 @@
                             <div class="preview-image">
                                 <div style="width:100%;height:100%;background:#f39c12;display:flex;align-items:center;justify-content:center;color:white;">ACCESORIO</div>
                             </div>
+							
                             <div class="preview-info">
                                 <h4>🎒 Accesorios</h4>
                                 <p>Complementa tu estilo</p>
@@ -99,7 +100,7 @@
           <nav class="navbar">
                 <div class="nav-container">
                     <div class="nav-logo">
-                        <h2>Zona Creativa</h2>
+                        <h2>Zona Creativa Medellín</h2>
                     </div>
                     <ul class="nav-menu">
                         <li class="nav-item">
@@ -114,14 +115,18 @@
                         <li class="nav-item">
                             <button class="nav-link" onclick="showCategory('accesorios')">🎒 Accesorios</button>
                         </li>
+						<li class="nav-item">
+                			<button class="nav-link" onclick="showCategory('galeria')">⭐ Clientes</button>
+            			</li>
                     </ul>
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-          </nav>
+                    <!-- EL BOTÓN HAMBURGUESA DEBE ESTAR FUERA DEL nav-menu -->
+        				<div class="hamburger">
+            				<span></span>
+            				<span></span>
+            				<span></span>
+        				</div>
+    				</div>
+			</nav>
 
             <header>
                 <h1 id="category-title">Mugs Personalizados</h1>
