@@ -148,6 +148,37 @@ const PortadaManager = {
         this.mostrarPortada();
     },
 
+    volverAPortada: function() {
+        this.ocultarCatalogo();
+        this.mostrarPortada();
+        this.cerrarMenuMovil();
+        this.limpiarBotonesActivos();
+    },
+
+    ocultarCatalogo: function() {
+        document.getElementById('catalogo').classList.add('hidden');
+    },
+    
+    mostrarPortada: function() {
+        document.getElementById('portada').classList.remove('hidden');
+    },
+    
+    cerrarMenuMovil: function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    },
+    
+    limpiarBotonesActivos: function() {
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+    },
+    
     mostrarPortada() {
         document.getElementById('portada').classList.remove('hidden');
         document.getElementById('catalogo').classList.add('hidden');
@@ -209,22 +240,7 @@ Me gustaría recibir información sobre:
         const encodedMessage = Utils.encodeWhatsAppMessage(message);
         const whatsappUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank');
-    }  
-    
-    function volverAPortada() {
-    // Ocultar el catálogo y mostrar la portada
-    document.getElementById('catalogo').classList.add('hidden');
-    document.getElementById('portada').classList.remove('hidden');
-    
-    // Cerrar el menú móvil si está abierto
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    if (hamburger && navMenu) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-};
+    };
 
 // ===== MANEJO DEL CATÁLOGO =====
 const CatalogoManager = {
@@ -493,6 +509,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 console.log('✅ Catálogo Zona Creativa - Cargado correctamente');
+
 
 
 
