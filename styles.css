@@ -205,7 +205,7 @@
 }
 
 .preview-count {
-    background: rgba(52, 152, 219, 0.8);
+    background: rgba(241, 141, 2, 0.5);
     padding: 4px 12px;
     border-radius: 15px;
     font-size: 0.9em;
@@ -295,9 +295,27 @@ body {
     padding: 15px 0;
 }
 
-.nav-logo h2 {
+/* .nav-logo h2 {
     color: white;
     font-size: 1.5em;
+} */
+
+/* ===== ESTILOS PARA LOGO EN NAVBAR ===== */
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo-img {
+    height: 40px;
+    width: auto;
+    /*filter: brightness(0) invert(1);  Hace el logo blanco */
+}
+
+@media (max-width: 768px) {
+    .nav-logo-img {
+        height: 35px;
+    }
 }
 
 .nav-menu {

@@ -2,8 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zona Creativa - Catálogo Digital</title>
+    <meta name="description" content="Catálogo digital de Zona Creativa - Productos personalizados, mugs, termos, camisetas y accesorios de alta calidad">
+<meta name="keywords" content="catalogo digital, productos personalizados, mugs, termos, camisetas, zona creativa">
+    <title>Zona Creativa Medellín - Catálogo Digital</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -40,17 +41,17 @@
                             </div>
                             <div class="preview-info">
                                 <h4>☕ Mugs</h4>
-                                <p>Tazas personalizadas únicas</p>
-                                <span class="preview-count">12 diseños</span>
+                                <p>Pocillos personalizados únicos</p>
+                                <span class="preview-count">3 estilos</span>
                             </div>
                         </div>
 
                         <div class="preview-card" data-categoria="termos" onclick="irACategoria('termos')">
                             <div class="preview-image">
-                                <div style="width:100%;height:100%;background:#e83d0b;display:flex;align-items:center;justify-content:center;color:white;">TERMOS</div>
+                                <div style="width:100%;height:100%;background:#e83d0b;display:flex;align-items:center;justify-content:center;color:white;">CAMISETAS Y CHOMPAS</div>
                             </div>
                             <div class="preview-info">
-                                <h4>🧊 Termos</h4>
+                                <h4>👕 Camisetas y chompas</h4>
                                 <p>Mantén tu temperatura ideal</p>
                                 <span class="preview-count">8 modelos</span>
                             </div>
@@ -58,10 +59,10 @@
 
                         <div class="preview-card" data-categoria="camisetas" onclick="irACategoria('camisetas')">
                             <div class="preview-image">
-                                <div style="width:100%;height:100%;background:#0076ff;display:flex;align-items:center;justify-content:center;color:white;">CAMISETAS Y CHOMPAS</div>
+                                <div style="width:100%;height:100%;background:#0076ff;display:flex;align-items:center;justify-content:center;color:white;">COMBOS</div>
                             </div>
                             <div class="preview-info">
-                                <h4>👕 Camisetas y chompas</h4>
+                                <h4>🧊 Combos</h4>
                                 <p>Estilo y comodidad perfectos</p>
                                 <span class="preview-count">15 diseños</span>
                             </div>
@@ -78,6 +79,18 @@
                                 <span class="preview-count">10 productos</span>
                             </div>
                         </div>
+						
+						<div class="preview-card" data-categoria="clientes" onclick="irACategoria('clientes')">
+    						<div class="preview-image">
+        						<div style="width:100%;height:100%;background:#9b59b6;display:flex;align-items:center;justify-content:center;color:white;">CLIENTES</div>
+    						</div>
+							
+    						<div class="preview-info">
+        						<h4>⭐ Clientes</h4>
+        						<p>Nuestros trabajos realizados</p>
+				        		<span class="preview-count">+20 proyectos</span>
+    						</div>
+						</div>
                     </div>
                 </div>
 
@@ -97,11 +110,16 @@
     <div id="catalogo" class="catalogo hidden">
         <!-- Tu catálogo completo aquí -->
         <div class="container">
-          <nav class="navbar">
+          <!-- <nav class="navbar">
                 <div class="nav-container">
                     <div class="nav-logo">
                         <h2>Zona Creativa Medellín</h2>
-                    </div>
+                    </div> -->
+			<nav class="navbar">
+    			<div class="nav-container">
+        			<div class="nav-logo">
+            		<img src="imagenes/logo-zona-creativa.png" alt="Zona Creativa" class="nav-logo-img">
+        			</div>
                     <ul class="nav-menu">
                         <li class="nav-item">
                             <button class="nav-link active" onclick="showCategory('mugs')">☕ Mugs</button>
@@ -116,8 +134,8 @@
                             <button class="nav-link" onclick="showCategory('accesorios')">🎒 Accesorios</button>
                         </li>
 						<li class="nav-item">
-                			<button class="nav-link" onclick="showCategory('galeria')">⭐ Clientes</button>
-            			</li>
+    						<button class="nav-link" onclick="showCategory('clientes')">⭐ Galería de Clientes</button>
+						</li>
                     </ul>
                     <!-- EL BOTÓN HAMBURGUESA DEBE ESTAR FUERA DEL nav-menu -->
         				<div class="hamburger">

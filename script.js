@@ -127,7 +127,42 @@ const categories = {
             price: "$45.99",
             category: "accesorios"
         }
-    ]
+    ],
+	
+	clientes: [
+    	{
+        	src: "fotos/clientes/cliente1.jpg",
+        	alt: "Cliente satisfecho con mug personalizado",
+        	title: "Ana María - Mug Personalizado",
+        	description: "Mug con foto familiar para regalo de aniversario",
+        	testimonio: "¡Quedé encantada con mi mug! La calidad es excelente y el diseño superó mis expectativas.",
+        	categoria: "Mugs"
+    	},
+    	{
+        	src: "fotos/clientes/cliente2.jpg",
+        	alt: "Equipo con camisetas personalizadas",
+        	title: "Tech Solutions - Camisetas Corporativas",
+        	description: "Lote de 50 camisetas para equipo de trabajo",
+        	testimonio: "Professionalismo y calidad en cada detalle. Nuestro equipo está muy contento.",
+        	categoria: "Camisetas"
+    	},
+    	{
+        	src: "fotos/clientes/cliente3.jpg", 
+        	alt: "Cliente con termo personalizado",
+        	title: "Carlos Rodríguez - Termo Deportivo",
+        	description: "Termo con logo personalizado para gimnasio",
+        	testimonio: "El termo mantiene perfectamente la temperatura y el diseño es duradero.",
+        	categoria: "Termos"
+    	},
+    	{
+        	src: "fotos/clientes/cliente4.jpg",
+        	alt: "Cliente con accesorios personalizados",
+        	title: "María Fernanda - Set de Accesorios",
+        	description: "Set completo de mochila y gorra personalizados",
+        	testimonio: "La atención al cliente fue excepcional y los productos de alta calidad.",
+        	categoria: "Accesorios"
+    	}
+	]
 };
 
 // Textos descriptivos para cada categoría
@@ -147,7 +182,11 @@ const categoryInfo = {
     accesorios: {
         title: "Accesorios Únicos",
         description: "Complementa tu look con nuestros accesorios"
-    }
+    },
+	clientes: {
+    	title: "⭐ Galería de Clientes Satisfechos",
+    	description: "Conoce los trabajos que hemos realizado y lo que dicen nuestros clientes"
+},
 };
 
 // Inicializar el carrusel
@@ -194,7 +233,8 @@ function recreateCarousel() {
         // Slide principal
         const slide = document.createElement('div');
         slide.className = 'carousel-item';
-        slide.innerHTML = `<img src="${image.src}" alt="${image.alt}" onerror="this.src='https://via.placeholder.com/400x400/3498db/ffffff?text=Imagen+No+Disponible'">`;
+        slide.innerHTML = `<img src="${image.src}" alt="${image.alt}" onerror="this.src='https://placeholders.dev/400x400/3498db/ffffff?text=Imagen+No+Disponible'">`;
+
         carouselInner.appendChild(slide);
         
         // Indicadores
@@ -206,7 +246,7 @@ function recreateCarousel() {
         // Miniaturas
         const thumbnail = document.createElement('div');
         thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
-        thumbnail.innerHTML = `<img src="${image.src}" alt="${image.alt}" onerror="this.src='https://via.placeholder.com/100x100/3498db/ffffff?text=Imagen+No+Disponible'">`;
+        thumbnail.innerHTML = `<img src="${image.src}" alt="${image.alt}" onerror="this.src='https://placeholders.dev/100x100/3498db/ffffff?text=Imagen+No+Disponible'">`;
         thumbnail.onclick = () => goToSlide(index);
         thumbnails.appendChild(thumbnail);
     });
