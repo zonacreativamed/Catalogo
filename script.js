@@ -489,8 +489,10 @@ document.addEventListener('DOMContentLoaded', function() {
     window.showCategory = (category) => CatalogoManager.showCategory(category);
     window.moveSlide = (direction) => CatalogoManager.moveSlide(direction);
     window.contactWhatsApp = () => CatalogoManager.contactWhatsApp();
+    window.volverAPortada = () => PortadaManager.volverAPortada();
 });
 
 console.log('✅ Catálogo Zona Creativa - Cargado correctamente');
+
 
 
