@@ -15,7 +15,7 @@
             <header class="portada-header">
                 <div class="logo-completo">
                     <div class="logo-imagen">
-                        <img src="imagenes/logo-zona-creativa.png" alt="Zona Creativa" class="logo-principal">
+                        <img src="../imagenes/logo-zona-creativa.png" alt="Zona Creativa" class="logo-principal">
                     </div>
                     <div class="logo-eslogan">
                         <p>Tú lo sueñas, nosotros lo creamos</p>
@@ -24,12 +24,26 @@
             </header>
 
             <main class="portada-main">
+                <!-- Banners Promocionales -->
+                <div class="banners-portada">
+                    <div class="banner promo">
+                        <h3>🎉 Oferta Especial</h3>
+                        <p>20% de descuento en combos personalizados</p>
+                        <small>Válido hasta Diciembre 2024</small>
+                    </div>
+                    <div class="banner novedad">
+                        <h3>🆕 Nuevos Productos</h3>
+                        <p>Descubre nuestra nueva línea de accesorios</p>
+                    </div>
+                </div>
+
                 <div class="hero-section">
                     <h2>Bienvenido a Nuestro Catálogo Digital</h2>
                     <p>Descubre productos únicos y personalizados para cada ocasión</p>
                     <button class="cta-button" onclick="irAlCatalogo()">Explora el catálogo</button>
                 </div>
 
+                <!-- Preview de categorías -->
                 <div class="categorias-preview">
                     <h3>Nuestras Categorías</h3>
                     <div class="preview-grid">
@@ -90,6 +104,7 @@
                     </div>
                 </div>
 
+                <!-- Información de contacto en portada -->
                 <div class="portada-contacto">
                     <p>¿Buscas algo específico? <strong>+57 323 357 0334</strong></p>
                     <button class="whatsapp-btn-portada" onclick="contactWhatsAppPortada()">
@@ -109,8 +124,9 @@
                         <img src="imagenes/logo-zona-creativa.png" alt="Zona Creativa" class="nav-logo-img">
                     </div>
                     <ul class="nav-menu">
+                        <!-- Botón para volver a portada -->
                         <li class="nav-item">
-                            <button class="nav-link" onclick="volverAPortada()">🏠 Inicio</button>
+                            <button class="nav-link nav-portada-btn" onclick="volverAPortada()">🏠 Inicio</button>
                         </li>
                         <li class="nav-item">
                             <button class="nav-link active" onclick="showCategory('mugs')">☕ Mugs</button>

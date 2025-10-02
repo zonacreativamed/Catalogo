@@ -139,6 +139,13 @@ const Utils = {
     // Validar si hay imágenes disponibles
     hasImages() {
         return AppState.images.length > 0 && AppState.currentSlide < AppState.images.length;
+    },
+
+    // Limpiar elementos del DOM
+    clearElements(elements) {
+        elements.forEach(element => {
+            if (element) element.innerHTML = '';
+        });
     }
 };
 
@@ -148,37 +155,6 @@ const PortadaManager = {
         this.mostrarPortada();
     },
 
-    volverAPortada: function() {
-        this.ocultarCatalogo();
-        this.mostrarPortada();
-        this.cerrarMenuMovil();
-        this.limpiarBotonesActivos();
-    },
-
-    ocultarCatalogo: function() {
-        document.getElementById('catalogo').classList.add('hidden');
-    },
-    
-    mostrarPortada: function() {
-        document.getElementById('portada').classList.remove('hidden');
-    },
-    
-    cerrarMenuMovil: function() {
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        if (hamburger && navMenu) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    },
-    
-    limpiarBotonesActivos: function() {
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-        });
-    },
-    
     mostrarPortada() {
         document.getElementById('portada').classList.remove('hidden');
         document.getElementById('catalogo').classList.add('hidden');
@@ -220,6 +196,34 @@ const PortadaManager = {
         document.getElementById('catalogo').classList.remove('hidden');
     },
 
+    // ===== NUEVAS FUNCIONES PARA VOLVER A PORTADA =====
+    volverAPortada() {
+        this.ocultarCatalogo();
+        this.mostrarPortada();
+        this.cerrarMenuMovil();
+        this.limpiarBotonesActivos();
+    },
+
+    ocultarCatalogo() {
+        document.getElementById('catalogo').classList.add('hidden');
+    },
+
+    cerrarMenuMovil() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    },
+
+    limpiarBotonesActivos() {
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+    },
+
     contactWhatsAppPortada() {
         const message = `¡Hola Zona Creativa! :)
 
@@ -240,7 +244,8 @@ Me gustaría recibir información sobre:
         const encodedMessage = Utils.encodeWhatsAppMessage(message);
         const whatsappUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank');
-    };
+    }
+};
 
 // ===== MANEJO DEL CATÁLOGO =====
 const CatalogoManager = {
@@ -284,16 +289,10 @@ const CatalogoManager = {
         const indicators = document.querySelector('.carousel-indicators');
         const thumbnails = document.querySelector('.thumbnails');
         
-        this.clearElements([carouselInner, indicators, thumbnails]);
+        Utils.clearElements([carouselInner, indicators, thumbnails]);
         this.createCarouselItems();
         this.updateCarousel();
         this.updateImageInfo();
-    },
-
-    clearElements(elements) {
-        elements.forEach(element => {
-            if (element) element.innerHTML = '';
-        });
     },
 
     createCarouselItems() {
@@ -509,7 +508,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 console.log('✅ Catálogo Zona Creativa - Cargado correctamente');
-
-
-
-

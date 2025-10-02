@@ -14,6 +14,8 @@
     --white: #ffffff;
     --text-dark: #2c3e50;
     --text-gray: #495057;
+    --success-color: #25D366;
+    --success-hover: #128C7E;
 }
 
 body {
@@ -78,6 +80,55 @@ body {
     margin: 0;
     font-weight: 300;
     letter-spacing: 1px;
+}
+
+/* Banners Promocionales */
+.banners-portada {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+}
+
+.banner {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.banner:hover {
+    transform: translateY(-5px);
+}
+
+.banner.promo {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+}
+
+.banner.novedad {
+    background: linear-gradient(135deg, #4834d4, #686de0);
+    color: white;
+}
+
+.banner h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.banner small {
+    opacity: 0.9;
+    font-size: 0.9em;
 }
 
 /* Hero Section */
@@ -169,6 +220,7 @@ body {
     justify-content: center;
     color: var(--white);
     font-weight: bold;
+    font-size: 1.1em;
 }
 
 .preview-info h4 {
@@ -209,7 +261,7 @@ body {
 }
 
 .whatsapp-btn-portada {
-    background: #25D366;
+    background: var(--success-color);
     color: var(--white);
     border: none;
     padding: 12px 25px;
@@ -220,7 +272,7 @@ body {
 }
 
 .whatsapp-btn-portada:hover {
-    background: #128C7E;
+    background: var(--success-hover);
     transform: translateY(-2px);
 }
 
@@ -296,6 +348,17 @@ body {
     border-color: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Botón Volver a Portada */
+.nav-portada-btn {
+    background: linear-gradient(135deg, var(--primary-color), #e67e22) !important;
+    border-color: #e67e22 !important;
+}
+
+.nav-portada-btn:hover {
+    background: linear-gradient(135deg, #e67e22, #d35400) !important;
+    border-color: #d35400 !important;
 }
 
 /* Hamburger Menu */
@@ -514,7 +577,7 @@ body {
 }
 
 .whatsapp-btn {
-    background: #25D366;
+    background: var(--success-color);
     color: var(--white);
     border: none;
     padding: 12px 25px;
@@ -529,7 +592,7 @@ body {
 }
 
 .whatsapp-btn:hover {
-    background: #128C7E;
+    background: var(--success-hover);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
 }
@@ -607,6 +670,12 @@ body {
         font-size: 1.1em;
     }
     
+    .nav-portada-btn {
+        background: var(--primary-color) !important;
+        margin-bottom: 10px;
+        border-radius: 25px !important;
+    }
+    
     /* Logo */
     .logo-principal {
         max-width: 250px;
@@ -614,6 +683,17 @@ body {
     
     .logo-eslogan p {
         font-size: 1.2em;
+    }
+    
+    /* Banners */
+    .banners-portada {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .banner {
+        padding: 20px;
     }
     
     /* Hero Section */
@@ -674,6 +754,18 @@ body {
     .logo-eslogan p {
         font-size: 1.1em;
         padding: 0 15px;
+    }
+    
+    .banners-portada {
+        gap: 10px;
+    }
+    
+    .banner {
+        padding: 15px;
+    }
+    
+    .banner h3 {
+        font-size: 1.2em;
     }
     
     .hero-section h2 {
