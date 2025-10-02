@@ -210,6 +210,21 @@ Me gustaría recibir información sobre:
         const whatsappUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank');
     }
+
+    function volverAPortada() {
+    // Ocultar el catálogo y mostrar la portada
+    document.getElementById('catalogo').classList.add('hidden');
+    document.getElementById('portada').classList.remove('hidden');
+    
+    // Cerrar el menú móvil si está abierto
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    if (hamburger && navMenu) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
 };
 
 // ===== MANEJO DEL CATÁLOGO =====
@@ -478,3 +493,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 console.log('✅ Catálogo Zona Creativa - Cargado correctamente');
+
