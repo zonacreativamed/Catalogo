@@ -209,8 +209,8 @@ Me gustaría recibir información sobre:
         const encodedMessage = Utils.encodeWhatsAppMessage(message);
         const whatsappUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank');
-    }
-
+    }  
+    
     function volverAPortada() {
     // Ocultar el catálogo y mostrar la portada
     document.getElementById('catalogo').classList.add('hidden');
@@ -224,7 +224,6 @@ Me gustaría recibir información sobre:
         navMenu.classList.remove('active');
         document.body.style.overflow = '';
     }
-}
 };
 
 // ===== MANEJO DEL CATÁLOGO =====
@@ -493,4 +492,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 console.log('✅ Catálogo Zona Creativa - Cargado correctamente');
+
 
