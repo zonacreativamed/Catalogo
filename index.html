@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Catálogo digital de Zona Creativa - Productos personalizados, mugs, termos, camisetas y accesorios de alta calidad">
-<meta name="keywords" content="catalogo digital, productos personalizados, mugs, termos, camisetas, zona creativa">
+    <meta name="keywords" content="catalogo digital, productos personalizados, mugs, termos, camisetas, zona creativa">
     <title>Zona Creativa Medellín - Catálogo Digital</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,33 +12,30 @@
     <!-- Portada Interactiva -->
     <div id="portada" class="portada">
         <div class="portada-container">
-<header class="portada-header">
-    <div class="logo-completo">
-        <div class="logo-imagen">
-            <img src="imagenes/logo-zona-creativa.png" alt="Zona Creativa" class="logo-principal">
-        </div>
-        <div class="logo-eslogan">
-            <p>Tú lo sueñas, nosotros lo creamos</p>
-        </div>
-    </div>
-</header>
+            <header class="portada-header">
+                <div class="logo-completo">
+                    <div class="logo-imagen">
+                        <img src="imagenes/logo-zona-creativa.png" alt="Zona Creativa" class="logo-principal">
+                    </div>
+                    <div class="logo-eslogan">
+                        <p>Tú lo sueñas, nosotros lo creamos</p>
+                    </div>
+                </div>
+            </header>
 
-            <!-- Contenido principal de la portada -->
             <main class="portada-main">
                 <div class="hero-section">
                     <h2>Bienvenido a Nuestro Catálogo Digital</h2>
                     <p>Descubre productos únicos y personalizados para cada ocasión</p>
-                    <button class="cta-button" onclick="irAlCatalogo()">Explora el  catálogo</button>
+                    <button class="cta-button" onclick="irAlCatalogo()">Explora el catálogo</button>
                 </div>
 
-                <!-- Preview de categorías -->
                 <div class="categorias-preview">
                     <h3>Nuestras Categorías</h3>
                     <div class="preview-grid">
                         <div class="preview-card" data-categoria="mugs" onclick="irACategoria('mugs')">
                             <div class="preview-image">
-                                <!-- Imagen placeholder - reemplaza con tus imágenes -->
-                                <div style="width:100%;height:100%;background:#00b2ff;display:flex;align-items:center;justify-content:center;color:white;">MUGS</div>
+                                <div class="placeholder-img" style="background:#00b2ff">MUGS</div>
                             </div>
                             <div class="preview-info">
                                 <h4>☕ Mugs</h4>
@@ -48,10 +46,10 @@
 
                         <div class="preview-card" data-categoria="termos" onclick="irACategoria('termos')">
                             <div class="preview-image">
-                                <div style="width:100%;height:100%;background:#e83d0b;display:flex;align-items:center;justify-content:center;color:white;">CAMISETAS Y CHOMPAS</div>
+                                <div class="placeholder-img" style="background:#e83d0b">TERMOS</div>
                             </div>
                             <div class="preview-info">
-                                <h4>👕 Camisetas y chompas</h4>
+                                <h4>🧊 Termos</h4>
                                 <p>Mantén tu temperatura ideal</p>
                                 <span class="preview-count">8 modelos</span>
                             </div>
@@ -59,10 +57,10 @@
 
                         <div class="preview-card" data-categoria="camisetas" onclick="irACategoria('camisetas')">
                             <div class="preview-image">
-                                <div style="width:100%;height:100%;background:#0076ff;display:flex;align-items:center;justify-content:center;color:white;">COMBOS</div>
+                                <div class="placeholder-img" style="background:#0076ff">CAMISETAS</div>
                             </div>
                             <div class="preview-info">
-                                <h4>🧊 Combos</h4>
+                                <h4>👕 Camisetas</h4>
                                 <p>Estilo y comodidad perfectos</p>
                                 <span class="preview-count">15 diseños</span>
                             </div>
@@ -70,31 +68,28 @@
 
                         <div class="preview-card" data-categoria="accesorios" onclick="irACategoria('accesorios')">
                             <div class="preview-image">
-                                <div style="width:100%;height:100%;background:#f39c12;display:flex;align-items:center;justify-content:center;color:white;">ACCESORIO</div>
+                                <div class="placeholder-img" style="background:#f39c12">ACCESORIOS</div>
                             </div>
-							
                             <div class="preview-info">
                                 <h4>🎒 Accesorios</h4>
                                 <p>Complementa tu estilo</p>
                                 <span class="preview-count">10 productos</span>
                             </div>
                         </div>
-						
-						<div class="preview-card" data-categoria="clientes" onclick="irACategoria('clientes')">
-    						<div class="preview-image">
-        						<div style="width:100%;height:100%;background:#9b59b6;display:flex;align-items:center;justify-content:center;color:white;">CLIENTES</div>
-    						</div>
-							
-    						<div class="preview-info">
-        						<h4>⭐ Clientes</h4>
-        						<p>Nuestros trabajos realizados</p>
-				        		<span class="preview-count">+20 proyectos</span>
-    						</div>
-						</div>
+
+                        <div class="preview-card" data-categoria="clientes" onclick="irACategoria('clientes')">
+                            <div class="preview-image">
+                                <div class="placeholder-img" style="background:#9b59b6">CLIENTES</div>
+                            </div>
+                            <div class="preview-info">
+                                <h4>⭐ Clientes</h4>
+                                <p>Nuestros trabajos realizados</p>
+                                <span class="preview-count">+20 proyectos</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Información de contacto en portada -->
                 <div class="portada-contacto">
                     <p>¿Buscas algo específico? <strong>+57 323 357 0334</strong></p>
                     <button class="whatsapp-btn-portada" onclick="contactWhatsAppPortada()">
@@ -105,21 +100,14 @@
         </div>
     </div>
 
-	
-    <!-- Catálogo Principal (oculto inicialmente) -->
+    <!-- Catálogo Principal -->
     <div id="catalogo" class="catalogo hidden">
-        <!-- Tu catálogo completo aquí -->
         <div class="container">
-          <!-- <nav class="navbar">
+            <nav class="navbar">
                 <div class="nav-container">
                     <div class="nav-logo">
-                        <h2>Zona Creativa Medellín</h2>
-                    </div> -->
-			<nav class="navbar">
-    			<div class="nav-container">
-        			<div class="nav-logo">
-            		<img src="imagenes/logo-zona-creativa.png" alt="Zona Creativa" class="nav-logo-img">
-        			</div>
+                        <img src="imagenes/logo-zona-creativa.png" alt="Zona Creativa" class="nav-logo-img">
+                    </div>
                     <ul class="nav-menu">
                         <li class="nav-item">
                             <button class="nav-link active" onclick="showCategory('mugs')">☕ Mugs</button>
@@ -133,18 +121,17 @@
                         <li class="nav-item">
                             <button class="nav-link" onclick="showCategory('accesorios')">🎒 Accesorios</button>
                         </li>
-						<li class="nav-item">
-    						<button class="nav-link" onclick="showCategory('clientes')">⭐ Galería de Clientes</button>
-						</li>
+                        <li class="nav-item">
+                            <button class="nav-link" onclick="showCategory('clientes')">⭐ Clientes</button>
+                        </li>
                     </ul>
-                    <!-- EL BOTÓN HAMBURGUESA DEBE ESTAR FUERA DEL nav-menu -->
-        				<div class="hamburger">
-            				<span></span>
-            				<span></span>
-            				<span></span>
-        				</div>
-    				</div>
-			</nav>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
 
             <header>
                 <h1 id="category-title">Mugs Personalizados</h1>
@@ -153,27 +140,17 @@
 
             <div class="carousel-container">
                 <div class="carousel">
-                    <div class="carousel-inner">
-                        <!-- Las imágenes se agregarán dinámicamente -->
-                    </div>
+                    <div class="carousel-inner"></div>
                     <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
                     <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
                 </div>
-                
-                <div class="carousel-indicators">
-                    <!-- Los indicadores se generarán automáticamente -->
-                </div>
+                <div class="carousel-indicators"></div>
             </div>
 
-            <div class="image-info" id="image-info">
-                <!-- Información de la imagen actual -->
-            </div>
+            <div class="image-info" id="image-info"></div>
 
-            <div class="thumbnails">
-                <!-- Miniaturas se generarán automáticamente -->
-            </div>
+            <div class="thumbnails"></div>
 
-            <!-- Información de contacto -->
             <footer class="contact-footer">
                 <div class="contact-info">
                     <h3>¿Te interesa algún producto?</h3>
