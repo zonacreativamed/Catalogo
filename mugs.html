@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mugs Personalizados - Zona Creativa</title>
+    <title>Mugs Personalizados - Zona Creativa Medellín</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -48,19 +48,15 @@
             height: 80px;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
+        .logo-img {
+    		height: 50px; /* Ajusta según necesites */
+    		width: auto;
+		}
 
-        .logo i {
-            margin-right: 10px;
-            color: var(--primary);
-        }
+		.logo {
+    		display: flex;
+    		align-items: center;
+		}
 
         /* Menú de navegación PARA ESCRITORIO */
         .desktop-nav {
@@ -750,7 +746,7 @@
 </head>
 <body>
     <!-- WhatsApp flotante -->
-    <a href="https://wa.me/573001234567?text=Hola,%20me%20interesan%20sus%20mugs%20personalizados" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/573233570334?text=Hola,%20me%20interesan%20tus%20mugs%20personalizados" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -758,9 +754,8 @@
     <header>
         <div class="header-container">
             <a href="index.html" class="logo">
-                <i class="fas fa-palette"></i>
-                <span>Zona Creativa</span>
-            </a>
+    			<img src="imagenes/logo-zona-creativa.png" alt="Zona Creativa" class="logo-img">
+			</a>
             
             <!-- Menú para escritorio -->
             <nav class="desktop-nav">
@@ -1013,7 +1008,7 @@
                     <a href="https://instagram.com/zonacreativa.med" target="_blank">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://wa.me/573001234567" target="_blank">
+                    <a href="https://wa.me/573233570334" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                     <a href="mailto:zonacreativa.med@gmail.com">
@@ -1038,7 +1033,7 @@
                 <ul class="contact-info-list">
                     <li>
                         <i class="fab fa-whatsapp"></i>
-                        <span>+57 300 123 4567</span>
+                        <span>+57 323 357 0334</span>
                     </li>
                     <li>
                         <i class="far fa-envelope"></i>
@@ -1107,7 +1102,7 @@
             if (button.textContent.includes('Personalizar')) {
                 button.addEventListener('click', function() {
                     const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
-                    const whatsappUrl = `https://wa.me/573001234567?text=Hola,%20me%20interesa%20personalizar%20el%20producto:%20${encodeURIComponent(productTitle)}`;
+                    const whatsappUrl = `https://wa.me/573233570334?text=Hola,%20me%20interesa%20personalizar%20el%20producto:%20${encodeURIComponent(productTitle)}`;
                     window.open(whatsappUrl, '_blank');
                 });
             }
@@ -1116,7 +1111,7 @@
         // Botón de cotización
         document.querySelector('.btn').addEventListener('click', function() {
             if (this.textContent.includes('Cotización')) {
-                window.open('https://wa.me/573001234567?text=Hola,%20necesito%20una%20cotización%20para%20mugs%20personalizados', '_blank');
+                window.open('https://wa.me/573233570334?text=Hola,%20necesito%20una%20cotización%20para%20mugs%20personalizados', '_blank');
             }
         });
     </script>
