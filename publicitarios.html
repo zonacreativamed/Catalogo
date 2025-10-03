@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos Publicitarios - Zona Creativa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #3498db;
+            --secondary: #9b59b6;
+            --accent: #e74c3c;
+            --dark: #2c3e50;
+            --light: #f5f7fa;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+
+        body {
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        /* Menú de navegación PARA ESCRITORIO */
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+            margin: 0 15px;
+        }
+
+        .nav-menu > li > a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 20px 0;
+            display: block;
+            transition: color 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Submenú desplegable */
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 8px 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-menu li:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .submenu li {
+            margin: 0;
+            width: 100%;
+        }
+
+        .submenu a {
+            padding: 12px 20px;
+            display: block;
+            border-bottom: 1px solid #f0f0f0;
+            color: var(--dark);
+            transition: all 0.2s ease;
+        }
+
+        .submenu a:hover {
+            background: var(--light);
+            color: var(--primary);
+            padding-left: 25px;
+        }
+
+        .submenu a::after {
+            display: none;
+        }
+
+        .social-icon {
+            margin-left: 20px;
+            font-size: 1.5rem;
+            color: #e4405f;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+            color: #c13584;
+        }
+
+        /* Menú Hamburguesa para Móviles */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 1000;
+            padding: 80px 20px 20px;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            transform: translateX(0);
+            display: block;
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .mobile-nav-menu {
+            list-style: none;
+        }
+
+        .mobile-nav-menu li {
+            margin-bottom: 0;
+        }
+
+        .mobile-nav-menu a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 1.1rem;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-menu a:hover {
+            background: var(--light);
+            color: var(--primary);
+            padding-left: 25px;
+        }
+
+        .has-submenu {
+            position: relative;
+        }
+
+        .submenu-toggle {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .submenu-toggle.active {
+            transform: rotate(180deg);
+        }
+
+        .mobile-submenu {
+            list-style: none;
+            margin-left: 0;
+            display: none;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .mobile-submenu.active {
+            display: block;
+        }
+
+        .mobile-submenu li {
+            margin-bottom: 0;
+        }
+
+        .mobile-submenu a {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            border-bottom: 1px solid #e9ecef;
+            padding: 12px 20px;
+        }
+
+        .mobile-submenu a:hover {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        .mobile-submenu a:last-child {
+            border-bottom: none;
+        }
+
+        /* Hero Section */
+        .category-hero {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .category-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .category-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Filtros */
+        .filters-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-group label {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .filter-group select {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .filter-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), #2980b9);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Grid de Productos */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: "Imagen del Producto";
+            position: absolute;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .product-features li {
+            padding: 5px 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-features li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Información de la Categoría */
+        .category-info {
+            background: white;
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .info-content h2 {
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .info-content p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .info-features {
+            list-style: none;
+        }
+
+        .info-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-features li:last-child {
+            border-bottom: none;
+        }
+
+        .info-features i {
+            color: var(--primary);
+            margin-right: 12px;
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .info-image {
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .contact-info-list {
+            list-style: none;
+        }
+
+        .contact-info-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info-list i {
+            margin-right: 10px;
+            color: var(--primary);
+            width: 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp flotante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+            z-index: 100;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.7);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .category-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-actions {
+                justify-content: center;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-info {
+                padding: 30px;
+            }
+            
+            .header-container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-info {
+                padding: 20px;
+            }
+            
+            .category-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .category-hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/573233570334?text=Hola,%20me%20interesan%20sus%20productos%20publicitarios" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header CORREGIDO con menú hamburguesa -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-palette"></i>
+                <span>Zona Creativa</span>
+            </a>
+            
+            <!-- Menú para escritorio -->
+            <nav class="desktop-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#acerca">Acerca de</a></li>
+                    <li>
+                        <a href="#catalogo">Catálogo <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="mugs.html">Mugs Personalizados</a></li>
+                            <li><a href="camisetas.html">Camisetas y Chompas</a></li>
+                            <li><a href="accesorios.html">Accesorios</a></li>
+                            <li><a href="fechas-especiales.html">Fechas Especiales</a></li>
+                            <li><a href="publicitarios.html">Productos Publicitarios</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#clientes">Clientes</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+                
+                <a href="https://instagram.com/zonacreativa.med" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </nav>
+
+            <!-- Botón menú hamburguesa para móviles -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Menú móvil -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-nav-menu">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#acerca">Acerca de</a></li>
+            <li class="has-submenu">
+                <a href="#catalogo">Catálogo</a>
+                <button class="submenu-toggle">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="mobile-submenu">
+                    <li><a href="mugs.html">Mugs Personalizados</a></li>
+                    <li><a href="camisetas.html">Camisetas y Chompas</a></li>
+                    <li><a href="accesorios.html">Accesorios</a></li>
+                    <li><a href="fechas-especiales.html">Fechas Especiales</a></li>
+                    <li><a href="publicitarios.html">Productos Publicitarios</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html#clientes">Clientes</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+            <li>
+                <a href="https://instagram.com/zonacreativa.med" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fab fa-instagram"></i>
+                    <span>Síguenos en Instagram</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="category-hero">
+        <div class="container">
+            <h1>Productos Publicitarios</h1>
+            <p>Impulsa tu marca con productos publicitarios personalizados de alta calidad que dejan huella.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Filtros -->
+        <section class="filters-section">
+            <h2 style="margin-bottom: 20px; color: var(--dark);">Filtrar Productos Publicitarios</h2>
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label for="categoria">Categoría</label>
+                    <select id="categoria">
+                        <option value="todos">Todas las Categorías</option>
+                        <option value="tarjetas">Tarjetas de Presentación</option>
+                        <option value="flyers">Flyers y Volantes</option>
+                        <option value="pendones">Pendones y Banners</option>
+                        <option value="papeleria">Papelería Comercial</option>
+                        <option value="merchandising">Merchandising</option>
+                        <option value="exterior">Publicidad Exterior</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="material">Material</label>
+                    <select id="material">
+                        <option value="todos">Todos</option>
+                        <option value="papel">Papel</option>
+                        <option value="vinilo">Vinilo</option>
+                        <option value="lona">Lona</option>
+                        <option value="plastico">Plástico</option>
+                        <option value="textil">Textil</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="precio">Rango de Precio</label>
+                    <select id="precio">
+                        <option value="todos">Todos</option>
+                        <option value="economico">$10.99 - $49.99</option>
+                        <option value="medio">$50.00 - $149.99</option>
+                        <option value="premium">$150.00+</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="cantidad">Cantidad Mínima</label>
+                    <select id="cantidad">
+                        <option value="todos">Cualquier cantidad</option>
+                        <option value="pequena">50-100 unidades</option>
+                        <option value="media">101-500 unidades</option>
+                        <option value="grande">501-1000 unidades</option>
+                        <option value="masiva">1000+ unidades</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="filter-actions">
+                <button class="btn btn-outline">Limpiar Filtros</button>
+                <button class="btn">Aplicar Filtros</button>
+            </div>
+        </section>
+
+        <!-- Grid de Productos -->
+        <section>
+            <h2 style="margin-bottom: 30px; color: var(--dark); text-align: center;">Nuestros Productos Publicitarios</h2>
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <div class="product-badge">Papelería</div>
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Tarjetas de Presentación Premium</h3>
+                        <p class="product-description">Tarjetas de presentación de alta calidad con acabados especiales para profesionales y empresas.</p>
+                        <div class="product-price">Desde $29.99</div>
+                        <ul class="product-features">
+                            <li>Papel de 300-400g de gramaje</li>
+                            <li>Acabados: mate, brillo, relieve</li>
+                            <li>Diseño profesional incluido</li>
+                            <li>Entrega en 3-5 días hábiles</li>
+                        </ul>
+                        <button class="btn" style="width: 100%;">Solicitar Cotización</button>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <div class="product-badge">Flyers</div>
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Flyers Promocionales</h3>
+                        <p class="product-description">Flyers de alta calidad para promocionar tus productos, servicios o eventos especiales.</p>
+                        <div class="product-price">Desde $14.99</div>
+                        <ul class="product-features">
+                            <li>Papel couché 150g</li>
+                            <li>Full color ambos lados</li>
+                            <li>Tamaños estándar y personalizados</li>
+                            <li>Ideal para campañas masivas</li>
+                        </ul>
+                        <button class="btn" style="width: 100%;">Solicitar Cotización</button>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <div class="product-badge">Exterior</div>
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Pendones Publicitarios</h3>
+                        <p class="product-description">Pendones de lona de alta resistencia para publicidad exterior e interior de tu negocio.</p>
+                        <div class="product-price">Desde $79.99</div>
+                        <ul class="product-features">
+                            <li>Lona de 13oz resistente</li>
+                            <li>Impresión de alta resolución</li>
+                            <li>Ojales metálicos incluidos</li>
+                            <li>Resistente a la intemperie</li>
+                        </ul>
+                        <button class="btn" style="width: 100%;">Solicitar Cotización</button>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product-card">
+                    <div class="product-badge">Merchandising</div>
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Kit Corporativo Completo</h3>
+                        <p class="product-description">Set completo de papelería corporativa: tarjetas, hojas membretadas, sobres y carpetas.</p>
+                        <div class="product-price">Desde $149.99</div>
+                        <ul class="product-features">
+                            <li>Diseño de identidad corporativa</li>
+                            <li>Materiales de alta calidad</li>
+                            <li>Coordinación de colores y estilo</li>
+                            <li>Entrega completa en 7 días</li>
+                        </ul>
+                        <button class="btn" style="width: 100%;">Solicitar Cotización</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Información de la Categoría -->
+        <section class="category-info">
+            <div class="info-grid">
+                <div class="info-content">
+                    <h2>Impulsa Tu Marca con Productos Publicitarios Efectivos</h2>
+                    <p>En Zona Creativa desarrollamos soluciones publicitarias que fortalecen la presencia de tu marca en el mercado. Desde material impreso de alta calidad hasta merchandising corporativo, creamos productos que comunican profesionalismo y dejan una impresión duradera.</p>
+                    
+                    <ul class="info-features">
+                        <li>
+                            <i class="fas fa-bullhorn"></i>
+                            <span>Material publicitario de alto impacto visual</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-palette"></i>
+                            <span>Diseños personalizados según tu identidad corporativa</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-print"></i>
+                            <span>Impresión de alta calidad con acabados profesionales</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Entregas rápidas para tus campañas publicitarias</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-users"></i>
+                            <span>Asesoría especializada para empresas y emprendedores</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="btn" style="margin-top: 20px;">Consultar Campaña Publicitaria</button>
+                </div>
+                
+                <div class="info-image">
+                    Soluciones Publicitarias
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Servicios Adicionales -->
+        <section style="margin-bottom: 60px;">
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--dark);">Servicios Adicionales</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div style="background: white; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <i class="fas fa-pencil-alt" style="font-size: 2rem; color: #3498db; margin-bottom: 15px;"></i>
+                    <h3 style="color: var(--dark); margin-bottom: 10px;">Diseño Gráfico</h3>
+                    <p style="color: var(--text-light);">Creación de identidad visual y diseño de material publicitario profesional.</p>
+                </div>
+                
+                <div style="background: white; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <i class="fas fa-cube" style="font-size: 2rem; color: #9b59b6; margin-bottom: 15px;"></i>
+                    <h3 style="color: var(--dark); margin-bottom: 10px;">Merchandising</h3>
+                    <p style="color: var(--text-light);">Productos promocionales personalizados para eventos y regalos corporativos.</p>
+                </div>
+                
+                <div style="background: white; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <i class="fas fa-file-alt" style="font-size: 2rem; color: #e74c3c; margin-bottom: 15px;"></i>
+                    <h3 style="color: var(--dark); margin-bottom: 10px;">Papelería Corporativa</h3>
+                    <p style="color: var(--text-light);">Hojas membretadas, sobres, carpetas y más para tu empresa.</p>
+                </div>
+                
+                <div style="background: white; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <i class="fas fa-expand" style="font-size: 2rem; color: #2ecc71; margin-bottom: 15px;"></i>
+                    <h3 style="color: var(--dark); margin-bottom: 10px;">Publicidad Exterior</h3>
+                    <p style="color: var(--text-light);">Pendones, vallas y material para espacios públicos y eventos.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Zona Creativa</h3>
+                <p>Especialistas en productos personalizados de alta calidad para todos tus eventos y necesidades.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/zonacreativa.med" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/573001234567" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:zonacreativa.med@gmail.com">
+                        <i class="far fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Enlaces Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#acerca">Acerca de</a></li>
+                    <li><a href="index.html#catalogo">Catálogo</a></li>
+                    <li><a href="index.html#clientes">Nuestros Clientes</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <ul class="contact-info-list">
+                    <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+57 300 123 4567</span>
+                    </li>
+                    <li>
+                        <i class="far fa-envelope"></i>
+                        <span>zonacreativa.med@gmail.com</span>
+                    </li>
+                    <li>
+                        <i class="fab fa-instagram"></i>
+                        <span>@zonacreativa.med</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Zona Creativa - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+        const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+        // Abrir menú móvil
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Cerrar menú móvil
+        mobileNavClose.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Toggle submenús en móvil
+        submenuToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const submenu = toggle.parentElement.querySelector('.mobile-submenu');
+                toggle.classList.toggle('active');
+                submenu.classList.toggle('active');
+            });
+        });
+
+        // Filtros interactivos
+        document.querySelectorAll('.filter-group select').forEach(select => {
+            select.addEventListener('change', function() {
+                console.log('Filtro aplicado:', this.id, this.value);
+            });
+        });
+
+        // Botones de cotización
+        document.querySelectorAll('.btn').forEach(button => {
+            if (button.textContent.includes('Cotización')) {
+                button.addEventListener('click', function() {
+                    const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+                    const whatsappUrl = `https://wa.me/573001234567?text=Hola,%20quiero%20solicitar%20una%20cotización%20para:%20${encodeURIComponent(productTitle)}`;
+                    window.open(whatsappUrl, '_blank');
+                });
+            }
+        });
+
+        // Botón de consulta
+        document.querySelector('.btn').addEventListener('click', function() {
+            if (this.textContent.includes('Consultar')) {
+                window.open('https://wa.me/573001234567?text=Hola,%20quiero%20consultar%20sobre%20campañas%20publicitarias', '_blank');
+            }
+        });
+    </script>
+</body>
+</html>
