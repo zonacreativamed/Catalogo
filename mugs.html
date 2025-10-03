@@ -436,23 +436,37 @@
             z-index: 2;
         }
 
-        .product-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-size: 1.1rem;
-            position: relative;
-            overflow: hidden;
-        }
+        /* Reemplaza el estilo actual de .product-image por este: */
+		.product-image {
+   			width: 100%;
+    		height: 250px;
+    		background: #f8f9fa; /* Color de fondo por si la imagen no carga */
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		position: relative;
+    		overflow: hidden;
+		}
 
-        .product-image::after {
-            content: "Imagen del Producto";
-            position: absolute;
-        }
+		.product-image img {
+    		width: 100%;
+    		height: 100%;
+    		object-fit: cover; /* Esto hace que la imagen cubra el espacio sin distorsionarse */
+    		object-position: center;
+    		transition: transform 0.3s ease;
+		}
+
+		.product-card:hover .product-image img {
+    		transform: scale(1.05); /* Efecto zoom al hover */
+		}
+
+		/* Elimina o comenta este estilo si existe: */
+		/*
+		.product-image::after {
+    		content: "Imagen del Producto";
+    		position: absolute;
+		}
+*/
 
         .product-info {
             padding: 25px;
@@ -829,8 +843,8 @@
     </section>
 
     <div class="container">
-        <!-- Filtros -->
-        <section class="filters-section">
+        <!-- sección para seleccionar por filtros -->
+       <!-- <section class="filters-section">
             <h2 style="margin-bottom: 20px; color: var(--dark);">Filtrar Productos</h2>
             <div class="filters-grid">
                 <div class="filter-group">
@@ -879,67 +893,75 @@
                 <button class="btn btn-outline">Limpiar Filtros</button>
                 <button class="btn">Aplicar Filtros</button>
             </div>
-        </section>
+        </section> -->
 
         <!-- Grid de Productos -->
         <section>
             <h2 style="margin-bottom: 30px; color: var(--dark); text-align: center;">Nuestros Mugs Destacados</h2>
             <div class="products-grid">
                 <!-- Producto 1 -->
-                <div class="product-card">
-                    <div class="product-badge">Más Vendido</div>
-                    <div class="product-image"></div>
-                    <div class="product-info">
-                        <h3 class="product-title">Mug Cerámica Clásico</h3>
-                        <p class="product-description">Mug de cerámica de alta calidad con capacidad de 11oz. Perfecto para regalos corporativos.</p>
-                        <div class="product-price">$15.99</div>
-                        <ul class="product-features">
-                            <li>Capacidad: 11 oz</li>
-                            <li>Material: Cerámica premium</li>
-                            <li>Lavable en lavavajillas</li>
-                            <li>Personalización completa</li>
-                        </ul>
-                        <button class="btn" style="width: 100%;">Personalizar Ahora</button>
-                    </div>
-                </div>
+				<div class="product-card">
+    				<div class="product-badge">Más Vendido</div>
+    				<div class="product-image">
+        			<img src="imagenes/Mugs/mug_blanco_11_oz.jpg" alt="Mug Cerámica Clásico - Zona Creativa">
+    			</div>
+    			<div class="product-info">
+        			<h3 class="product-title">Mug Cerámica Clásico</h3>
+        			<p class="product-description">Mug de cerámica de alta calidad con capacidad de 11oz. Perfecto para regalos personalizados o corporativos.</p>
+        			<!--<div class="product-price">$20.000</div> -->
+        			<ul class="product-features">
+           				<li>Capacidad: 11 oz</li>
+            			<li>Material: Cerámica premium</li>
+            			<li>Lavable en lavavajillas</li>
+            			<li>Personalización completa</li>
+        			</ul>
+        			<button class="btn" style="width: 100%;">Personalizar Ahora</button>
+    			</div>
+			</div>
 
                 <!-- Producto 2 -->
                 <div class="product-card">
-                    <div class="product-badge">Nuevo</div>
-                    <div class="product-image"></div>
+                    <div class="product-badge">Especial</div>
+    				<div class="product-image">
+        			<img src="imagenes/Mugs/mug_magico_11_oz.jpg" alt="Mug Cerámica Clásico - Zona Creativa">
+    			</div>
                     <div class="product-info">
-                        <h3 class="product-title">Mug Térmico Acero</h3>
-                        <p class="product-description">Mantiene la temperatura por horas. Ideal para café, té o bebidas frías.</p>
-                        <div class="product-price">$24.99</div>
-                        <ul class="product-features">
-                            <li>Capacidad: 15 oz</li>
-                            <li>Material: Acero inoxidable</li>
-                            <li>Mantiene temperatura 4+ horas</li>
-                            <li>Tapa hermética</li>
-                        </ul>
+                        <h3 class="product-title">Mug Mágico</h3>
+                        <p class="product-description">¡La magia se activa con el calor! Este increíble mug revela diseños personalizados al contacto con líquidos calientes.</p>
+                        <!--<div class="product-price">$24.99</div> -->
+        			<ul class="product-features">
+            			<li>Cambia de color con el calor</li>
+            			<li>Revela diseños personalizados</li>
+            			<li>Material cerámica premium</li>
+            			<li>Capacidad: 11 oz</li>
+            			<li>Perfecto para regalos sorpresa</li>
+        			</ul>
                         <button class="btn" style="width: 100%;">Personalizar Ahora</button>
                     </div>
                 </div>
 
                 <!-- Producto 3 -->
                 <div class="product-card">
-                    <div class="product-badge">Ecológico</div>
-                    <div class="product-image"></div>
+                    <div class="product-badge">Nuevo</div>
+    				<div class="product-image">
+        			<img src="imagenes/Mugs/Mug_tapa_silicona.jpg" alt="Mug Cerámica Clásico - Zona Creativa">
+    			</div>
                     <div class="product-info">
-                        <h3 class="product-title">Mug de Bambú</h3>
-                        <p class="product-description">Material ecológico y biodegradable. Liviano y resistente.</p>
-                        <div class="product-price">$22.99</div>
+                        <h3 class="product-title">Mug Tapa Silicona Colores variados</h3>
+                        <p class="product-description">Mug práctico con tapa hermética y base de silicona antideslizante. Ideal para llevar tu bebida favorita sin preocupaciones.</p>
+                        <!--<div class="product-price">$22.99</div> -->
                         <ul class="product-features">
-                            <li>Capacidad: 12 oz</li>
-                            <li>Material: Bambú natural</li>
-                            <li>Biodegradable</li>
-                            <li>Liviano y durable</li>
+							<li>Tapa hermética anti-derrames</li>
+							<li>Base de silicona antideslizante</li>
+							<li>Material: Cerámica y silicona</li>
+							<li>Capacidad: 11 oz</li>
+							<li>Perfecto para viajes y oficina</li>
                         </ul>
                         <button class="btn" style="width: 100%;">Personalizar Ahora</button>
                     </div>
                 </div>
 
-                <!-- Producto 4 -->
+                <!-- Producto 4 
                 <div class="product-card">
                     <div class="product-image"></div>
                     <div class="product-info">
@@ -954,7 +976,7 @@
                         </ul>
                         <button class="btn" style="width: 100%;">Personalizar Ahora</button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
 
