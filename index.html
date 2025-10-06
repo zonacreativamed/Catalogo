@@ -341,7 +341,7 @@
 		}
 
         .slide-2 {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('imagenes/banner/camisetas.jpg');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('imagenes/Banner/camisetas.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -466,9 +466,121 @@
         .story {
             background: linear-gradient(135deg, #f3e5f5, #e3f2fd);
         }
+		
+		/* Sección Nuestros Trabajos */
+		.works-filters {
+    		display: flex;
+    		justify-content: center;
+    		flex-wrap: wrap;
+    		gap: 10px;
+    		margin-bottom: 40px;
+		}
 
+		.filter-btn {
+    		padding: 10px 20px;
+    		border: 2px solid var(--primary);
+    		background: transparent;
+    		color: var(--primary);
+    		border-radius: 25px;
+    		cursor: pointer;
+    		transition: all 0.3s ease;
+    		font-weight: 500;
+		}
+
+		.filter-btn.active,
+		.filter-btn:hover {
+    		background: var(--primary);
+    		color: white;
+    		transform: translateY(-2px);
+		}
+
+		.works-gallery {
+    		display: grid;
+    		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    		gap: 25px;
+    		margin-bottom: 60px;
+		}
+
+		.work-item {
+    		position: relative;
+    		border-radius: 12px;
+    		overflow: hidden;
+    		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    		transition: all 0.3s ease;
+    		cursor: pointer;
+    		opacity: 1;
+    		transform: scale(1);
+		}
+		
+		.work-item.hidden {
+ 			opacity: 0;
+    		transform: scale(0.8);
+    		display: none;
+		}
+
+		.work-item:hover {
+    		transform: translateY(-10px);
+    		box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+		}
+
+		.work-item img {
+    		width: 100%;
+    		height: 250px;
+    		object-fit: cover;
+    		display: block;
+    		transition: transform 0.3s ease;
+		}
+
+		.work-item:hover img {
+    		transform: scale(1.05);
+		}
+
+		.work-overlay {
+    		position: absolute;
+    		bottom: 0;
+    		left: 0;
+    		right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+		.work-item:hover .work-overlay {
+   			transform: translateY(0);
+		}
+
+		.work-overlay h4 {
+    		margin-bottom: 5px;
+    		font-size: 1.2rem;
+		}
+
+		.work-overlay p {
+    		font-size: 0.9rem;
+    		opacity: 0.9;
+    		margin: 0;
+		}
+
+		/* Responsive */
+		@media (max-width: 768px) {
+    		.works-gallery {
+        		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        		gap: 20px;
+    		}
+    
+    		.works-filters {
+        		gap: 8px;
+    		}
+    
+    		.filter-btn {
+        		padding: 8px 16px;
+        		font-size: 0.9rem;
+    		}
+		}
+		
         /* Catálogo */
-        .catalog {
+        /* .catalog {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px;
@@ -543,7 +655,7 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
             background: linear-gradient(to right, #2980b9, var(--primary));
-        }
+        } */
 
         /* Sección Clientes */
         .clients-grid {
@@ -883,7 +995,7 @@
             <nav class="desktop-nav">
                 <ul class="nav-menu">
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#acerca">Acerca de</a></li>
+                    <li><a href="acerca-de.html">Acerca de</a></li>
                     <li>
                         <a href="#catalogo">Catálogo <i class="fas fa-chevron-down"></i></a>
                         <ul class="submenu">
@@ -894,7 +1006,7 @@
                             <li><a href="publicitarios.html">Productos Publicitarios</a></li>
                         </ul>
                     </li>
-                    <li><a href="#clientes">Clientes</a></li>
+                    <!-- <li><a href="#clientes">Clientes</a></li> -->
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
                 
@@ -917,7 +1029,7 @@
         </button>
         <ul class="mobile-nav-menu">
             <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#acerca">Acerca de</a></li>
+            <li><a href="acerca-de.html">Acerca de</a></li>
             <li class="has-submenu">
                 <a href="#catalogo">Catálogo</a>
                 <button class="submenu-toggle">
@@ -931,7 +1043,7 @@
                     <li><a href="publicitarios.html">Productos Publicitarios</a></li>
                 </ul>
             </li>
-            <li><a href="#clientes">Clientes</a></li>
+            <!-- <li><a href="#clientes">Clientes</a></li> -->
             <li><a href="#contacto">Contacto</a></li>
             <li>
                 <a href="https://instagram.com/zonacreativa.med" target="_blank" style="display: flex; align-items: center; gap: 10px;">
@@ -965,7 +1077,7 @@
         </section>
 
         <!-- Sección Acerca de -->
-        <section id="acerca">
+        <!-- <section id="acerca">
             <h2 class="section-title">Acerca de Nosotros</h2>
             <p class="section-subtitle">Conoce más sobre nuestra empresa, valores y lo que nos hace diferentes</p>
             
@@ -1004,48 +1116,95 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
-        <!-- Sección Catálogo -->
-        <section id="catalogo">
-            <h2 class="section-title">Nuestros Productos</h2>
-            <p class="section-subtitle">Explora nuestras categorías y encuentra el producto perfecto para personalizar</p>
-            
-            <div class="catalog">
-                <div class="category">
-                    <div class="category-image">Mugs Personalizados</div>
-                    <div class="category-content">
-                        <h2>Mugs Personalizados</h2>
-                        <p>Diseños únicos en cerámica de alta calidad para regalos especiales o uso diario.</p>
-                        <div class="price">Desde $15.99</div>
-                        <a href="mugs.html" class="btn">Ver Catálogo Completo</a>
-                    </div>
-                </div>
-                
-                <div class="category">
-                    <div class="category-image">Camisetas y Chompas</div>
-                    <div class="category-content">
-                        <h2>Camisetas y Chompas</h2>
-                        <p>Prendas personalizadas con diseños exclusivos para eventos, equipos o uso casual.</p>
-                        <div class="price">Desde $12.99</div>
-                        <a href="camisetas.html" class="btn">Ver Catálogo Completo</a>
-                    </div>
-                </div>
-                
-                <div class="category">
-                    <div class="category-image">Accesorios</div>
-                    <div class="category-content">
-                        <h2>Accesorios</h2>
-                        <p>Llaveros, pins, stickers y más productos personalizados para complementar tu estilo.</p>
-                        <div class="price">Desde $5.99</div>
-                        <a href="accesorios.html" class="btn">Ver Catálogo Completo</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- Sección Nuestros Trabajos -->
+		<section id="trabajos">
+    		<h2 class="section-title">Nuestros Trabajos</h2>
+    		<p class="section-subtitle">Descubre la calidad y creatividad de nuestros productos personalizados</p>
+    
+    		<!-- Filtros -->
+    		<div class="works-filters">
+        		<button class="filter-btn active" data-filter="all">Todos</button>
+       		 	<button class="filter-btn" data-filter="mugs">Mugs</button>
+        		<button class="filter-btn" data-filter="camisetas">Camisetas</button>
+        		<button class="filter-btn" data-filter="publicitarios">Publicitarios</button>
+        		<button class="filter-btn" data-filter="accesorios">Accesorios</button>
+        		<button class="filter-btn" data-filter="combos">Combos</button>
+    		</div>
+    
+    	<!-- Galería -->
+    	<div class="works-gallery">
+        	
+			<!-- Mug 1 -->
+          	<div class="work-item" data-category="mugs">
+            	<img src="imagenes/trabajos/mug-diseno1.jpg" alt="Mug personalizado empresarial">
+            	<div class="work-overlay">
+                	<h4>Mug Empresarial</h4>
+                	<p>Personalización completa</p>
+            	</div>
+        	</div>
+        
+        	<!-- Mug 2 -->
+        	<div class="work-item" data-category="mugs">
+            	<img src="imagenes/trabajos/mug-diseno2.jpg" alt="Mug mágico personalizado">
+            	<div class="work-overlay">
+                	<h4>Mug Mágico</h4>
+                	<p>Cambia con el calor</p>
+            	</div>
+        	</div>
+        
+        	<!-- Camiseta 1 -->
+        	<div class="work-item" data-category="camisetas">
+            	<img src="imagenes/trabajos/camiseta-diseno1.jpg" alt="Camiseta estampada para evento">
+            	<div class="work-overlay">
+                	<h4>Camiseta Evento</h4>
+                	<p>Estampado profesional</p>
+            	</div>
+        	</div>
+        
+			<!-- Camiseta 2 -->
+        	<div class="work-item" data-category="camisetas">
+            	<img src="imagenes/trabajos/camiseta-diseno1.jpg" alt="Camiseta estampada para evento">
+            	<div class="work-overlay">
+                	<h4>Camiseta Polo Estamapda</h4>
+                	<p>Estampado profesional</p>
+            	</div>
+        	</div>
+			
+        	<!-- Publicitario 1 -->
+        	<div class="work-item" data-category="publicitarios">
+            	<img src="imagenes/trabajos/tarjetas-empresa.jpg" alt="Tarjetas de presentación">
+            	<div class="work-overlay">
+                	<h4>Tarjetas Empresariales</h4>
+                	<p>Diseño corporativo</p>
+            	</div>
+        	</div>
+        
+        	<!-- Accesorio 1 -->
+        	<div class="work-item" data-category="accesorios">
+            	<img src="imagenes/trabajos/llavero-personalizado.jpg" alt="Llavero personalizado">
+            	<div class="work-overlay">
+                	<h4>Llaveros</h4>
+                	<p>Diseños únicos</p>
+            	</div>
+        	</div>
+        
+        	<!-- Combo 1 -->
+        	<div class="work-item" data-category="combos">
+            	<img src="imagenes/trabajos/combo-regalo.jpg" alt="Combo regalo personalizado">
+            	<div class="work-overlay">
+                	<h4>Combo Regalo</h4>
+                	<p>Mug + Camiseta</p>
+            	</div>
+        	</div>
+        
+        <!-- Agrega más trabajos según necesites -->
+    	</div>
+	</section>
+		
         <!-- Sección Clientes -->
-        <section id="clientes">
+        <!-- <section id="clientes">
             <h2 class="section-title">Nuestros Clientes</h2>
             <p class="section-subtitle">Algunos de los trabajos que hemos realizado para nuestros clientes satisfechos</p>
             
@@ -1082,7 +1241,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Sección Contacto -->
         <section id="contacto">
@@ -1196,9 +1355,9 @@
                 <h3>Enlaces Rápidos</h3>
                 <ul class="footer-links">
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#acerca">Acerca de</a></li>
-                    <li><a href="#catalogo">Catálogo</a></li>
-                    <li><a href="#clientes">Nuestros Clientes</a></li>
+                    <li><a href="acerca-de.html">Acerca de</a></li>
+                    <li><a href="mugs.html">Catálogo</a></li>
+                    <!-- <li><a href="#clientes">Nuestros Clientes</a></li> -->
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </div>
@@ -1314,9 +1473,45 @@
             alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
             this.reset();
         });
+		
+		// Filtros para la galería de trabajos - VERSIÓN CORREGIDA
+		document.addEventListener('DOMContentLoaded', function() {
+    	const filterBtns = document.querySelectorAll('.filter-btn');
+    	const workItems = document.querySelectorAll('.work-item');
+    
+			filterBtns.forEach(btn => {
+        	btn.addEventListener('click', function() {
+            // Remover active de todos los botones
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Agregar active al botón clickeado
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            workItems.forEach(item => {
+                if (filter === 'all') {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else if (item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+});
     </script>
 </body>
-
 </html>
-
-
