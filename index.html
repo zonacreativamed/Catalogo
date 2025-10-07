@@ -567,6 +567,50 @@
     		opacity: 0.9;
     		margin: 0;
 		}
+		
+		/* Estilos para videos en la galería */
+		.work-media {
+    		width: 100%;
+    		height: 250px;
+    		object-fit: cover;
+    		display: block;
+		}
+
+		.play-icon {
+    		position: absolute;
+    		top: 50%;
+    		left: 50%;
+    		transform: translate(-50%, -50%);
+    		background: rgba(255, 255, 255, 0.9);
+    		width: 60px;
+    		height: 60px;
+    		border-radius: 50%;
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		font-size: 1.5rem;
+    		color: var(--primary);
+    		opacity: 0;
+    		transition: all 0.3s ease;
+		}
+
+		.work-item:hover .play-icon {
+    		opacity: 1;
+		}
+
+		/* Indicador de video */
+		.video-badge {
+    		position: absolute;
+    		top: 15px;
+    		right: 15px;
+    		background: var(--accent);
+    		color: white;
+    		padding: 5px 10px;
+    		border-radius: 15px;
+    		font-size: 0.8rem;
+    		font-weight: bold;
+    		z-index: 2;
+		}
 
 		/* Responsive */
 		@media (max-width: 768px) {
@@ -1077,7 +1121,7 @@
     <div class="container">
         <!-- Sección Inicio -->
         <section id="inicio">
-            <h2 class="section-title">Bienvenidos a Zona Creativa</h2>
+            <h2 class="section-title">Bienvenidos a Zona Creativa Medellín</h2>
             <p class="section-subtitle">Tu destino para productos personalizados de alta calidad. Desde mugs y camisetas hasta regalos corporativos, creamos diseños únicos que reflejan tu estilo.</p>
             <hr>
         </section>
@@ -1142,9 +1186,22 @@
     	<!-- Galería -->
     	<div class="works-gallery">
         	
-			<!-- Mug 1 -->
+			<!-- Item de video -->
+    		<div class="work-item" data-category="publicitarios">
+       		 <video class="work-media" controls muted poster="imagenes/Trabajos/publicitario_1.jpg">
+            		<source src="imagenes/videos/publicitario_1.mp4" type="video/mp4">
+            		Tu navegador no soporta el elemento video.
+        		</video>
+        		<div class="work-overlay">
+            		<h4>Reconocimiento en Acrílico</h4>
+            		<p>Elegante y práctico</p>
+            		<div class="play-icon">▶</div>
+        		</div>
+    		</div>
+    
+    		<!-- Mug 1 -->
           	<div class="work-item" data-category="mugs">
-            	<img src="imagenes/trabajos/mug_tapa_1.jpg" alt="Mug personalizado empresarial">
+            	<img src="imagenes/Trabajos/mug_tapa_1.jpg" alt="Mug personalizado empresarial">
             	<div class="work-overlay">
                 	<h4>Mug Atlético Nacional</h4>
                 	<p>Con tapa y base de silicona</p>
@@ -1153,7 +1210,7 @@
         
         	<!-- Camiseta 1 -->
         	<div class="work-item" data-category="camisetas">
-            	<img src="imagenes/trabajos/camiseta_polo_bordada.jpg" alt="Camiseta estampada para evento">
+            	<img src="imagenes/Trabajos/camiseta_polo_bordada.jpg" alt="Camiseta estampada para evento">
             	<div class="work-overlay">
                 	<h4>Camiseta Polo</h4>
                 	<p>Estilo Bordado</p>
@@ -1162,28 +1219,28 @@
 			
 			<!-- Mug 2 -->
         	<div class="work-item" data-category="mugs">
-            	<img src="imagenes/trabajos/mug_tapa_2.jpg" alt="Mug mágico personalizado">
+            	<img src="imagenes/Trabajos/mug_tapa_2.jpg" alt="Mug mágico personalizado">
             	<div class="work-overlay">
                 	<h4>Mug Independiente Medellín</h4>
                 	<p>Con tapa y base de silicona</p>
             	</div>
         	</div>
         
-			<!-- Camiseta 2 -->
-        	<div class="work-item" data-category="camisetas">
-            	<img src="imagenes/trabajos/camiseta-diseno1.jpg" alt="Camiseta estampada para evento">
+			<!-- Mug 3 -->
+        	<div class="work-item" data-category="mugs">
+            	<img src="imagenes/Trabajos/mug_basico_1.jpg" alt="Camiseta estampada para evento">
             	<div class="work-overlay">
-                	<h4>Camiseta Polo Estamapda</h4>
-                	<p>Estampado profesional</p>
+                	<h4>Mug básico personalizado</h4>
+                	<p>Mug día del maestro</p>
             	</div>
         	</div>
 			
         	<!-- Publicitario 1 -->
         	<div class="work-item" data-category="publicitarios">
-            	<img src="imagenes/trabajos/tarjetas-empresa.jpg" alt="Tarjetas de presentación">
+            	<img src="imagenes/trabajos/publicitario_1.jpg" alt="Tarjetas de presentación">
             	<div class="work-overlay">
-                	<h4>Tarjetas Empresariales</h4>
-                	<p>Diseño corporativo</p>
+                	<h4>Reconocimiento en acrílico</h4>
+                	<p>Elegante y práctico</p>
             	</div>
         	</div>
         
@@ -1472,6 +1529,18 @@
                 }
             });
         });
+		
+		// Reproducción automática al hover
+		document.querySelectorAll('.work-media').forEach(video => {
+    		video.addEventListener('mouseenter', function() {
+        		this.play();
+    		});
+    
+    		video.addEventListener('mouseleave', function() {
+        		this.pause();
+        		this.currentTime = 0;
+    		});
+		});
 
         // Manejo del formulario de contacto
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
@@ -1520,5 +1589,4 @@
 });
     </script>
 </body>
-
 </html>
