@@ -177,137 +177,258 @@
             color: #c13584;
         }
 
-        /* Menú Hamburguesa para Móviles */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
-            cursor: pointer;
-            padding: 10px;
-            z-index: 1001;
-        }
+		/* Menú Hamburguesa para Móviles */
+		.mobile-menu-btn {
+    		display: none;
+    		background: none;
+    		border: none;
+    		font-size: 1.5rem;
+    		color: var(--dark);
+    		cursor: pointer;
+    		padding: 10px;
+    		z-index: 1001;
+    		transition: all 0.3s ease;
+		}
+	
+		@media (max-width: 768px) {
+    		.mobile-menu-btn {
+        		display: block;
+    		}
+		}
 
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
+		.mobile-menu-btn:hover {
+    		color: var(--primary);
+    		transform: scale(1.1);
+		}
 
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: white;
-            z-index: 1000;
-            padding: 80px 20px 20px;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            overflow-y: auto;
-        }
+		/* Menú móvil mejorado - Opción 1 (Lateral) */
+		.mobile-nav {
+    		display: block;
+    		position: fixed;
+    		top: 0;
+    		right: -100%;
+    		width: 320px;
+    		height: 100vh;
+    		background: white;
+    		z-index: 1002;
+    		padding: 80px 25px 30px;
+    		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    		overflow-y: auto;
+    		box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+    		border-left: 4px solid var(--primary);
+		}
 
-        .mobile-nav.active {
-            transform: translateX(0);
-            display: block;
-        }
+		.mobile-nav.active {
+    		right: 0;
+		}
 
-        .mobile-nav-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
-            cursor: pointer;
-            z-index: 1002;
-        }
+		.mobile-nav-close {
+    		position: absolute;
+    		top: 25px;
+    		right: 25px;
+    		background: var(--primary);
+    		border: none;
+    		font-size: 1.3rem;
+    		color: white;
+    		cursor: pointer;
+    		width: 40px;
+    		height: 40px;
+    		border-radius: 50%;
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		transition: all 0.3s ease;
+    		box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+		}
 
-        .mobile-nav-menu {
-            list-style: none;
-        }
+		.mobile-nav-close:hover {
+    		background: var(--accent);
+    		transform: rotate(90deg) scale(1.1);
+    		box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+		}
 
-        .mobile-nav-menu li {
-            margin-bottom: 0;
-        }
+		.mobile-nav-menu {
+    		list-style: none;
+    		margin-top: 30px;
+		}
 
-        .mobile-nav-menu a {
-            display: block;
-            padding: 15px;
-            text-decoration: none;
-            color: var(--dark);
-            font-size: 1.1rem;
-            border-bottom: 1px solid #f0f0f0;
-            transition: all 0.3s ease;
-        }
+		.mobile-nav-menu li {
+    		margin-bottom: 8px;
+    		opacity: 0;
+    		transform: translateX(20px);
+    		transition: all 0.4s ease;
+		}
 
-        .mobile-nav-menu a:hover {
-            background: var(--light);
-            color: var(--primary);
-            padding-left: 25px;
-        }
+		.mobile-nav.active .mobile-nav-menu li {
+    		opacity: 1;
+    		transform: translateX(0);
+		}
 
-        .has-submenu {
-            position: relative;
-        }
+		/* Retraso escalonado para la animación de entrada */
+		.mobile-nav.active .mobile-nav-menu li:nth-child(1) { transition-delay: 0.1s; }
+		.mobile-nav.active .mobile-nav-menu li:nth-child(2) { transition-delay: 0.15s; }
+		.mobile-nav.active .mobile-nav-menu li:nth-child(3) { transition-delay: 0.2s; }
+		.mobile-nav.active .mobile-nav-menu li:nth-child(4) { transition-delay: 0.25s; }
+		.mobile-nav.active .mobile-nav-menu li:nth-child(5) { transition-delay: 0.3s; }
+		.mobile-nav.active .mobile-nav-menu li:nth-child(6) { transition-delay: 0.35s; }
 
-        .submenu-toggle {
-            position: absolute;
-            right: 15px;
-            top: 15px;
-            background: none;
-            border: none;
-            font-size: 1rem;
-            color: var(--text-light);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+		.mobile-nav-menu a {
+    		display: flex;
+    		align-items: center;
+    		padding: 16px 20px;
+    		text-decoration: none;
+    		color: var(--dark);
+    		font-size: 1.1rem;
+    		font-weight: 500;
+    		border-radius: 12px;
+    		transition: all 0.3s ease;
+    		border-left: 3px solid transparent;
+    		background: rgba(245, 247, 250, 0.5);
+		}
 
-        .submenu-toggle.active {
-            transform: rotate(180deg);
-        }
+		.mobile-nav-menu a:hover {
+    background: -webkit-linear-gradient(top left, var(--light), #e8f4fc);
+    background: -o-linear-gradient(top left, var(--light), #e8f4fc);
+    background: linear-gradient(to bottom right, var(--light), #e8f4fc);
+    		color: var(--primary);
+    		padding-left: 25px;
+    		border-left-color: var(--primary);
+    		transform: translateX(5px);
+    		box-shadow: 0 4px 15px rgba(52, 152, 219, 0.15);
+		}
 
-        .mobile-submenu {
-            list-style: none;
-            margin-left: 0;
-            display: none;
-            background: #f8f9fa;
-            border-radius: 8px;
-            margin: 10px 0;
-        }
+		.mobile-nav-menu a i {
+    		margin-right: 12px;
+    		width: 20px;
+    		text-align: center;
+    		font-size: 1.1rem;
+		}
 
-        .mobile-submenu.active {
-            display: block;
-        }
+		/* Submenús móviles mejorados */
+		.has-submenu {
+    		position: relative;
+		}
 
-        .mobile-submenu li {
-            margin-bottom: 0;
-        }
+		.submenu-toggle {
+    		position: absolute;
+    		right: 15px;
+    		top: 50%;
+    		transform: translateY(-50%);
+    		background: rgba(52, 152, 219, 0.1);
+    		border: none;
+    		font-size: 0.9rem;
+    		color: var(--primary);
+    		cursor: pointer;
+    		transition: all 0.3s ease;
+    		width: 32px;
+    		height: 32px;
+    		border-radius: 8px;
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+		}
 
-        .mobile-submenu a {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            border-bottom: 1px solid #e9ecef;
-            padding: 12px 20px;
-        }
+		.submenu-toggle:hover {
+    		background: var(--primary);
+    		color: white;
+    		transform: translateY(-50%) scale(1.1);
+		}
 
-        .mobile-submenu a:hover {
-            background: var(--light);
-            color: var(--primary);
-        }
+		.submenu-toggle.active {
+    		transform: translateY(-50%) rotate(180deg);
+		}
 
-        .mobile-submenu a:last-child {
-            border-bottom: none;
-        }
+		.mobile-submenu {
+    		list-style: none;
+    		margin: 10px 0 5px 15px;
+    		display: none;
+    		background: rgba(248, 249, 250, 0.8);
+    		border-radius: 10px;
+    		padding: 8px 0;
+    		border-left: 2px solid var(--primary);
+		}
+
+		.mobile-submenu.active {
+    		display: block;
+    		animation: slideDown 0.3s ease;
+		}
+
+		@keyframes slideDown {
+    		from {
+        		opacity: 0;
+        		transform: translateY(-10px);
+    		}
+    		to {
+        		opacity: 1;
+        		transform: translateY(0);
+    		}
+		}
+
+		.mobile-submenu li {
+    		margin-bottom: 0;
+		}
+
+		.mobile-submenu a {
+    		font-size: 1rem;
+    		color: var(--text-light);
+    		border-left: none;
+    		background: transparent;
+    		padding: 12px 20px 12px 35px;
+    		border-radius: 8px;
+    		margin: 2px 8px;
+		}
+
+		.mobile-submenu a:hover {
+    		background: rgba(52, 152, 219, 0.1);
+    		color: var(--primary);
+    		padding-left: 40px;
+    		transform: none;
+    		box-shadow: none;
+		}
+
+		.mobile-submenu a i {
+    		font-size: 0.9rem;
+    		margin-right: 10px;
+		}
+
+		/* Overlay de fondo */
+		.mobile-nav-overlay {
+    		position: fixed;
+    		top: 0;
+    		left: 0;
+    		width: 100%;
+    		height: 100vh;
+    		background: rgba(0, 0, 0, 0.5);
+    		backdrop-filter: blur(2px);
+    		z-index: 1001;
+    		opacity: 0;
+    		visibility: hidden;
+    		transition: all 0.3s ease;
+		}
+
+		.mobile-nav-overlay.active {
+    		opacity: 1;
+    		visibility: visible;
+		}
+
+		/* Estilos para el enlace de Instagram en el menú móvil */
+		.mobile-nav-menu .instagram-link {
+    background: -webkit-linear-gradient(top left, #e4405f, #c13584);
+    background: -o-linear-gradient(top left, #e4405f, #c13584);
+    background: linear-gradient(to bottom right, #e4405f, #c13584);
+    		color: white;
+    		margin-top: 20px;
+    		border-left: 3px solid #c13584;
+		}
+
+		.mobile-nav-menu .instagram-link:hover {
+    background: -webkit-linear-gradient(top left, #c13584, #e4405f);
+    background: -o-linear-gradient(top left, #c13584, #e4405f);
+    background: linear-gradient(to bottom right, #c13584, #e4405f);
+    		color: white;
+    		transform: translateX(5px);
+    		box-shadow: 0 4px 15px rgba(196, 53, 132, 0.3);
+		}
 
         /* Resto del CSS */
         .carousel {
@@ -1038,7 +1159,7 @@
     <header>
         <div class="header-container">
             <a href="index.html" class="logo">
-    			<img src="imagenes/Logo-Zona-Creativa-halloween.png" alt="Zona Creativa" class="logo-img">
+    			<img src="imagenes/logo-zona-creativa-halloween.png" alt="Zona Creativa" class="logo-img">
 			</a>
             
             <!-- Menú para escritorio -->
@@ -1602,5 +1723,4 @@
 });
     </script>
 </body>
-
 </html>
