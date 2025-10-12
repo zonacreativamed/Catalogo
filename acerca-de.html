@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-        <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zona Creativa Medellín - Productos Personalizados</title>
     
@@ -11,7 +11,6 @@
 		<link rel="apple-touch-icon" href="imagenes/favicon.png">
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	
     <style>
         * {
             margin: 0;
@@ -177,137 +176,258 @@
             color: #c13584;
         }
 
-        /* Menú Hamburguesa para Móviles */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
-            cursor: pointer;
-            padding: 10px;
-            z-index: 1001;
-        }
+		/* Menú Hamburguesa para Móviles */
+		.mobile-menu-btn {
+    		display: none;
+    		background: none;
+    		border: none;
+    		font-size: 1.5rem;
+    		color: var(--dark);
+    		cursor: pointer;
+    		padding: 10px;
+    		z-index: 1001;
+    		transition: all 0.3s ease;
+		}
+	
+		@media (max-width: 768px) {
+    		.mobile-menu-btn {
+        		display: block;
+    		}
+		}
 
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
+		.mobile-menu-btn:hover {
+    		color: var(--primary);
+    		transform: scale(1.1);
+		}
 
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: white;
-            z-index: 1000;
-            padding: 80px 20px 20px;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            overflow-y: auto;
-        }
+		/* Menú móvil mejorado - Opción 1 (Lateral) */
+		.mobile-nav {
+    		display: block;
+    		position: fixed;
+    		top: 0;
+    		right: -100%;
+    		width: 320px;
+    		height: 100vh;
+    		background: white;
+    		z-index: 1002;
+    		padding: 80px 25px 30px;
+    		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    		overflow-y: auto;
+    		box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+    		border-left: 4px solid var(--primary);
+		}
 
-        .mobile-nav.active {
-            transform: translateX(0);
-            display: block;
-        }
+		.mobile-nav.active {
+    		right: 0;
+		}
 
-        .mobile-nav-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
-            cursor: pointer;
-            z-index: 1002;
-        }
+		.mobile-nav-close {
+    		position: absolute;
+    		top: 25px;
+    		right: 25px;
+    		background: var(--primary);
+    		border: none;
+    		font-size: 1.3rem;
+    		color: white;
+    		cursor: pointer;
+    		width: 40px;
+    		height: 40px;
+    		border-radius: 50%;
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		transition: all 0.3s ease;
+    		box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+		}
 
-        .mobile-nav-menu {
-            list-style: none;
-        }
+		.mobile-nav-close:hover {
+    		background: var(--accent);
+    		transform: rotate(90deg) scale(1.1);
+    		box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+		}
 
-        .mobile-nav-menu li {
-            margin-bottom: 0;
-        }
+		.mobile-nav-menu {
+    		list-style: none;
+    		margin-top: 30px;
+		}
 
-        .mobile-nav-menu a {
-            display: block;
-            padding: 15px;
-            text-decoration: none;
-            color: var(--dark);
-            font-size: 1.1rem;
-            border-bottom: 1px solid #f0f0f0;
-            transition: all 0.3s ease;
-        }
+		.mobile-nav-menu li {
+    		margin-bottom: 8px;
+    		opacity: 0;
+    		transform: translateX(20px);
+    		transition: all 0.4s ease;
+		}
 
-        .mobile-nav-menu a:hover {
-            background: var(--light);
-            color: var(--primary);
-            padding-left: 25px;
-        }
-		
-		        .has-submenu {
-            position: relative;
-        }
+		.mobile-nav.active .mobile-nav-menu li {
+    		opacity: 1;
+    		transform: translateX(0);
+		}
 
-        .submenu-toggle {
-            position: absolute;
-            right: 15px;
-            top: 15px;
-            background: none;
-            border: none;
-            font-size: 1rem;
-            color: var(--text-light);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+		/* Retraso escalonado para la animación de entrada */
+		.mobile-nav.active .mobile-nav-menu li:nth-child(1) { transition-delay: 0.1s; }
+		.mobile-nav.active .mobile-nav-menu li:nth-child(2) { transition-delay: 0.15s; }
+		.mobile-nav.active .mobile-nav-menu li:nth-child(3) { transition-delay: 0.2s; }
+		.mobile-nav.active .mobile-nav-menu li:nth-child(4) { transition-delay: 0.25s; }
+		.mobile-nav.active .mobile-nav-menu li:nth-child(5) { transition-delay: 0.3s; }
+		.mobile-nav.active .mobile-nav-menu li:nth-child(6) { transition-delay: 0.35s; }
 
-        .submenu-toggle.active {
-            transform: rotate(180deg);
-        }
+		.mobile-nav-menu a {
+    		display: flex;
+    		align-items: center;
+    		padding: 16px 20px;
+    		text-decoration: none;
+    		color: var(--dark);
+    		font-size: 1.1rem;
+    		font-weight: 500;
+    		border-radius: 12px;
+    		transition: all 0.3s ease;
+    		border-left: 3px solid transparent;
+    		background: rgba(245, 247, 250, 0.5);
+		}
 
-        .mobile-submenu {
-            list-style: none;
-            margin-left: 0;
-            display: none;
-            background: #f8f9fa;
-            border-radius: 8px;
-            margin: 10px 0;
-        }
+		.mobile-nav-menu a:hover {
+    background: -webkit-linear-gradient(top left, var(--light), #e8f4fc);
+    background: -o-linear-gradient(top left, var(--light), #e8f4fc);
+    background: linear-gradient(to bottom right, var(--light), #e8f4fc);
+    		color: var(--primary);
+    		padding-left: 25px;
+    		border-left-color: var(--primary);
+    		transform: translateX(5px);
+    		box-shadow: 0 4px 15px rgba(52, 152, 219, 0.15);
+		}
 
-        .mobile-submenu.active {
-            display: block;
-        }
+		.mobile-nav-menu a i {
+    		margin-right: 12px;
+    		width: 20px;
+    		text-align: center;
+    		font-size: 1.1rem;
+		}
 
-        .mobile-submenu li {
-            margin-bottom: 0;
-        }
+		/* Submenús móviles mejorados */
+		.has-submenu {
+    		position: relative;
+		}
 
-        .mobile-submenu a {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            border-bottom: 1px solid #e9ecef;
-            padding: 12px 20px;
-        }
+		.submenu-toggle {
+    		position: absolute;
+    		right: 15px;
+    		top: 50%;
+    		transform: translateY(-50%);
+    		background: rgba(52, 152, 219, 0.1);
+    		border: none;
+    		font-size: 0.9rem;
+    		color: var(--primary);
+    		cursor: pointer;
+    		transition: all 0.3s ease;
+    		width: 32px;
+    		height: 32px;
+    		border-radius: 8px;
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+		}
 
-        .mobile-submenu a:hover {
-            background: var(--light);
-            color: var(--primary);
-        }
+		.submenu-toggle:hover {
+    		background: var(--primary);
+    		color: white;
+    		transform: translateY(-50%) scale(1.1);
+		}
 
-        .mobile-submenu a:last-child {
-            border-bottom: none;
-        }
+		.submenu-toggle.active {
+    		transform: translateY(-50%) rotate(180deg);
+		}
+
+		.mobile-submenu {
+    		list-style: none;
+    		margin: 10px 0 5px 15px;
+    		display: none;
+    		background: rgba(248, 249, 250, 0.8);
+    		border-radius: 10px;
+    		padding: 8px 0;
+    		border-left: 2px solid var(--primary);
+		}
+
+		.mobile-submenu.active {
+    		display: block;
+    		animation: slideDown 0.3s ease;
+		}
+
+		@keyframes slideDown {
+    		from {
+        		opacity: 0;
+        		transform: translateY(-10px);
+    		}
+    		to {
+        		opacity: 1;
+        		transform: translateY(0);
+    		}
+		}
+
+		.mobile-submenu li {
+    		margin-bottom: 0;
+		}
+
+		.mobile-submenu a {
+    		font-size: 1rem;
+    		color: var(--text-light);
+    		border-left: none;
+    		background: transparent;
+    		padding: 12px 20px 12px 35px;
+    		border-radius: 8px;
+    		margin: 2px 8px;
+		}
+
+		.mobile-submenu a:hover {
+    		background: rgba(52, 152, 219, 0.1);
+    		color: var(--primary);
+    		padding-left: 40px;
+    		transform: none;
+    		box-shadow: none;
+		}
+
+		.mobile-submenu a i {
+    		font-size: 0.9rem;
+    		margin-right: 10px;
+		}
+
+		/* Overlay de fondo */
+		.mobile-nav-overlay {
+    		position: fixed;
+    		top: 0;
+    		left: 0;
+    		width: 100%;
+    		height: 100vh;
+    		background: rgba(0, 0, 0, 0.5);
+    		backdrop-filter: blur(2px);
+    		z-index: 1001;
+    		opacity: 0;
+    		visibility: hidden;
+    		transition: all 0.3s ease;
+		}
+
+		.mobile-nav-overlay.active {
+    		opacity: 1;
+    		visibility: visible;
+		}
+
+		/* Estilos para el enlace de Instagram en el menú móvil */
+		.mobile-nav-menu .instagram-link {
+    background: -webkit-linear-gradient(top left, #e4405f, #c13584);
+    background: -o-linear-gradient(top left, #e4405f, #c13584);
+    background: linear-gradient(to bottom right, #e4405f, #c13584);
+    		color: white;
+    		margin-top: 20px;
+    		border-left: 3px solid #c13584;
+		}
+
+		.mobile-nav-menu .instagram-link:hover {
+    background: -webkit-linear-gradient(top left, #c13584, #e4405f);
+    background: -o-linear-gradient(top left, #c13584, #e4405f);
+    background: linear-gradient(to bottom right, #c13584, #e4405f);
+    		color: white;
+    		transform: translateX(5px);
+    		box-shadow: 0 4px 15px rgba(196, 53, 132, 0.3);
+		}
 
         /* Hero Section */
         .page-hero {
@@ -743,42 +863,44 @@
     </header>
 
     <!-- Menú móvil -->
-    <div class="mobile-nav" id="mobileNav">
-        <button class="mobile-nav-close" id="mobileNavClose">
-            <i class="fas fa-times"></i>
-        </button>
-        <ul class="mobile-nav-menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="acerca-de.html">Acerca de</a></li>
-            <li class="has-submenu">
-                <a href="#catalogo">Catálogo</a>
-                <button class="submenu-toggle">
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <ul class="mobile-submenu">
-                    <li><a href="mugs.html">Mugs Personalizados</a></li>
-                    <li><a href="camisetas.html">Camisetas y Chompas</a></li>
-                    <li><a href="accesorios.html">Accesorios</a></li>
-                    <li><a href="fechas-especiales.html">Fechas Especiales</a></li>
-                    <li><a href="publicitarios.html">Productos Publicitarios</a></li>
-                </ul>
-            </li>
-            <!-- <li><a href="index.html#clientes">Clientes</a></li> -->
-            <li><a href="index.html#contacto">Contacto</a></li>
-            <li>
-                <a href="https://instagram.com/zonacreativa.med" target="_blank" style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fab fa-instagram"></i>
-                    <span>Síguenos en Instagram</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+<div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="mobileNavClose">
+        <i class="fas fa-times"></i>
+    </button>
+    <ul class="mobile-nav-menu">
+        <li><a href="index.html"><i class="fas fa-home"></i>Inicio</a></li>
+        <li><a href="acerca-de.html"><i class="fas fa-info-circle"></i>Acerca de</a></li>
+        <li class="has-submenu">
+            <a href="#catalogo"><i class="fas fa-th-large"></i>Catálogo</a>
+            <button class="submenu-toggle">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul class="mobile-submenu">
+                <li><a href="mugs.html"><i class="fas fa-mug-hot"></i>Mugs Personalizados</a></li>
+                <li><a href="camisetas.html"><i class="fas fa-tshirt"></i>Camisetas y Chompas</a></li>
+                <li><a href="accesorios.html"><i class="fas fa-key"></i>Accesorios</a></li>
+                <li><a href="fechas-especiales.html"><i class="fas fa-calendar-alt"></i>Fechas Especiales</a></li>
+                <li><a href="publicitarios.html"><i class="fas fa-bullhorn"></i>Productos Publicitarios</a></li>
+            </ul>
+        </li>
+        <li><a href="#contacto"><i class="fas fa-envelope"></i>Contacto</a></li>
+        <li>
+            <a href="https://instagram.com/zonacreativa.med" target="_blank" class="instagram-link">
+                <i class="fab fa-instagram"></i>
+                <span>Síguenos en Instagram</span>
+            </a>
+        </li>
+    </ul>
+</div>
 
+		<!-- Overlay para menú móvil -->
+		<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+	
     <!-- Hero Section -->
     <section class="page-hero">
         <div class="container">
             <h1>Acerca de Nosotros</h1>
-            <p>Conoce la historia, valores y equipo detrás de Zona Creativa Medellín</p>
+            <p>Conoce la historia, valores y equipo detrás de Zona Creativa</p>
         </div>
     </section>
 
@@ -796,7 +918,7 @@
                         <i class="fas fa-history"></i>
                     </div>
                     <h3>Nuestra Historia</h3>
-                    <p>Zona Creativa nació en 2020 con la visión de transformar ideas en productos tangibles. Comenzamos con mugs personalizados y hoy ofrecemos una amplia gama de productos para todos los gustos y necesidades.</p>
+                    <p>Zona Creativa nació en 2024 con la visión de transformar ideas en productos tangibles. Comenzamos con mugs personalizados y hoy ofrecemos una amplia gama de productos para todos los gustos y necesidades.</p>
                 </div>
                 
                 <div class="about-card mission">
@@ -812,7 +934,7 @@
                         <i class="fas fa-eye"></i>
                     </div>
                     <h3>Visión</h3>
-                    <p>Ser la empresa líder en productos personalizados en Colombia, reconocida por nuestra calidad, creatividad y compromiso con la satisfacción total de nuestros clientes.</p>
+                    <p>Ser la empresa líder en productos personalizados inicialmente en Medellín y luego en Colombia, reconocida por nuestra calidad, creatividad y compromiso con la satisfacción total de nuestros clientes.</p>
                 </div>
                 
                 <div class="about-card values">
@@ -987,58 +1109,79 @@
     </footer>
 
     <script>
-        // Menú móvil
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileNavClose = document.getElementById('mobileNavClose');
+			// Menú móvil mejorado
+			const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+			const mobileNav = document.getElementById('mobileNav');
+			const mobileNavClose = document.getElementById('mobileNavClose');
+			const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+			const submenuToggles = document.querySelectorAll('.submenu-toggle');
 
-        // Abrir menú móvil
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileNav.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
+			// Abrir menú móvil
+			mobileMenuBtn.addEventListener('click', () => {
+    		mobileNav.classList.add('active');
+    		mobileNavOverlay.classList.add('active');
+    		document.body.style.overflow = 'hidden';
+				});
 
-        // Cerrar menú móvil
-        mobileNavClose.addEventListener('click', () => {
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+			// Cerrar menú móvil
+			function closeMobileMenu() {
+    		mobileNav.classList.remove('active');
+    		mobileNavOverlay.classList.remove('active');
+    		document.body.style.overflow = '';
+    
+    		// Cerrar todos los submenús al cerrar el menú principal
+    		document.querySelectorAll('.mobile-submenu').forEach(submenu => {
+        submenu.classList.remove('active');
+    		});
+    		document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+        		toggle.classList.remove('active');
+    		});
+				}
 
-        // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
+			mobileNavClose.addEventListener('click', closeMobileMenu);
+			mobileNavOverlay.addEventListener('click', closeMobileMenu);
 
-        // Smooth scroll para los enlaces internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
-        });
+			// Cerrar menú al hacer clic en un enlace (excepto enlaces externos)
+			document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+    		link.addEventListener('click', (e) => {
+        		if (!link.getAttribute('target') || link.getAttribute('target') !== '_blank') {
+            		closeMobileMenu();
+        		}
+    		});
+		});
 
-        // Toggle submenús en móvil
-        const submenuToggles = document.querySelectorAll('.submenu-toggle');
-        submenuToggles.forEach(toggle => {
-            toggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const submenu = toggle.parentElement.querySelector('.mobile-submenu');
-                toggle.classList.toggle('active');
-                submenu.classList.toggle('active');
-            });
+			// Toggle submenús en móvil
+			submenuToggles.forEach(toggle => {
+			toggle.addEventListener('click', (e) => {
+        		e.preventDefault();
+        		e.stopPropagation();
+        		const submenu = toggle.parentElement.querySelector('.mobile-submenu');
+        		const isActive = toggle.classList.contains('active');
+        
+        // Cerrar todos los submenús primero
+        document.querySelectorAll('.mobile-submenu').forEach(sm => {
+            if (sm !== submenu) {
+                sm.classList.remove('active');
+            }
         });
+        document.querySelectorAll('.submenu-toggle').forEach(tg => {
+            if (tg !== toggle) {
+                tg.classList.remove('active');
+            }
+        });
+        
+        // Toggle el submenu actual
+        toggle.classList.toggle('active');
+        submenu.classList.toggle('active');
+		});
+	});
+
+		// Cerrar menú con tecla ESC
+		document.addEventListener('keydown', (e) => {
+    	if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+        closeMobileMenu();
+		}
+	});
     </script>
 </body>
 </html>

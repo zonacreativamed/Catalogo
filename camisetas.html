@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-        <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zona Creativa Medellín - Productos Personalizados</title>
-    
-	<!-- Favicon -->
-		<link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
-	<!-- Para dispositivos Apple -->
-		<link rel="apple-touch-icon" href="imagenes/favicon.png">
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	
+    <title>Camisetas y Chompas Personalizadas - Zona Creativa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -336,77 +329,83 @@
             padding: 0 20px;
         }
 
-        /* Filtros */
-        .filters-section {
+        /* Selector de Color con Mockup */
+        .color-selector-section {
             background: white;
-            padding: 30px;
+            padding: 40px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
+            text-align: center;
         }
 
-        .filters-grid {
+        .color-selector-section h2 {
+            color: var(--dark);
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .mockup-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .mockup-container {
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-start;
+            }
+        }
+
+        .mockup-preview {
+            flex: 1;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .mockup-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .mockup-image:hover {
+            transform: scale(1.02);
+        }
+
+        .color-options-container {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .color-options-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            gap: 15px;
             margin-bottom: 20px;
         }
 
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .filter-group label {
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .filter-group select {
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: white;
-            cursor: pointer;
-        }
-
-        .size-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
-            gap: 8px;
-            margin-top: 5px;
-        }
-
-        .size-option {
-            padding: 8px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .size-option.selected {
-            border-color: var(--primary);
-            background: var(--primary);
-            color: white;
-        }
-
-        .color-options {
-            display: flex;
-            gap: 10px;
-            margin-top: 5px;
-            flex-wrap: wrap;
-        }
-
         .color-option {
-            width: 30px;
-            height: 30px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            border: 2px solid #ddd;
+            border: 3px solid transparent;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .color-option.selected {
@@ -414,10 +413,35 @@
             transform: scale(1.1);
         }
 
-        .filter-actions {
-            display: flex;
-            gap: 15px;
-            justify-content: flex-end;
+        .color-option.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .color-name {
+            margin-top: 5px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .selected-color-info {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .selected-color-info h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
         }
 
         .btn {
@@ -750,12 +774,18 @@
                 font-size: 2.2rem;
             }
             
-            .filters-grid {
-                grid-template-columns: 1fr;
+            .color-selector-section {
+                padding: 20px;
             }
             
-            .filter-actions {
-                justify-content: center;
+            .color-options-grid {
+                grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+                gap: 10px;
+            }
+            
+            .color-option {
+                width: 50px;
+                height: 50px;
             }
             
             .products-grid {
@@ -796,7 +826,7 @@
 </head>
 <body>
     <!-- WhatsApp flotante -->
-    <a href="https://wa.me/573001234567?text=Hola,%20me%20interesan%20sus%20camisetas%20personalizadas" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/573233570334?text=Hola,%20me%20interesan%20sus%20camisetas%20personalizadas" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -879,60 +909,67 @@
     </section>
 
     <div class="container">
-        <!-- Filtros -->
-        <section class="filters-section">
-            <h2 style="margin-bottom: 20px; color: var(--dark);">Filtrar Productos</h2>
-            <div class="filters-grid">
-                <div class="filter-group">
-                    <label for="tipo">Tipo de Prenda</label>
-                    <select id="tipo">
-                        <option value="todos">Todos</option>
-                        <option value="camiseta">Camisetas</option>
-                        <option value="chompa">Chompas/Hoodies</option>
-                        <option value="polo">Polos</option>
-                        <option value="deportiva">Deportivas</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="talla">Talla</label>
-                    <div class="size-options">
-                        <div class="size-option">S</div>
-                        <div class="size-option selected">M</div>
-                        <div class="size-option">L</div>
-                        <div class="size-option">XL</div>
-                        <div class="size-option">XXL</div>
-                    </div>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="color">Color</label>
-                    <div class="color-options">
-                        <div class="color-option selected" style="background: #2c3e50;"></div>
-                        <div class="color-option" style="background: #34495e;"></div>
-                        <div class="color-option" style="background: #e74c3c;"></div>
-                        <div class="color-option" style="background: #3498db;"></div>
-                        <div class="color-option" style="background: #2ecc71;"></div>
-                        <div class="color-option" style="background: #f1c40f;"></div>
-                        <div class="color-option" style="background: #ffffff; border: 1px solid #ddd;"></div>
-                    </div>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="material">Material</label>
-                    <select id="material">
-                        <option value="todos">Todos</option>
-                        <option value="algodon">Algodón 100%</option>
-                        <option value="polyester">Polyster</option>
-                        <option value="mezcla">Mezcla Algodón/Poly</option>
-                        <option value="dryfit">Dry-Fit Deportivo</option>
-                    </select>
-                </div>
-            </div>
+        <!-- Selector de Color con Mockup -->
+        <section class="color-selector-section">
+            <h2>Elige el Color de tu Prenda</h2>
+            <p style="margin-bottom: 30px; color: var(--text-light);">Selecciona un color para ver cómo se vería tu camiseta personalizada</p>
             
-            <div class="filter-actions">
-                <button class="btn btn-outline">Limpiar Filtros</button>
-                <button class="btn">Aplicar Filtros</button>
+            <div class="mockup-container">
+                <div class="mockup-preview">
+                    <img id="mockupImage" src="imagenes/camisetas/muestras-colores/mockup-camiseta-negra.jpg" alt="Mockup de camiseta" class="mockup-image">
+                    <div style="margin-top: 15px;">
+                        <h3 id="selectedColorName" style="color: var(--dark);">Color: Negro</h3>
+                        <p id="selectedColorCode" style="color: var(--text-light); font-size: 0.9rem;">Código: #2c3e50</p>
+                    </div>
+                </div>
+                
+                <div class="color-options-container">
+                    <div class="color-options-grid">
+                        <!-- Negro -->
+                        <div class="color-option selected" data-color="negro" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-negra.jpg" data-code="#2c3e50" style="background: #2c3e50;"></div>
+                        
+                        <!-- Gris oscuro -->
+                        <div class="color-option" data-color="gris oscuro" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-gris-oscuro.jpg" data-code="#34495e" style="background: #34495e;"></div>
+                        
+                        <!-- Rojo -->
+                        <div class="color-option" data-color="rojo" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-roja.jpg" data-code="#e74c3c" style="background: #e74c3c;"></div>
+                        
+                        <!-- Azul -->
+                        <div class="color-option" data-color="azul" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-azul.jpg" data-code="#3498db" style="background: #3498db;"></div>
+                        
+                        <!-- Verde -->
+                        <div class="color-option" data-color="verde" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-verde.jpg" data-code="#2ecc71" style="background: #2ecc71;"></div>
+                        
+                        <!-- Amarillo mostaza -->
+                        <div class="color-option" data-color="amarillo" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-amarillo-mostaza.jpg" data-code="#f1c40f" style="background: #f1c40f;"></div>
+                        
+                        <!-- Blanco -->
+                        <div class="color-option" data-color="blanco" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-blanca.jpg" data-code="#ffffff" style="background: #ffffff; border: 1px solid #ddd;"></div>
+                        
+                        <!-- Morado -->
+                        <div class="color-option" data-color="morado" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-morado.jpg" data-code="#9b59b6" style="background: #9b59b6;"></div>
+                        
+                        <!-- Naranja -->
+                        <div class="color-option" data-color="naranja" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-naranja.jpg" data-code="#e67e22" style="background: #e67e22;"></div>
+                        
+                        <!--Palo de Rosa -->
+                        <div class="color-option" data-color="Palo de rosa" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-palorosa.jpg" data-code="#e84393" style="background: #e84393;"></div>
+                        
+                        <!-- Verde menta -->
+                        <div class="color-option" data-color="verde menta" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-verde-menta.jpg" data-code="#00b894" style="background: #00b894;"></div>
+                        
+                        <!-- Azul petróleo -->
+                        <div class="color-option" data-color="azul petróleo" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-petroleo.jpg" data-code="#007788" style="background: #007788;"></div>
+                    </div>
+                    
+                    <div class="selected-color-info">
+                        <h3>¿Te gusta este color?</h3>
+                        <p>Una vez que hayas elegido el color perfecto para tu camiseta, puedes proceder a personalizarla con tu diseño.</p>
+                        <a href="https://wa.me/573233570334?text=Hola,%20quiero%20personalizar%20una%20camiseta%20en%20el%20color%20NEGRO" class="btn" style="margin-top: 15px;">
+                            Personalizar con este Color
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1063,7 +1100,7 @@
                     <a href="https://instagram.com/zonacreativa.med" target="_blank">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://wa.me/573001234567" target="_blank">
+                    <a href="https://wa.me/573233570334" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                     <a href="mailto:zonacreativa.med@gmail.com">
@@ -1088,7 +1125,7 @@
                 <ul class="contact-info-list">
                     <li>
                         <i class="fab fa-whatsapp"></i>
-                        <span>+57 300 123 4567</span>
+                        <span>+57 323 357 0334</span>
                     </li>
                     <li>
                         <i class="far fa-envelope"></i>
@@ -1145,28 +1182,42 @@
             });
         });
 
-        // Selección de tallas
-        document.querySelectorAll('.size-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('.size-option').forEach(opt => opt.classList.remove('selected'));
-                this.classList.add('selected');
-            });
-        });
+        // Selector de Color con Mockup
+        const colorOptions = document.querySelectorAll('.color-option');
+        const mockupImage = document.getElementById('mockupImage');
+        const selectedColorName = document.getElementById('selectedColorName');
+        const selectedColorCode = document.getElementById('selectedColorCode');
+        const personalizeBtn = document.querySelector('.selected-color-info .btn');
 
-        // Selección de colores
-        document.querySelectorAll('.color-option').forEach(option => {
+        colorOptions.forEach(option => {
             option.addEventListener('click', function() {
-                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+                // Remover clase selected de todas las opciones
+                colorOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Agregar clase selected a la opción clickeada
                 this.classList.add('selected');
+                
+                // Obtener datos del color seleccionado
+                const colorName = this.getAttribute('data-color');
+                const imageUrl = this.getAttribute('data-image');
+                const colorCode = this.getAttribute('data-code');
+                
+                // Actualizar mockup e información
+                mockupImage.src = imageUrl;
+                selectedColorName.textContent = `Color: ${colorName.charAt(0).toUpperCase() + colorName.slice(1)}`;
+                selectedColorCode.textContent = `Código: ${colorCode}`;
+                
+                // Actualizar enlace de WhatsApp
+                personalizeBtn.href = `https://wa.me/573233570334?text=Hola,%20quiero%20personalizar%20una%20camiseta%20en%20el%20color%20${colorName.toUpperCase()}`;
             });
         });
 
         // Botones de personalización
         document.querySelectorAll('.btn').forEach(button => {
-            if (button.textContent.includes('Personalizar')) {
+            if (button.textContent.includes('Personalizar') && !button.classList.contains('selected-color-info')) {
                 button.addEventListener('click', function() {
                     const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
-                    const whatsappUrl = `https://wa.me/573001234567?text=Hola,%20me%20interesa%20personalizar%20el%20producto:%20${encodeURIComponent(productTitle)}`;
+                    const whatsappUrl = `https://wa.me/573233570334?text=Hola,%20me%20interesa%20personalizar%20el%20producto:%20${encodeURIComponent(productTitle)}`;
                     window.open(whatsappUrl, '_blank');
                 });
             }
@@ -1175,7 +1226,7 @@
         // Botón de cotización
         document.querySelector('.btn').addEventListener('click', function() {
             if (this.textContent.includes('Cotización')) {
-                window.open('https://wa.me/573001234567?text=Hola,%20necesito%20una%20cotización%20para%20camisetas%20personalizadas', '_blank');
+                window.open('https://wa.me/573233570334?text=Hola,%20necesito%20una%20cotización%20para%20camisetas%20personalizadas', '_blank');
             }
         });
     </script>

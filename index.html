@@ -160,6 +160,7 @@
             padding-left: 25px;
         }
 
+
         .submenu a::after {
             display: none;
         }
@@ -282,7 +283,6 @@
             background: #f8f9fa;
             border-radius: 8px;
             margin: 10px 0;
-            position: relative;
         }
 
         .mobile-submenu.active {
@@ -307,29 +307,6 @@
 
         .mobile-submenu a:last-child {
             border-bottom: none;
-        }
-
-        /* Botón de cierre para submenús móviles - CORREGIDO */
-        .close-submenu {
-            display: none;
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: rgba(0, 0, 0, 0.1);
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            font-size: 0.9rem;
-            color: var(--dark);
-            cursor: pointer;
-            z-index: 10;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mobile-submenu.active .close-submenu {
-            display: flex;
         }
 
         /* Resto del CSS */
@@ -569,12 +546,12 @@
     		bottom: 0;
     		left: 0;
     		right: 0;
-    		background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    		color: white;
-    		padding: 20px;
-    		transform: translateY(100%);
-    		transition: transform 0.3s ease;
-		}
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
 
 		.work-item:hover .work-overlay {
    			transform: translateY(0);
@@ -1095,40 +1072,39 @@
         </div>
     </header>
 
-    <!-- Menú móvil CORREGIDO -->
-    <div class="mobile-nav" id="mobileNav">
-        <button class="mobile-nav-close" id="mobileNavClose">
-            <i class="fas fa-times"></i>
-        </button>
-        <ul class="mobile-nav-menu">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="acerca-de.html">Acerca de</a></li>
-            <li class="has-submenu">
-                <a href="#catalogo">Catálogo</a>
-                <button class="submenu-toggle">
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <ul class="mobile-submenu">
-                    <button class="close-submenu">
-                        <i class="fas fa-times"></i>
-                    </button>
-                    <li><a href="mugs.html">Mugs Personalizados</a></li>
-                    <li><a href="camisetas.html">Camisetas y Chompas</a></li>
-                    <li><a href="accesorios.html">Accesorios</a></li>
-                    <li><a href="fechas-especiales.html">Fechas Especiales</a></li>
-                    <li><a href="publicitarios.html">Productos Publicitarios</a></li>
-                </ul>
-            </li>
-            <!-- <li><a href="#clientes">Clientes</a></li> -->
-            <li><a href="#contacto">Contacto</a></li>
-            <li>
-                <a href="https://instagram.com/zonacreativa.med" target="_blank" style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fab fa-instagram"></i>
-                    <span>Síguenos en Instagram</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+    <!-- Menú móvil -->
+<div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="mobileNavClose">
+        <i class="fas fa-times"></i>
+    </button>
+    <ul class="mobile-nav-menu">
+        <li><a href="index.html"><i class="fas fa-home">&nbsp;</i>Inicio</a></li>
+        <li><a href="acerca-de.html"><i class="fas fa-info-circle">&nbsp;</i>Acerca de</a></li>
+        <li class="has-submenu">
+            <a href="#catalogo"><i class="fas fa-th-large">&nbsp;</i>Catálogo</a>
+            <button class="submenu-toggle">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul class="mobile-submenu">
+                <li><a href="mugs.html"><i class="fas fa-mug-hot">&nbsp;</i>Mugs Personalizados</a></li>
+                <li><a href="camisetas.html"><i class="fas fa-tshirt">&nbsp;</i>Camisetas y Chompas</a></li>
+                <li><a href="accesorios.html"><i class="fas fa-key">&nbsp;</i>Accesorios</a></li>
+                <li><a href="fechas-especiales.html"><i class="fas fa-calendar-alt">&nbsp;</i>Fechas Especiales</a></li>
+                <li><a href="publicitarios.html"><i class="fas fa-bullhorn">&nbsp;</i>Productos Publicitarios</a></li>
+            </ul>
+        </li>
+        <li><a href="#contacto"><i class="fas fa-envelope">&nbsp;</i>Contacto</a></li>
+        <li>
+            <a href="https://instagram.com/zonacreativa.med" target="_blank" class="instagram-link">
+                <i class="fab fa-instagram">&nbsp;</i>
+                <span>Síguenos en Instagram</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+		<!-- Overlay para menú móvil -->
+		<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 
     <!-- Carrusel -->
     <div class="carousel">
@@ -1147,7 +1123,7 @@
     <div class="container">
         <!-- Sección Inicio -->
         <section id="inicio">
-            <h2 class="section-title">Bienvenidos a Zona Creativa Medellín</h2>
+            <h2 class="section-title">Bienvenidos a Zona Creativa Colombia</h2>
             <p class="section-subtitle">Tu destino para productos personalizados de alta calidad. Desde mugs y camisetas hasta regalos corporativos, creamos diseños únicos que reflejan tu estilo.</p>
             <hr>
         </section>
@@ -1278,8 +1254,8 @@
         	<div class="work-item" data-category="mugs">
             	<img src="imagenes/trabajos/mug_basico_2.jpg" alt="Tarjetas de presentación">
             	<div class="work-overlay">
-                	<h4>Mug básico personalizado</h4>
-                	<p>Foto de mascota</p>
+                	<h4>Reconocimiento en acrílico</h4>
+                	<p>Elegante y práctico</p>
             	</div>
         	</div>
         
@@ -1293,11 +1269,11 @@
         	</div>
         
         	<!-- Combo 1 -->
-        	<div class="work-item" data-category="publicitarios">
-            	<img src="imagenes/trabajos/publicitario_3 .jpg" alt="Combo regalo personalizado">
+        	<div class="work-item" data-category="combos">
+            	<img src="imagenes/trabajos/combo-regalo.jpg" alt="Combo regalo personalizado">
             	<div class="work-overlay">
-                	<h4>Agenda Bambú</h4>
-                	<p>Personalizada con laser</p>
+                	<h4>Combo Regalo</h4>
+                	<p>Mug + Camiseta</p>
             	</div>
         	</div>
         
@@ -1489,12 +1465,11 @@
     </footer>
 
     <script>
-        // Menú móvil - CÓDIGO CORREGIDO
+        // Menú móvil
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileNav = document.getElementById('mobileNav');
         const mobileNavClose = document.getElementById('mobileNavClose');
         const submenuToggles = document.querySelectorAll('.submenu-toggle');
-        const closeSubmenus = document.querySelectorAll('.close-submenu');
 
         // Abrir menú móvil
         mobileMenuBtn.addEventListener('click', () => {
@@ -1524,20 +1499,6 @@
                 const submenu = toggle.parentElement.querySelector('.mobile-submenu');
                 toggle.classList.toggle('active');
                 submenu.classList.toggle('active');
-            });
-        });
-
-        // Cerrar submenús con el botón de cierre
-        closeSubmenus.forEach(closeBtn => {
-            closeBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const submenu = closeBtn.parentElement;
-                const toggle = submenu.parentElement.querySelector('.submenu-toggle');
-                submenu.classList.remove('active');
-                if (toggle) {
-                    toggle.classList.remove('active');
-                }
             });
         });
 
@@ -1643,6 +1604,4 @@
 });
     </script>
 </body>
-
 </html>
-
