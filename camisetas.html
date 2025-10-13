@@ -450,6 +450,25 @@
             margin-bottom: 10px;
         }
 
+        /* Botones adicionales */
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
         .btn {
             display: inline-block;
             background: linear-gradient(to right, var(--primary), #2980b9);
@@ -516,24 +535,29 @@
             z-index: 2;
         }
 
-        .product-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-size: 1.1rem;
-            position: relative;
-            overflow: hidden;
-        }
+        /* Reemplaza el estilo actual de .product-image por este: */
+		.product-image {
+   			width: 100%;
+    		height: 250px;
+    		background: #f8f9fa; /* Color de fondo por si la imagen no carga */
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		position: relative;
+    		overflow: hidden;
+		}
 
-        .product-image::after {
-            content: "Imagen del Producto";
-            position: absolute;
-        }
+		.product-image img {
+    		width: 100%;
+    		height: 100%;
+    		object-fit: cover; /* Esto hace que la imagen cubra el espacio sin distorsionarse */
+    		object-position: center;
+    		transition: transform 0.3s ease;
+		}
 
+		.product-card:hover .product-image img {
+    		transform: scale(2.10); /* Efecto zoom al hover */
+		}
         .product-info {
             padding: 25px;
         }
@@ -915,144 +939,121 @@
     </section>
 
     <div class="container">
-        <!-- Selector de Color con Mockup -->
-        <section class="color-selector-section">
-            <h2>Elige el Color de tu Prenda</h2>
-            <p style="margin-bottom: 30px; color: var(--text-light);">Selecciona un color para ver cómo se vería tu camiseta personalizada</p>
-            
-            <div class="mockup-container">
-                <div class="mockup-preview">
-                    <img id="mockupImage" src="imagenes/camisetas/muestras-colores/mockup-camiseta-negra.jpg" alt="Mockup de camiseta" class="mockup-image">
-                    <div style="margin-top: 15px;">
-                        <h3 id="selectedColorName" style="color: var(--dark);">Color: Negro</h3>
-                        <p id="selectedColorCode" style="color: var(--text-light); font-size: 0.9rem;">Código: #2c3e50</p>
-                    </div>
-                </div>
-                
-                <div class="color-options-container">
-                    <div class="color-options-grid">
-                        <!-- Negro -->
-                        <div class="color-option selected" data-color="negro" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-negra.jpg" data-code="#2c3e50" style="background: #2c3e50;"></div>
-                        
-                        <!-- Gris oscuro -->
-                        <div class="color-option" data-color="gris oscuro" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-gris-oscuro.jpg" data-code="#34495e" style="background: #34495e;"></div>
-                        
-                        <!-- Rojo -->
-                        <div class="color-option" data-color="rojo" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-roja.jpg" data-code="#e74c3c" style="background: #e74c3c;"></div>
-                        
-                        <!-- Azul -->
-                        <div class="color-option" data-color="azul" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-azul.jpg" data-code="#3498db" style="background: #3498db;"></div>
-                        
-                        <!-- Verde -->
-                        <div class="color-option" data-color="verde" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-verde.jpg" data-code="#2ecc71" style="background: #2ecc71;"></div>
-                        
-                        <!-- Amarillo mostaza -->
-                        <div class="color-option" data-color="amarillo" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-amarillo-mostaza.jpg" data-code="#f1c40f" style="background: #f1c40f;"></div>
-                        
-                        <!-- Blanco -->
-                        <div class="color-option" data-color="blanco" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-blanca.jpg" data-code="#ffffff" style="background: #ffffff; border: 1px solid #ddd;"></div>
-                        
-                        <!-- Morado -->
-                        <div class="color-option" data-color="morado" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-morado.jpg" data-code="#9b59b6" style="background: #9b59b6;"></div>
-                        
-                        <!-- Naranja -->
-                        <div class="color-option" data-color="naranja" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-naranja.jpg" data-code="#e67e22" style="background: #e67e22;"></div>
-                        
-                        <!--Palo de Rosa -->
-                        <div class="color-option" data-color="Palo de rosa" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-palorosa.jpg" data-code="#e84393" style="background: #e84393;"></div>
-                        
-                        <!-- Verde menta -->
-                        <div class="color-option" data-color="verde menta" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-verde-menta.jpg" data-code="#00b894" style="background: #00b894;"></div>
-                        
-                        <!-- Azul petróleo -->
-                        <div class="color-option" data-color="azul petróleo" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-petroleo.jpg" data-code="#007788" style="background: #007788;"></div>
-                    </div>
-                    
-                    <div class="selected-color-info">
-                        <h3>¿Te gusta este color?</h3>
-                        <p>Una vez que hayas elegido el color perfecto para tu camiseta, puedes proceder a personalizarla con tu diseño.</p>
-                        <a href="https://wa.me/573233570334?text=Hola,%20quiero%20personalizar%20una%20camiseta%20en%20el%20color%20NEGRO" class="btn" style="margin-top: 15px;">
-                            Personalizar con este Color
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Grid de Productos -->
         <section>
             <h2 style="margin-bottom: 30px; color: var(--dark); text-align: center;">Nuestras Prendas Destacadas</h2>
             <div class="products-grid">
-                <!-- Producto 1 -->
+                <!-- Producto 1 - Básica Licra Algodón -->
                 <div class="product-card">
                     <div class="product-badge">Más Vendido</div>
-                    <div class="product-image"></div>
+                    <div class="product-image">
+        			<img src="imagenes/camisetas/camiseta-licra-algodon.jpg" alt="Camiseta básica licra algodón - Zona Creativa">
+    			</div>
                     <div class="product-info">
-                        <h3 class="product-title">Camiseta Clásica Algodón</h3>
-                        <p class="product-description">Camiseta 100% algodón premium. Ideal para estampado y personalización.</p>
-                        <div class="product-price">$12.99</div>
+                        <h3 class="product-title">Camiseta básica licra algodón</h3>
+                        <p class="product-description">Camiseta mezcla de licra y algodón. Ideal para estampado y personalización.</p>
                         <ul class="product-features">
-                            <li>Material: Algodón 100%</li>
+                            <li>Material: Licra algodón</li>
                             <li>Tallas: S - XXL</li>
-                            <li>Colores: 10+ disponibles</li>
+                            <li>Colores: 12 disponibles</li>
                             <li>Perfecta para estampado</li>
                         </ul>
-                        <button class="btn" style="width: 100%;">Personalizar Ahora</button>
+                        <div class="product-actions">
+                            <button class="btn" style="width: 100%;">Personalizar Ahora</button>
+                            <a href="basica-licra-algodon.html" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none;">Ver nuestros trabajos</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Producto 2 -->
+                <!-- Producto 2 - Básica Algodón -->
                 <div class="product-card">
-                    <div class="product-badge">Nuevo</div>
-                    <div class="product-image"></div>
+                    <div class="product-badge">Popular</div>
+                    <div class="product-image">
+                        <img src="imagenes/camisetas/camiseta-basica-algodon.jpg" alt="Camiseta básica algodón - Zona Creativa">
+                    </div>
                     <div class="product-info">
-                        <h3 class="product-title">Chompa con Capota</h3>
-                        <p class="product-description">Chompa abrigada con capota. Perfecta para clima frío y estilo casual.</p>
-                        <div class="product-price">$28.99</div>
+                        <h3 class="product-title">Camiseta básica algodón</h3>
+                        <p class="product-description">Camiseta 100% algodón. Ideal para estampado y personalización</p>
                         <ul class="product-features">
-                            <li>Material: Mezcla algodón/poly</li>
-                            <li>Tallas: M - XXL</li>
-                            <li>Bolsillo frontal</li>
-                            <li>Capota ajustable</li>
+                            <li>Material: Algodón 100%</li>
+                            <li>Tallas: S- XXL</li>
+                            <li>Colores: 12 disponibles</li>
+                            <li>Perfecto para estampado</li>
                         </ul>
-                        <button class="btn" style="width: 100%;">Personalizar Ahora</button>
+                        <div class="product-actions">
+                            <button class="btn" style="width: 100%;">Personalizar Ahora</button>
+                            <a href="basica-algodon.html" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none;">Ver nuestros trabajos</a>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Producto 3 -->
+				
+                <!-- Producto 3 - Tela fría -->
                 <div class="product-card">
-                    <div class="product-badge">Deportiva</div>
-                    <div class="product-image"></div>
+                    <!--<div class="product-badge">Más Vendido</div> -->
+                    <div class="product-image">
+        			<img src="imagenes/camisetas/camiseta-licra-algodon.jpg" alt="Camiseta básica licra algodón - Zona Creativa">
+    			</div>
                     <div class="product-info">
-                        <h3 class="product-title">Camiseta Dry-Fit</h3>
-                        <p class="product-description">Tecnología dry-fit para máximo rendimiento deportivo.</p>
-                        <div class="product-price">$18.99</div>
+                        <h3 class="product-title">Camiseta tela fría</h3>
+                      <p class="product-description">Proporciona senación de suavidad y frescura, resistente y ligera.</p>
                         <ul class="product-features">
-                            <li>Material: Dry-Fit deportivo</li>
-                            <li>Tallas: XS - XL</li>
-                            <li>Transpirable y ligera</li>
-                            <li>Secado rápido</li>
+                            <li>Material: Algodón Elastano (Spandex)</li>
+                            <li>Tallas: S - XXL</li>
+                            <li>Colores: 12 disponibles</li>
+                            <li>Perfecta para estampado</li>
                         </ul>
-                        <button class="btn" style="width: 100%;">Personalizar Ahora</button>
+                        <div class="product-actions">
+                          <button class="btn" style="width: 100%;">Personalizar Ahora</button>
+                            <a href="tela-fria.html" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none;">Ver nuestros trabajos</a>
+                      </div>
                     </div>
                 </div>
+				
 
-                <!-- Producto 4 -->
+                <!-- Producto 4 - Polo -->
                 <div class="product-card">
-                    <div class="product-image"></div>
+                    <div class="product-badge">Elegante</div>
+                    <div class="product-image">
+                        <img src="imagenes/camisetas/polo-clasico.jpg" alt="Polo clásico - Zona Creativa">
+                    </div>
                     <div class="product-info">
                         <h3 class="product-title">Polo Clásico</h3>
                         <p class="product-description">Polo elegante para look casual-profesional. Perfecto para uniformes.</p>
-                        <div class="product-price">$16.99</div>
                         <ul class="product-features">
                             <li>Material: Piqué de algodón</li>
                             <li>Tallas: S - XXL</li>
                             <li>Cuello reforzado</li>
                             <li>3 botones</li>
                         </ul>
-                        <button class="btn" style="width: 100%;">Personalizar Ahora</button>
+                        <div class="product-actions">
+                            <button class="btn" style="width: 100%;">Personalizar Ahora</button>
+                            <a href="polo.html" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none;">Ver nuestros trabajos</a>
+                        </div>
                     </div>
                 </div>
+				
+                <!-- Producto 5 - Chompas y buzos -->
+                <div class="product-card">
+                    <!-- <div class="product-badge">Más Vendido</div> -->
+                    <div class="product-image">
+        			<img src="imagenes/camisetas/camiseta-licra-algodon.jpg" alt="Camiseta básica licra algodón - Zona Creativa">
+    			</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Chompas y buzos</h3>
+                        <p class="product-description">La prenda perfecta para épocas frias y como complemento al estilo úrbano</p>
+                        <ul class="product-features">
+                            <li>Material: Algodón perchado</li>
+                            <li>Tallas: S - XL</li>
+                            <li>Colores: 6 disponibles</li>
+                            <li>Perfecta para estampado</li>
+                        </ul>
+                        <div class="product-actions">
+                            <button class="btn" style="width: 100%;">Personalizar Ahora</button>
+                            <a href="chompas.html" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none;">Ver nuestros trabajos</a>
+                        </div>
+                    </div>
+                </div>				
             </div>
         </section>
 
@@ -1211,7 +1212,7 @@
                 // Actualizar mockup e información
                 mockupImage.src = imageUrl;
                 selectedColorName.textContent = `Color: ${colorName.charAt(0).toUpperCase() + colorName.slice(1)}`;
-                selectedColorCode.textContent = `Código: ${colorCode}`;
+                // selectedColorCode.textContent = `Código: ${colorCode}`;
                 
                 // Actualizar enlace de WhatsApp
                 personalizeBtn.href = `https://wa.me/573233570334?text=Hola,%20quiero%20personalizar%20una%20camiseta%20en%20el%20color%20${colorName.toUpperCase()}`;

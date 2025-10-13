@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mugs Básicos Personalizados - Zona Creativa Medellín</title>
+    <title>Tela Fría Personalizada - Zona Creativa Medellín</title>
     
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
@@ -43,6 +43,20 @@
             top: 0;
             z-index: 100;
         }
+		
+		/* Estilos específicos para tela fría */
+        .cool-fabric-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }    
 
         .header-container {
             max-width: 1200px;
@@ -307,9 +321,9 @@
             border-bottom: none;
         }
 
-        /* Hero Section de Categoría */
+        /* Hero Section */
         .category-hero {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #3498db, #2980b9);
             color: white;
             padding: 80px 0;
             text-align: center;
@@ -371,6 +385,114 @@
         .category-link.active {
             background: var(--primary);
             color: white;
+        }
+
+        /* Selector de Color con Mockup */
+        .color-selector-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .color-selector-section h2 {
+            color: var(--dark);
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .mockup-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .mockup-container {
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-start;
+            }
+        }
+
+        .mockup-preview {
+            flex: 1;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .mockup-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .mockup-image:hover {
+            transform: scale(1.1);
+        }
+
+        .color-options-container {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .color-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .color-option {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .color-option.selected {
+            border-color: var(--dark);
+            transform: scale(1.1);
+        }
+
+        .color-option.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .selected-color-info {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .selected-color-info h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
         }
 
         /* Galería de Trabajos */
@@ -490,7 +612,7 @@
         }
 
         .info-image {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            background: linear-gradient(45deg, #3498db, #2980b9);
             height: 300px;
             border-radius: 10px;
             display: flex;
@@ -520,18 +642,6 @@
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            box-shadow: none;
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
         }
 
         .btn-container {
@@ -678,6 +788,20 @@
                 font-size: 2.2rem;
             }
             
+            .color-selector-section {
+                padding: 20px;
+            }
+            
+            .color-options-grid {
+                grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+                gap: 10px;
+            }
+            
+            .color-option {
+                width: 50px;
+                height: 50px;
+            }
+            
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
@@ -729,7 +853,7 @@
 </head>
 <body>
     <!-- WhatsApp flotante -->
-    <a href="https://wa.me/573233570334?text=Hola,%20me%20interesan%20tus%20mugs%20básicos%20personalizados" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/573233570334?text=Hola,%20me%20interesan%20las%20camisetas%20de%20tela%20fría%20personalizadas" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -804,8 +928,8 @@
     <!-- Hero Section -->
     <section class="category-hero">
         <div class="container">
-            <h1>Mugs Básicos Personalizados</h1>
-            <p>Descubre nuestra colección de mugs cerámicos clásicos. Calidad premium y personalización completa para cada ocasión.</p>
+            <h1>Tela Fría Personalizada</h1>
+            <p>Frescura y comodidad en climas cálidos. La elección perfecta para días soleados con estilo único.</p>
         </div>
     </section>
 
@@ -813,76 +937,132 @@
         <!-- Navegación de Categorías -->
         <section class="category-nav">
             <div class="category-links">
-                <a href="mugs-basicos.html" class="category-link active">Mugs Básicos</a>
-                <a href="mugs-magicos.html" class="category-link">Mugs Mágicos</a>
-                <a href="mugs-tapa-base.html" class="category-link">Mugs con Tapa</a>
-                <a href="mugs.html" class="category-link">Volver a Mugs</a>
+                <a href="basica-licra-algodon.html" class="category-link">Licra Algodón</a>
+                <a href="basica-algodon.html" class="category-link">Algodón</a>
+				<a href="tela-fria.html" class="category-link active">Tela fria</a>
+                <a href="polo.html" class="category-link">Polos</a>
+				<a href="chompas.html" class="category-link">Chompas</a>
+                <a href="camisetas.html" class="category-link">Volver a Camisetas</a>
+            </div>
+        </section>
+
+        <!-- Selector de Color con Mockup -->
+        <section class="color-selector-section">
+            <h2>Elige el Color de tu Tela Fría</h2>
+            <p style="margin-bottom: 30px; color: var(--text-light);">Selecciona un color para ver cómo se vería tu camiseta de tela fría personalizada</p>
+            
+            <div class="mockup-container">
+                <div class="mockup-preview">
+                    <img id="mockupImage" src="imagenes/tela-fria/muestras-colores/mockup-tela-fria-blanca.jpg" alt="Mockup de tela fría" class="mockup-image">
+                    <div style="margin-top: 15px;">
+                        <h3 id="selectedColorName" style="color: var(--dark);">Color: Blanco</h3>
+                    </div>
+                </div>
+                
+                <div class="color-options-container">
+                    <div class="color-options-grid">
+                        <!-- Blanco -->
+                        <div class="color-option selected" data-color="blanco" data-image="imagenes/tela-fria/muestras-colores/mockup-tela-fria-blanca.jpg" data-code="#ffffff" style="background: #ffffff; border: 1px solid #ddd;"></div>
+                        
+                        <!-- Negro -->
+                        <div class="color-option" data-color="negro" data-image="imagenes/tela-fria/muestras-colores/mockup-tela-fria-negra.jpg" data-code="#2c3e50" style="background: #2c3e50;"></div>
+                        
+                        <!-- Gris claro -->
+                        <div class="color-option" data-color="gris claro" data-image="imagenes/tela-fria/muestras-colores/mockup-tela-fria-gris-claro.jpg" data-code="#bdc3c7" style="background: #bdc3c7;"></div>
+                        
+                        <!-- Azul cielo -->
+                        <div class="color-option" data-color="azul cielo" data-image="imagenes/tela-fria/muestras-colores/mockup-tela-fria-azul-cielo.jpg" data-code="#3498db" style="background: #3498db;"></div>
+                        
+                        <!-- Verde menta -->
+                        <div class="color-option" data-color="verde menta" data-image="imagenes/tela-fria/muestras-colores/mockup-tela-fria-verde-menta.jpg" data-code="#1abc9c" style="background: #1abc9c;"></div>
+                        
+                        <!-- Rosa pastel -->
+                        <div class="color-option" data-color="rosa pastel" data-image="imagenes/tela-fria/muestras-colores/mockup-tela-fria-rosa-pastel.jpg" data-code="#f8c8dc" style="background: #f8c8dc;"></div>
+                        
+                        <!-- Amarillo claro -->
+                        <div class="color-option" data-color="amarillo claro" data-image="imagenes/tela-fria/muestras-colores/mockup-tela-fria-amarillo-claro.jpg" data-code="#f7dc6f" style="background: #f7dc6f;"></div>
+                    </div>
+                    
+                    <div class="selected-color-info">
+                        <h3>¿Te gusta este color?</h3>
+                        <p>Una vez que hayas elegido el color perfecto para tu tela fría, puedes proceder a personalizarla con tu diseño.</p>
+                        <a href="https://wa.me/573233570334?text=Hola,%20quiero%20personalizar%20una%20camiseta%20de%20tela%20fría%20en%20el%20color%20BLANCO" class="btn" style="margin-top: 15px;">
+                            Personalizar con este Color
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Galería de Trabajos -->
         <section class="gallery-section">
-            <h2 style="margin-bottom: 30px; color: var(--dark); text-align: center;">Nuestros Mugs Básicos Personalizados</h2>
+            <h2 style="margin-bottom: 30px; color: var(--dark); text-align: center;">Nuestras Camisetas Tela Fría Personalizadas</h2>
             
             <div class="gallery-grid">
                 <!-- Trabajo 1 -->
                 <div class="gallery-item">
-                    <img src="imagenes/trabajos/mug_basico_1.jpg" alt="Mug básico personalizado día del maestro" class="gallery-image">
+                    <div class="cool-fabric-badge">Tela Fría</div>
+                    <img src="imagenes/tela-fria/trabajos/tela-fria-1.jpg" alt="Tela fría personalizada evento verano" class="gallery-image">
                     <div class="gallery-overlay">
-                        <h4>Día del Maestro</h4>
-                        <p>Mug personalizado para celebración</p>
+                        <h4>Evento de Verano</h4>
+                        <p>Diseño fresco para clima cálido</p>
                     </div>
                 </div>
 
                 <!-- Trabajo 2 -->
                 <div class="gallery-item">
-                    <img src="imagenes/trabajos/mug_basico_2.jpg" alt="Mug básico empresarial" class="gallery-image">
+                    <div class="cool-fabric-badge">Tela Fría</div>
+                    <img src="imagenes/tela-fria/trabajos/tela-fria-2.jpg" alt="Tela fría equipo deportivo" class="gallery-image">
                     <div class="gallery-overlay">
-                        <h4>Empresarial</h4>
-                        <p>Mug corporativo con logo</p>
+                        <h4>Equipo Deportivo</h4>
+                        <p>Perfecta para entrenamientos</p>
                     </div>
                 </div>
 
                 <!-- Trabajo 3 -->
                 <div class="gallery-item">
-                    <img src="imagenes/trabajos/mug_basico_3.jpg" alt="Mug básico aniversario" class="gallery-image">
+                    <div class="cool-fabric-badge">Tela Fría</div>
+                    <img src="imagenes/tela-fria/trabajos/tela-fria-3.jpg" alt="Tela fría diseño playero" class="gallery-image">
                     <div class="gallery-overlay">
-                        <h4>Aniversario</h4>
-                        <p>Diseño especial para celebraciones</p>
+                        <h4>Estilo Playero</h4>
+                        <p>Diseño tropical y fresco</p>
                     </div>
                 </div>
 
                 <!-- Trabajo 4 -->
                 <div class="gallery-item">
-                    <img src="imagenes/Mugs/mug-basico/mug-1.jpg" alt="Mug básico familiar" class="gallery-image">
+                    <div class="cool-fabric-badge">Tela Fría</div>
+                    <img src="imagenes/tela-fria/trabajos/tela-fria-4.jpg" alt="Tela fría empresa turística" class="gallery-image">
                     <div class="gallery-overlay">
-                        <h4>Familiar</h4>
-                        <p>Mug con fotos familiares</p>
+                        <h4>Empresa Turística</h4>
+                        <p>Uniforme para clima cálido</p>
                     </div>
                 </div>
 
                 <!-- Trabajo 5 -->
                 <div class="gallery-item">
-                    <img src="imagenes/Mugs/mug-basico/mug-3.jpg" alt="Mug básico deportivo" class="gallery-image">
+                    <div class="cool-fabric-badge">Tela Fría</div>
+                    <img src="imagenes/tela-fria/trabajos/tela-fria-5.jpg" alt="Tela fría concierto" class="gallery-image">
                     <div class="gallery-overlay">
-                        <h4>Deportivo</h4>
-                        <p>Mug para equipos deportivos</p>
+                        <h4>Concierto</h4>
+                        <p>Diseño para evento musical</p>
                     </div>
                 </div>
 
                 <!-- Trabajo 6 -->
                 <div class="gallery-item">
-                    <img src="imagenes/Mugs/mug-basico/mug-2.jpg" alt="Mug básico infantil" class="gallery-image">
+                    <div class="cool-fabric-badge">Tela Fría</div>
+                    <img src="imagenes/tela-fria/trabajos/tela-fria-6.jpg" alt="Tela fría promocional" class="gallery-image">
                     <div class="gallery-overlay">
-                        <h4>Infantil</h4>
-                        <p>Diseños divertidos para niños</p>
+                        <h4>Promocional</h4>
+                        <p>Campaña publicitaria verano</p>
                     </div>
                 </div>
             </div>
 
             <div class="btn-container">
-                <a href="https://wa.me/573233570334?text=Hola,%20quiero%20personalizar%20un%20mug%20básico" class="btn" target="_blank">
-                    Personalizar Mi Mug Básico
+                <a href="https://wa.me/573233570334?text=Hola,%20quiero%20personalizar%20una%20camiseta%20de%20tela%20fría" class="btn" target="_blank">
+                    Personalizar Mi Tela Fría
                 </a>
             </div>
         </section>
@@ -891,43 +1071,43 @@
         <section class="category-info">
             <div class="info-grid">
                 <div class="info-content">
-                    <h2>Mugs Básicos de Cerámica Premium</h2>
-                    <p>Nuestros mugs básicos son la opción perfecta para regalos corporativos, eventos especiales o uso personal. Fabricados con cerámica de alta calidad y personalizados con tu diseño único.</p>
+                    <h2>Frescura y Comodidad en Climas Cálidos</h2>
+                    <p>Nuestras camisetas de tela fría están especialmente diseñadas para ofrecer máximo confort en temperaturas elevadas. Con tecnología de enfriamiento y materiales transpirables, son la elección ideal para climas cálidos y actividades al aire libre.</p>
                     
                     <ul class="info-features">
                         <li>
-                            <i class="fas fa-check"></i>
-                            <span>Capacidad estándar de 11 oz</span>
+                            <i class="fas fa-snowflake"></i>
+                            <span>Efecto refrescante inmediato al contacto con la piel</span>
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
-                            <span>Material: Cerámica premium de alta durabilidad</span>
+                            <i class="fas fa-wind"></i>
+                            <span>Altamente transpirable y de secado rápido</span>
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
-                            <span>Lavable en lavavajillas y seguro para microondas</span>
+                            <i class="fas fa-feather"></i>
+                            <span>Peso ligero y textura suave</span>
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
-                            <span>Personalización completa 360°</span>
+                            <i class="fas fa-palette"></i>
+                            <span>Excelente para sublimación y serigrafía</span>
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
-                            <span>Ideal para sublimación y vinilo de corte</span>
+                            <i class="fas fa-ruler-combined"></i>
+                            <span>Tallas disponibles: S, M, L, XL, XXL</span>
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
-                            <span>Disponible en colores blanco y negro</span>
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Resistente al lavado y no pierde sus propiedades</span>
                         </li>
                     </ul>
                     
                     <p style="margin-top: 20px; font-weight: 500; color: var(--dark);">
-                        Perfecto para: Regalos empresariales, eventos, aniversarios, cumpleaños y recuerdos especiales.
+                        Ideal para: Deportes al aire libre, eventos de verano, climas tropicales, actividades recreativas y uso diario en zonas cálidas.
                     </p>
                 </div>
                 
                 <div class="info-image">
-                    Mug Básico Personalizado
+                    Tela Fría Premium
                 </div>
             </div>
         </section>
@@ -957,7 +1137,7 @@
                 <ul class="footer-links">
                     <li><a href="index.html#inicio">Inicio</a></li>
                     <li><a href="acerca-de.html">Acerca de</a></li>
-                    <li><a href="mugs.html">Catálogo</a></li>
+                    <li><a href="camisetas.html">Catálogo</a></li>
                     <li><a href="index.html#contacto">Contacto</a></li>
                 </ul>
             </div>
@@ -1021,6 +1201,33 @@
                 const submenu = toggle.parentElement.querySelector('.mobile-submenu');
                 toggle.classList.toggle('active');
                 submenu.classList.toggle('active');
+            });
+        });
+
+        // Selector de Color con Mockup
+        const colorOptions = document.querySelectorAll('.color-option');
+        const mockupImage = document.getElementById('mockupImage');
+        const selectedColorName = document.getElementById('selectedColorName');
+        const personalizeBtn = document.querySelector('.selected-color-info .btn');
+
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remover clase selected de todas las opciones
+                colorOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Agregar clase selected a la opción clickeada
+                this.classList.add('selected');
+                
+                // Obtener datos del color seleccionado
+                const colorName = this.getAttribute('data-color');
+                const imageUrl = this.getAttribute('data-image');
+                
+                // Actualizar mockup e información
+                mockupImage.src = imageUrl;
+                selectedColorName.textContent = `Color: ${colorName.charAt(0).toUpperCase() + colorName.slice(1)}`;
+                
+                // Actualizar enlace de WhatsApp
+                personalizeBtn.href = `https://wa.me/573233570334?text=Hola,%20quiero%20personalizar%20una%20camiseta%20de%20tela%20fría%20en%20el%20color%20${colorName.toUpperCase()}`;
             });
         });
 
