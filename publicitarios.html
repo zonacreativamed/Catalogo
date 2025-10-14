@@ -442,23 +442,25 @@
             z-index: 2;
         }
 
-        .product-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-size: 1.1rem;
-            position: relative;
-            overflow: hidden;
-        }
+        /* Reemplaza el estilo actual de .product-image por este: */
+		.product-image {
+   			width: 100%;
+    		height: 250px;
+    		background: #f8f9fa; /* Color de fondo por si la imagen no carga */
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		position: relative;
+    		overflow: hidden;
+		}
 
-        .product-image::after {
-            content: "Imagen del Producto";
-            position: absolute;
-        }
+		.product-image img {
+    		width: 100%;
+    		height: 100%;
+    		object-fit: cover; /* Esto hace que la imagen cubra el espacio sin distorsionarse */
+    		object-position: center;
+    		transition: transform 0.3s ease;
+		}
 
         .product-info {
             padding: 25px;
@@ -896,43 +898,70 @@
         <section>
             <h2 style="margin-bottom: 30px; color: var(--dark); text-align: center;">Nuestros Productos Publicitarios</h2>
             <div class="products-grid">
+                
                 <!-- Producto 1 -->
                 <div class="product-card">
-                    <div class="product-badge">Papelería</div>
-                    <div class="product-image"></div>
+                    <div class="product-badge">Empaques</div>
+                  <div class="product-image">
+        			<img src="imagenes/publicitarios/publicitario_4.jpg" alt="Empaque cartón - Zona Creativa">
+    			</div>					
+					
                     <div class="product-info">
-                        <h3 class="product-title">Tarjetas de Presentación Premium</h3>
-                        <p class="product-description">Tarjetas de presentación de alta calidad con acabados especiales para profesionales y empresas.</p>
-                        <div class="product-price">Desde $29.99</div>
+                        <h3 class="product-title">Empaques para chocolate</h3>
+                        <p class="product-description">Cajas en cartón maule para empaque de chocolate de mesa.</p>
+                        <!-- <div class="product-price">Desde $29.99</div> -->
                         <ul class="product-features">
-                            <li>Papel de 300-400g de gramaje</li>
-                            <li>Acabados: mate, brillo, relieve</li>
+                            <li>Cartón Maule</li>
+                            <li>Acabados: Impresión full color</li>
                             <li>Diseño profesional incluido</li>
-                            <li>Entrega en 3-5 días hábiles</li>
+                            <li>Entrega en 8 días hábiles</li>
+                            <li>Cantidad mínima: 500 unidades</li>	
                         </ul>
                         <button class="btn" style="width: 100%;">Solicitar Cotización</button>
-                    </div>
-                </div>
-
-                <!-- Producto 2 -->
+                  </div>
+                </div>				
+				
+				<!-- Producto 2 -->
                 <div class="product-card">
-                    <div class="product-badge">Flyers</div>
-                    <div class="product-image"></div>
-                    <div class="product-info">
-                        <h3 class="product-title">Flyers Promocionales</h3>
-                        <p class="product-description">Flyers de alta calidad para promocionar tus productos, servicios o eventos especiales.</p>
-                        <div class="product-price">Desde $14.99</div>
+                    <div class="product-badge">Empaques</div>
+                  <div class="product-image">
+       			  <img src="imagenes/publicitarios/publicitario_5.jpg" alt="Empaque cartón laminado - Zona Creativa"> </div>
+					<div class="product-info">
+                        <h3 class="product-title">Empaques productos tecnológicos</h3>
+                        <p class="product-description">Cajas en cartón maule para empaque de productos tecnológicos.</p>
+                        <!--<div class="product-price">Desde $29.99</div> -->
                         <ul class="product-features">
-                            <li>Papel couché 150g</li>
-                            <li>Full color ambos lados</li>
-                            <li>Tamaños estándar y personalizados</li>
-                            <li>Ideal para campañas masivas</li>
+                            <li>Cartón Maule</li>
+                            <li>Acabados: Impresión full color, laminado mate</li>
+                            <li>Diseño profesional incluido</li>
+                            <li>Entrega en 8 días hábiles</li>
+                            <li>Cantidad mínima: 500 unidades</li>			
                         </ul>
                         <button class="btn" style="width: 100%;">Solicitar Cotización</button>
-                    </div>
+                  </div>
                 </div>
 
                 <!-- Producto 3 -->
+                <div class="product-card">
+                    <div class="product-badge">Tarjetas</div>
+                  <div class="product-image">
+       			  <img src="imagenes/trabajos/publicitario_2.jpg" alt="Mug Cerámica Clásico - Zona Creativa"> </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Tarjetas de presentación</h3>
+                        <p class="product-description">Tarjetas con estilo para representar tu marca.</p>
+                        <!--<div class="product-price">Desde $14.99</div> -->
+                        <ul class="product-features">
+                            <li>Papel Propalcote 300g </li>
+                            <li>Acabado brillante, mate o mate reserva</li>	
+                            <li>Full color ambos lados</li>
+                            <li>Tamaño 9x5 cms</li>
+                            <li>desde 1.000 unidades</li>
+                        </ul>
+                        <button class="btn" style="width: 100%;">Solicitar Cotización</button>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
                 <div class="product-card">
                     <div class="product-badge">Exterior</div>
                     <div class="product-image"></div>
@@ -950,7 +979,7 @@
                     </div>
                 </div>
 
-                <!-- Producto 4 -->
+                <!-- Producto 5 -->
                 <div class="product-card">
                     <div class="product-badge">Merchandising</div>
                     <div class="product-image"></div>
