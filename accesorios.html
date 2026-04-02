@@ -1403,11 +1403,16 @@
         });
 
         // Botón de cotización
-        document.querySelector('.btn').addEventListener('click', function() {
-            if (this.textContent.includes('Cotización')) {
-                window.open('https://wa.me/573213280637?text=Hola,%20necesito%20una%20cotización%20para%20accesorios%20personalizados', '_blank');
-            }
+        document.querySelectorAll('.btn').forEach(button => {
+    	if (button.textContent.toLowerCase().includes('cotización')) {
+        button.addEventListener('click', function() {
+            window.open(
+                'https://wa.me/573213280637?text=Hola,%20necesito%20una%20cotización%20para%20camisetas%20personalizadas',
+                '_blank'
+            );
         });
+    }
+});
     </script>
 </body>
 </html>
