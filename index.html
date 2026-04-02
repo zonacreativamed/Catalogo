@@ -4,13 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zona Creativa Medellín - Productos Personalizados</title>
-    
+	
+	<meta name="description" content="Zona Creativa Colombia - Productos personalizados de alta calidad. Mugs, camisetas, accesorios y regalos corporativos diseñados especialmente para ti.">
+	<meta name="keywords" content="productos personalizados, mugs, camisetas, regalos corporativos, Medellín, Colombia">
+	<meta name="author" content="Zona Creativa">
+	<meta name="robots" content="index, follow">
+
+	<!-- Open Graph para redes sociales -->
+	<meta property="og:title" content="Zona Creativa - Productos Personalizados">
+	<meta property="og:description" content="Tu destino para productos personalizados de alta calidad">
+	<meta property="og:image" content="imagenes/Logo-Zona-Creativa.png">
+	<meta property="og:url" content="https://www.zonacreativaco.com">
+	<meta property="og:type" content="website">
+
 	<!-- Favicon -->
 		<link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
+		<link rel="apple-touch-icon" href="imagenes/favicon-180.png">
+		<link rel="mask-icon" href="imagenes/favicon-mask.svg" color="#a964ff">
 	<!-- Para dispositivos Apple -->
 		<link rel="apple-touch-icon" href="imagenes/favicon.png">
 	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<!-- Preconectar a CDN -->
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+	<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+	<!-- Font Awesome CDN con atributos de performance -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      integrity="sha512-..." 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer"
+      media="print" 
+      onload="this.media='all'">
+	
     <style>
         * {
             margin: 0;
@@ -35,6 +60,10 @@
 			--light: #f5f5f7;
 			--border: #e8e8e8;
 			--shadow: rgba(19, 15, 28, 0.12);
+			--text: #333;
+			--text-light: #7f8c8d;
+			--secondary: #9b59b6;
+			--accent: #e74c3c;
 		}
 
         body {
@@ -436,8 +465,29 @@
     }
 
     .mobile-submenu-link {
-        padding: 20px 20px !important;
-    }
+		color: var(--text-primary);
+		text-decoration: none;
+		padding: 18px 20px !important; /* antes 14px */
+		font-family: inherit;
+		font-size: 15px;
+		font-weight: 500;
+		letter-spacing: 0.2px;
+		border-radius: 8px;
+		transition:
+			background 0.25s ease,
+			transform 0.18s ease,
+			padding-left 0.25s ease;
+	}
+	
+	.mobile-submenu-link:hover {
+		background: rgba(248,152,40,0.08);
+	    color: var(--primary);
+		padding-left: 26px;
+	}
+	
+	.mobile-submenu-link:active {
+	    transform: scale(0.97);
+	}
 }
 
         /* Resto del CSS */
@@ -538,7 +588,7 @@
         hr {
             border: 0;
             height: 3px;
-            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+            background: linear-gradient(to right, #a964ff, #9b59b6, #e74c3c);
             margin: 25px auto;
             width: 80%;
             border-radius: 3px;
@@ -1079,24 +1129,30 @@
         }
 
         /* WhatsApp flotante */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
-            z-index: 100;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
+		.whatsapp-float {
+			position: fixed;
+			bottom: 25px;
+			right: 25px;
+			width: 60px;
+			height: 60px;
+			background: #25D366;
+			color: white;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.8rem;
+			box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+			z-index: 100;
+			transition: all 0.3s ease;
+			animation: pulse 2s infinite;
+			border: none;  /* Agrega esto */
+			cursor: pointer;
+		}
+		.whatsapp-float:focus {
+			outline: 2px solid white;
+			outline-offset: 2px;
+		}
 
         .whatsapp-float:hover {
             transform: scale(1.1);
@@ -1161,7 +1217,8 @@
 </head>
 <body>
     <!-- WhatsApp flotante -->
-    <a href="https://wa.me/573213280637?text=Hola,%20me%20interesan%20tus%20productos%20personalizados" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/573213280637?text=Hola,%20me%20interesan%20tus%20productos%20personalizados" class="whatsapp-float" target="_blank"
+	rel="noopener noreferrer">	
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1289,7 +1346,6 @@
         </li>
     </ul>
 </nav>
-
 	<!-- Carrusel -->
     <div class="carousel">
         <div class="carousel-slide slide-1 active"></div>
@@ -1311,7 +1367,7 @@
             <p class="section-subtitle">Tu destino para productos personalizados de alta calidad. Desde mugs y camisetas hasta regalos corporativos, creamos diseños únicos que reflejan tu estilo.</p>
             <hr>
         </section>
-
+	
         <!-- Sección Acerca de -->
         <!-- <section id="acerca">
             <h2 class="section-title">Acerca de Nosotros</h2>
@@ -1354,7 +1410,7 @@
             </div>
         </section> -->
 
-        <!-- Sección Nuestros Trabajos -->
+		<!-- Sección Nuestros Trabajos -->
 		<section id="trabajos">
     		<h2 class="section-title">Nuestros Trabajos</h2>
     		<p class="section-subtitle">Descubre la calidad y creatividad de nuestros productos personalizados</p>
@@ -1374,7 +1430,8 @@
         	
 			<!-- Item de video 1 -->
     		<div class="work-item" data-category="publicitarios">
-       		 <video class="work-media" controls muted poster="imagenes/trabajos/publicitario_1.jpg">
+       		 <video class="work-media" controls muted poster="imagenes/trabajos/publicitario_1.jpg"
+				 	aria-label="Video de reconocimiento en acrílico">
             		<source src="imagenes/videos/publicitario_1.mp4" type="video/mp4">
             		Tu navegador no soporta el elemento video.
         		</video>
@@ -1387,7 +1444,8 @@
     
     		<!-- Mug 1 -->
           	<div class="work-item" data-category="mugs">
-            	<img src="imagenes/trabajos/mug_tapa_1.jpg" alt="Mug personalizado empresarial">
+            	<img src="imagenes/trabajos/mug_tapa_1.jpg" alt="Mug personalizado empresarial"
+				loading="lazy">
             	<div class="work-overlay">
                 	<h4>Mug Atlético Nacional</h4>
                 	<p>Con tapa y base de silicona</p>
@@ -1583,12 +1641,12 @@
                         <div class="form-group">
                             <label for="subject">Asunto *</label>
                             <select id="subject" name="subject" required>
-                                <option value="">Selecciona un asunto</option>
-                                <option value="cotizacion">Cotización de productos</option>
-                                <option value="diseno">Consulta sobre diseño</option>
-                                <option value="pedido">Seguimiento de pedido</option>
-                                <option value="general">Consulta general</option>
-                            </select>
+							<option value="" disabled selected>Selecciona un asunto</option>
+							<option value="cotizacion">Cotización de productos</option>
+							<option value="diseno">Consulta sobre diseño</option>
+							<option value="pedido">Seguimiento de pedido</option>
+							<option value="general">Consulta general</option>
+						</select>
                         </div>
                         
                         <div class="form-group">
@@ -1610,10 +1668,12 @@
                 <h3>Zona Creativa</h3>
                 <p>Especialistas en productos personalizados de alta calidad para todos tus eventos y necesidades.</p>
                 <div class="social-links">
-                    <a href="https://instagram.com/zonacreativa.med" target="_blank">
+                    <a href="https://instagram.com/zonacreativa.med" target="_blank"
+					rel="noopener noreferrer">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://wa.me/573213280637" target="_blank">
+                    <a href="https://wa.me/573213280637" target="_blank"
+					rel="noopener noreferrer">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                     <a href="mailto:zonacreativa.med@gmail.com">
@@ -1800,7 +1860,25 @@
         // Manejo del formulario de contacto
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+            // Validación básica
+			const name = document.getElementById('name').value.trim();
+			const email = document.getElementById('email').value.trim();
+			const subject = document.getElementById('subject').value;
+			const message = document.getElementById('message').value.trim();
+
+			// Validar email
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+			if (!name || !email || !subject || !message) {
+				alert('Por favor completa todos los campos.');
+				return;
+			}
+
+			if (!emailRegex.test(email)) {
+				alert('Por favor ingresa un email válido.');
+				return;
+			}
+			alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
             this.reset();
         });
 		
