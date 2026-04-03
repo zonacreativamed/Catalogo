@@ -189,30 +189,6 @@
             color: #c13584;
         }
 
-		/* Menú Hamburguesa para Móviles */
-		.mobile-menu-btn {
-    		display: none;
-    		background: none;
-    		border: none;
-    		font-size: 1.5rem;
-    		color: var(--dark);
-    		cursor: pointer;
-    		padding: 10px;
-    		z-index: 1001;
-    		transition: all 0.3s ease;
-		}
-	
-		@media (max-width: 768px) {
-    		.mobile-menu-btn {
-        		display: block;
-    		}
-		}
-
-		.mobile-menu-btn:hover {
-    		color: var(--primary);
-    		transform: scale(1.1);
-		}
-
 /* ================== BOTÓN HAMBURGUESA ================== */
 .mobile-menu-btn {
     display: none;
@@ -861,6 +837,7 @@
             color: white;
             font-size: 1.2rem;
             transition: all 0.3s ease;
+			text-decoration: none !important;
         }
 
         .social-links a:hover {
@@ -895,6 +872,7 @@
             z-index: 100;
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
+			text-decoration: none !important;
         }
 
         .whatsapp-float:hover {
