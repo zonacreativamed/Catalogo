@@ -659,16 +659,22 @@
             text-align: center;
         }
 
-        .info-image {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            height: 300px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
+		/* video de mugs pasando de instagram */
+	    .info-image {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 480 / 853;
+        }
+
+        .info-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
 
         /* Botones */
@@ -1140,23 +1146,23 @@
                         </li>
                         <li>
                             <i class="fas fa-check"></i>
-                            <span>Material: Cerámica premium de alta durabilidad</span>
+                            <span>Material: Cerámica de alta durabilidad</span>
                         </li>
-                        <li>
+                        <!--<li>
                             <i class="fas fa-check"></i>
                             <span>Lavable en lavavajillas y seguro para microondas</span>
+                        </li> -->
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Diseño personalizado de 21 cms de ancho por 9 cms de alto</span>
                         </li>
                         <li>
                             <i class="fas fa-check"></i>
-                            <span>Personalización completa 360°</span>
+                            <span>Ideal para sublimación</span>
                         </li>
                         <li>
                             <i class="fas fa-check"></i>
-                            <span>Ideal para sublimación y vinilo de corte</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <span>Disponible en colores blanco y negro</span>
+                            <span>Disponible en color blanco</span>
                         </li>
                     </ul>
                     
@@ -1165,9 +1171,12 @@
                     </p>
                 </div>
                 
-                <div class="info-image">
-                    Mug Básico Personalizado
-                </div>
+			<div class="info-image">
+				<video autoplay muted loop playsinline preload="auto" poster="imagenes/poster-mug.jpg">
+					<source src="imagenes/videos/mugs_muestras1.mp4" type="video/mp4">
+					Tu navegador no soporta videos HTML5.
+			</video>
+</div>
             </div>
         </section>
     </div>
