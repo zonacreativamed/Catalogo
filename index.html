@@ -1553,48 +1553,32 @@
             video.addEventListener('mouseleave', function() { this.pause(); this.currentTime = 0; });
         });
 
-        // Formulario
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value.trim();
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!name || !email || !subject || !message) {
-                alert('Por favor completa todos los campos.');
-                return;
-            }
-            if (!emailRegex.test(email)) {
-                alert('Por favor ingresa un email válido.');
-                return;
-            }
-            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-            this.reset();
-        });
-
-        // Filtros galería
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterBtns = document.querySelectorAll('.filter-btn');
+        // FILTROS GALERÍA
+        const filterBtns = document.querySelectorAll('.filter-btn');
             const workItems = document.querySelectorAll('.work-item');
+
             filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', () => {
+
                     filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    const filter = this.getAttribute('data-filter');
+                    btn.classList.add('active');
+
+                    const filter = btn.dataset.filter;
+
                     workItems.forEach(item => {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                            item.style.display = 'block';
-                            setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 50);
-                        } else {
-                            item.style.opacity = '0';
-                            item.style.transform = 'scale(0.8)';
-                            setTimeout(() => { item.style.display = 'none'; }, 300);
-                        }
-                    });
-                });
+
+            const category = item.dataset.category;
+
+            if (filter === 'all' || category === filter) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+
             });
+
         });
+    });
     </script>
 </body>
 </html>
