@@ -659,16 +659,22 @@
             text-align: center;
         }
 
-        .info-image {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            height: 300px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
+		/* video de mugs magico */
+	    .info-image {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 480 / 598;
+        }
+
+        .info-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
 
         /* Botones */
@@ -1174,8 +1180,11 @@
                 </div>
                 
                 <div class="info-image">
-                    Mug Mágico en Acción
-                </div>
+				<video autoplay muted loop playsinline preload="auto" poster="imagenes/poster-mug.jpg">
+					<source src="imagenes/videos/mug_magico_2.mp4" type="video/mp4">
+					Tu navegador no soporta videos HTML5.
+			</video>
+			</div>>
             </div>
         </section>
     </div>
