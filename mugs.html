@@ -739,16 +739,22 @@
             text-align: center;
         }
 
-        .info-image {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            height: 300px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
+		/* video de mugs basicos */
+	    .info-image {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 800 / 600;
+        }
+
+        .info-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
 
         /* Footer */
@@ -1103,6 +1109,7 @@
             			<li>Material: Cerámica premium</li>
             			<li>Lavable en lavavajillas</li>
             			<li>Personalización completa</li>
+						<li>Viene con caja</li>
         			</ul>
         			<div class="product-actions">
                         <button class="btn" style="width: 100%;">Personalizar Ahora</button>
@@ -1126,6 +1133,7 @@
             			<li>Material cerámica premium</li>
             			<li>Capacidad: 11 oz</li>
             			<li>Perfecto para regalos sorpresa</li>
+						<li>Viene con caja</li>
         			</ul>
                     <div class="product-actions">
                         <button class="btn" style="width: 100%;">Personalizar Ahora</button>
@@ -1149,6 +1157,7 @@
 							<li>Material: Cerámica y silicona</li>
 							<li>Capacidad: 11 oz</li>
 							<li>Perfecto para viajes y oficina</li>
+							<li>Viene con caja</li>
                         </ul>
                         <div class="product-actions">
                             <button class="btn" style="width: 100%;">Personalizar Ahora</button>
@@ -1193,8 +1202,11 @@
                 </div>
                 
                 <div class="info-image">
-                    Proceso de Personalización
-                </div>
+				<video autoplay muted loop playsinline preload="auto" poster="imagenes/poster-mug.jpg">
+					<source src="imagenes/videos/mug_basico_movimiento.mp4" type="video/mp4">
+					Tu navegador no soporta videos HTML5.
+			</video>
+			</div>
             </div>
         </section>
     </div>
