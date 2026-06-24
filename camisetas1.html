@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zona Creativa Medellín - Dotaciones y prendas corporativas</title>
+    <title>Camisetas Personalizadas en Medellín | DTF, Sublimación y bordado| Zona Creativa</title>
 	
-	<meta name="description" content="Zona Creativa Colombia - Productos personalizados de alta calidad. Mugs, camisetas, accesorios y regalos corporativos diseñados especialmente para ti.">
-	<meta name="keywords" content="productos personalizados, mugs, camisetas, regalos corporativos, Medellín, Colombia">
+	<meta name="description" content="Camisetas personalizadas en Medellín mediante DTF y sublimación. Prendas para empresas, eventos, emprendimientos y uso personal.">
+	<meta name="keywords" content="camisetas personalizadas Medellín, estampados DTF Medellín, Bordados Medellín">
 	<meta name="author" content="Zona Creativa">
 	<meta name="robots" content="index, follow">
 
@@ -35,6 +35,19 @@
       referrerpolicy="no-referrer"
       media="print" 
       onload="this.media='all'">
+	
+	<script type="application/ld+json">
+	{
+	 "@context":"https://schema.org",
+	 "@type":"Product",
+	 "name":"Camisetas",
+	 "description":"Camisetas estampadas y bordadas para regalo o dotación",
+	 "brand":{
+	   "@type":"LocalBusiness",
+	   "name":"Zona Creativa Medellín"
+	 }
+	}
+	</script>
 	
     <style>
         * {
@@ -80,14 +93,14 @@
         }
 
         .logo-img {
-            height: 50px;
-            width: auto;
-        }
+    		height: 50px; /* Ajusta según necesites */
+    		width: auto;
+		}
 
-        .logo {
-            display: flex;
-            align-items: center;
-        }
+		.logo {
+    		display: flex;
+    		align-items: center;
+		}
 
         /* Menú de navegación PARA ESCRITORIO */
         .desktop-nav {
@@ -476,10 +489,9 @@
 	    transform: scale(0.97);
 	}
 }
-
         /* Hero Section */
         .category-hero {
-            background: linear-gradient(135deg, #0086ff, #0041a3);
+            background: linear-gradient(135deg, #e74c3c, #f28d00);
             color: white;
             padding: 80px 0;
             text-align: center;
@@ -503,44 +515,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-        }
-
-        /* Navegación de Categorías */
-        .category-nav {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .category-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .category-link {
-            padding: 10px 20px;
-            border: 2px solid var(--primary);
-            border-radius: 25px;
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .category-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .category-link.active {
-            background: var(--primary);
-            color: white;
         }
 
         /* Selector de Color con Mockup */
@@ -639,6 +613,13 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
+        .color-name {
+            margin-top: 5px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+
         .selected-color-info {
             background: var(--light);
             padding: 20px;
@@ -651,69 +632,156 @@
             margin-bottom: 10px;
         }
 
-        /* Galería de Trabajos */
-        .gallery-section {
+        /* Botones adicionales */
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), #2980b9);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Grid de Productos */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
             margin-bottom: 60px;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 12px;
+        .product-card {
+            background: white;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            cursor: pointer;
-            background: white;
+            position: relative;
         }
 
-        .gallery-item:hover {
+        .product-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .gallery-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-image {
-            transform: scale(1.05);
-        }
-
-        .gallery-overlay {
+        .product-badge {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
             color: white;
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
         }
 
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
+        /* Reemplaza el estilo actual de .product-image por este: */
+		.product-image {
+   			width: 100%;
+    		height: 250px;
+    		background: #f8f9fa; /* Color de fondo por si la imagen no carga */
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		position: relative;
+    		overflow: hidden;
+		}
+
+		.product-image img {
+    		width: 100%;
+    		height: 100%;
+    		object-fit: cover; /* Esto hace que la imagen cubra el espacio sin distorsionarse */
+    		object-position: center;
+    		transition: transform 0.3s ease;
+		}
+
+		.product-card:hover .product-image img {
+    		transform: scale(2.10); /* Efecto zoom al hover */
+		}
+        .product-info {
+            padding: 25px;
         }
 
-        .gallery-overlay h4 {
-            margin-bottom: 5px;
-            font-size: 1.2rem;
+        .product-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 10px;
         }
 
-        .gallery-overlay p {
+        .product-description {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .product-features li {
+            padding: 5px 0;
+            color: var(--text-light);
             font-size: 0.9rem;
-            opacity: 0.9;
-            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-features li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 8px;
         }
 
         /* Información de la Categoría */
@@ -777,32 +845,6 @@
             color: white;
             font-size: 1.2rem;
             font-weight: bold;
-        }
-
-        /* Botones */
-        .btn {
-            display: inline-block;
-            background: linear-gradient(to right, var(--primary), #2980b9);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
-        }
-
-        .btn-container {
-            text-align: center;
-            margin: 40px 0;
         }
 
         /* Footer */
@@ -960,17 +1002,8 @@
                 height: 50px;
             }
             
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .category-links {
-                gap: 10px;
-            }
-            
-            .category-link {
-                padding: 8px 16px;
-                font-size: 0.9rem;
+            .products-grid {
+                grid-template-columns: 1fr;
             }
             
             .info-grid {
@@ -1002,20 +1035,16 @@
             .category-hero p {
                 font-size: 1rem;
             }
-            
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 <body>
     <!-- WhatsApp flotante -->
-    <a href="https://wa.me/573213280637?text=Hola,%20me%20interesan%20las%20camisetas%20licra%20algodón%20personalizadas" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/573213280637?text=Hola,%20me%20interesan%20sus%20camisetas%20personalizadas" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Header -->
+    <!-- Header CORREGIDO con menú hamburguesa -->
     <header>
         <div class="header-container">
             <a href="index.html" class="logo">
@@ -1152,183 +1181,189 @@
     <!-- Hero Section -->
     <section class="category-hero">
         <div class="container">
-            <h1>Camisetas Estampadas y Bordadas</h1>
-            <p>En esta sección podrás ver nuestros trabajos para prendas corporativas</p>
+            <h1>Camisetas y Chompas Personalizadas</h1>
+            <p>Diseños únicos en prendas de alta calidad. Perfectas para equipos, eventos especiales y uso diario.</p>
         </div>
     </section>
 
     <div class="container">
-        <!-- Navegación de Categorías -->
-         <section class="category-nav">
-            <div class="category-links">
-                <!-- <a href="prendas-corporativas.html" class="category-link active">Prendas Corporativas</a>
-                <a href="mugs-corporativos.html" class="category-link">Mugs Corporativos</a>
-				<a href="termos-corporativos.html" class="category-link">Termos Corporativos</a>
-                <a href="agendas-corporativas.html" class="category-link">Agendas y Libretas</a>
-				<!--<a href="chompas.html" class="category-link">Chompas</a> -->
-                <a href="souvenirs-corporativos.html" class="category-link">Volver a Souvenirs Corporativos</a>
-            </div>
-        </section> 
 
-        <!-- Selector de Color con Mockup -->
-        <!-- <section class="color-selector-section">
-            <h2>Elige el Color de tu Camiseta</h2>
-            <p style="margin-bottom: 30px; color: var(--text-light);">Selecciona un color para ver cómo se vería tu camiseta licra algodón personalizada</p>
-            
-            <div class="mockup-container">
-                <div class="mockup-preview">
-                    <img id="mockupImage" src="imagenes/camisetas/muestras-colores/mockup-camiseta-negra.jpg" alt="Mockup de camiseta licra algodón" class="mockup-image">
-                    <div style="margin-top: 15px;">
-                        <h3 id="selectedColorName" style="color: var(--dark);">Color: Negro</h3>
-                    </div>
-                </div>
-                
-                <div class="color-options-container">
-                    <div class="color-options-grid">
-                        Negro
-                        <div class="color-option selected" data-color="negro" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-negra.jpg" data-code="#2c3e50" style="background: #2c3e50;"></div>
-                        
-                        Gris oscuro
-                        <div class="color-option" data-color="gris oscuro" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-gris-oscuro.jpg" data-code="#34495e" style="background: #34495e;"></div>
-                        
-                        Rojo
-                        <div class="color-option" data-color="rojo" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-roja.jpg" data-code="#e74c3c" style="background: #e74c3c;"></div>
-                        
-                        Azul
-                        <div class="color-option" data-color="azul" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-azul.jpg" data-code="#3498db" style="background: #3498db;"></div>
-                        
-                        Verde
-                        <div class="color-option" data-color="verde" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-verde.jpg" data-code="#2ecc71" style="background: #2ecc71;"></div>
-                        
-                        Amarillo mostaza
-                        <div class="color-option" data-color="amarillo" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-amarillo-mostaza.jpg" data-code="#f1c40f" style="background: #f1c40f;"></div>
-                        
-                        Blanco 
-                        <div class="color-option" data-color="blanco" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-blanca.jpg" data-code="#ffffff" style="background: #ffffff; border: 1px solid #ddd;"></div>
-                    </div>
-                    
-                    <div class="selected-color-info">
-                        <h3>¿Te gusta este color?</h3>
-                        <p>Una vez que hayas elegido el color perfecto para tu camiseta licra algodón, puedes proceder a personalizarla con tu diseño.</p>
-                        <a href="https://wa.me/573213280637?text=Hola,%20quiero%20personalizar%20una%20camiseta%20licra%20algodón%20en%20el%20color%20NEGRO" class="btn" style="margin-top: 15px;">
-                            Personalizar con este Color
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- Galería de Trabajos -->
-        <section class="gallery-section">
-            <h2 style="margin-bottom: 30px; color: var(--dark); text-align: center;">Prendas personalizadas para empresas</h2>
-            
-            <div class="gallery-grid">
-                <!-- Trabajo 1 -->
-                <div class="gallery-item">
-                    <img src="imagenes/prendas/polo-estampada.webp" alt="Prendas para dotación" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4>Polos Estampadas</h4>
-                        <p>Estampación DTF</p>
+        <!-- Grid de Productos -->
+        <section>
+            <h2 style="margin-bottom: 30px; color: var(--dark); text-align: center;">Nuestras Prendas Destacadas</h2>
+            <div class="products-grid">
+                <!-- Producto 1 - Básica Licra Algodón -->
+                <div class="product-card">
+                    <div class="product-badge">Más Vendido</div>
+                    <div class="product-image">
+        			<img src="imagenes/camisetas/camiseta-licra-algodon.jpg" alt="Camiseta básica licra algodón - Zona Creativa">
+    			</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Camiseta básica licra algodón</h3>
+                        <p class="product-description">Camiseta mezcla de licra y algodón. Ideal para estampado y personalización.</p>
+                        <ul class="product-features">
+                            <li>Material: Licra algodón</li>
+                            <li>Tallas: S - XXL</li>
+                            <li>Colores: 12 disponibles</li>
+                            <li>Perfecta para estampado</li>
+                        </ul>
+                        <div class="product-actions">
+                            <button class="btn" style="width: 100%;">Escríbenos para Personalizar Ahora</button>
+                            <a href="basica-licra-algodon.html" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none;">Ver nuestros trabajos</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Trabajo 2 -->
-                <div class="gallery-item">
-                    <img src="imagenes/prendas/antifluido-bordada.webp" alt="Prendas para dotación" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4>Tela Antifluido</h4>
-                        <p>Logo bordado</p>
+                <!-- Producto 2 - Básica Algodón 
+                <div class="product-card">
+                    <div class="product-badge">Popular</div>
+                    <div class="product-image">
+                        <img src="imagenes/camisetas/camiseta-basica-algodon.jpg" alt="Camiseta básica algodón - Zona Creativa">
                     </div>
-                </div>
-
-                <!-- Trabajo 3 -->
-                <div class="gallery-item">
-                    <img src="imagenes/prendas/camiseta-estampada.webp" alt="Prendas para dotación" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4>Camisetas algodón</h4>
-                        <p>Estampación DTF</p>
-                    </div>
-                </div>
-
-                <!-- Trabajo 4 
-                <div class="gallery-item">
-                    <img src="imagenes/camisetas/trabajos/licra-algodon-4.jpg" alt="Camiseta licra algodón diseño creativo" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4>Diseño Creativo</h4>
-                        <p>Estampado completo</p>
+                    <div class="product-info">
+                        <h3 class="product-title">Camiseta básica algodón</h3>
+                        <p class="product-description">Camiseta 100% algodón. Ideal para estampado y personalización</p>
+                        <ul class="product-features">
+                            <li>Material: Algodón 100%</li>
+                            <li>Tallas: S- XXL</li>
+                            <li>Colores: 12 disponibles</li>
+                            <li>Perfecto para estampado</li>
+                        </ul>
+                        <div class="product-actions">
+                            <button class="btn" style="width: 100%;">Escríbenos para Personalizar Ahora</button>
+                            <a href="basica-algodon.html" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none;">Ver nuestros trabajos</a>
+                        </div>
                     </div>
                 </div> -->
-
-                <!-- Trabajo 5 
-                <div class="gallery-item">
-                    <img src="imagenes/camisetas/trabajos/licra-algodon-5.jpg" alt="Camiseta licra algodón aniversario" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4>Aniversario</h4>
-                        <p>Diseño conmemorativo</p>
+				
+                <!-- Producto 3 - Tela fría 
+                <div class="product-card">
+                    <div class="product-badge">Más Vendido</div> 
+                    <div class="product-image">
+        			<img src="imagenes/camisetas/camiseta-licra-algodon.jpg" alt="Camiseta básica licra algodón - Zona Creativa">
+    			</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Camiseta tela fría</h3>
+                      <p class="product-description">Proporciona senación de suavidad y frescura, resistente y ligera.</p>
+                        <ul class="product-features">
+                            <li>Material: Algodón Elastano (Spandex)</li>
+                            <li>Tallas: S - XXL</li>
+                            <li>Colores: 12 disponibles</li>
+                            <li>Perfecta para estampado</li>
+                        </ul>
+                        <div class="product-actions">
+                          <button class="btn" style="width: 100%;">Escríbenos para Personalizar Ahora</button>
+                            <a href="tela-fria.html" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none;">Ver nuestros trabajos</a>
+                      </div>
                     </div>
                 </div> -->
-
-                <!-- Trabajo 6 
-                <div class="gallery-item">
-                    <img src="imagenes/camisetas/trabajos/licra-algodon-6.jpg" alt="Camiseta licra algodón familiar" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4>Familiar</h4>
-                        <p>Diseños para familia</p>
+				
+                <!-- Producto 4 - Polo -->
+                <div class="product-card">
+                    <div class="product-badge">Elegante</div>
+                    <div class="product-image">
+                        <img src="imagenes/camisetas/polo.webp" alt="Polo clásico - Zona Creativa">
                     </div>
-                </div> -->
+                    <div class="product-info">
+                        <h3 class="product-title">Polo Clásico</h3>
+                        <p class="product-description">Polo elegante para look casual-profesional. Perfecto para uniformes.</p>
+                        <ul class="product-features">
+                            <li>Material: Piqué de algodón</li>
+                            <li>Tallas: S - XXL</li>
+                            <li>Cuello reforzado</li>
+                            <li>3 botones</li>
+                        </ul>
+                        <div class="product-actions">
+                            <button class="btn" style="width: 100%;">Escríbenos para Personalizar Ahora</button>
+                            <a href="polo.html" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none;">Ver nuestros trabajos</a>
+                        </div>
+                    </div>
+                </div>
+				
+                <!-- Producto 5 - Chompas -->
+                <div class="product-card">
+                    <!-- <div class="product-badge">Más Vendido</div> -->
+                    <div class="product-image">
+        			<img src="imagenes/camisetas/chompa.webp" alt="Camiseta básica licra algodón - Zona Creativa">
+    			</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Chompas</h3>
+                        <p class="product-description">La prenda perfecta para épocas frias y como complemento al estilo úrbano</p>
+                        <ul class="product-features">
+                            <li>Material: Algodón perchado</li>
+                            <li>Tallas: S - XL</li>
+                            <li>Colores: 6 disponibles</li>
+                            <li>Perfecta para estampado</li>
+                        </ul>
+                        <div class="product-actions">
+                            <button class="btn" style="width: 100%;">Escríbenos para Personalizar Ahora</button>
+                            <a href="chompas.html" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none;">Ver nuestros trabajos</a>
+                        </div>
+                    </div>
+                </div>	
+				
+				<!-- Producto 6 - Buzos -->
+                <div class="product-card">
+                    <!-- <div class="product-badge">Más Vendido</div> -->
+                    <div class="product-image">
+        			<img src="imagenes/camisetas/buzo.webp" alt="Camiseta básica licra algodón - Zona Creativa">
+    			</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Buzos</h3>
+                        <p class="product-description">La prenda perfecta para épocas frias y como complemento al estilo úrbano</p>
+                        <ul class="product-features">
+                            <li>Material: Algodón perchado</li>
+                            <li>Tallas: S - XL</li>
+                            <li>Colores: 6 disponibles</li>
+                            <li>Perfecta para estampado</li>
+                        </ul>
+                        <div class="product-actions">
+                            <button class="btn" style="width: 100%;">Escríbenos para Personalizar Ahora</button>
+                            <a href="chompas.html" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none;">Ver nuestros trabajos</a>
+                        </div>
+                    </div>
+                </div>	
             </div>
-        
-			<div class="btn-container">
-                <a href="https://wa.me/573213280637?text=Hola,%20quiero%20personalizar%20una%20camiseta%20licra%20algodón" class="btn" target="_blank">
-                    Cotiza por Whatsapp
-                </a>
-            </div>
-		</section>
+        </section>
 
-        <!-- Información de la Categoría 
+        <!-- Información de la Categoría -->
         <section class="category-info">
             <div class="info-grid">
                 <div class="info-content">
-                    <h2>Comodidad y Calidad en Cada Prenda</h2>
-                    <p>Nuestras camisetas licra algodón combinan lo mejor de ambos materiales: la suavidad del algodón y la elasticidad de la licra. Perfectas para uso diario, deporte o eventos especiales.</p>
+                    <h2>Prendas que Marcan la Diferencia</h2>
+                    <p>En Zona Creativa entendemos que cada prenda cuenta una historia. Por eso ofrecemos camisetas y chompas de la más alta calidad con técnicas de personalización avanzadas.</p>
                     
                     <ul class="info-features">
                         <li>
                             <i class="fas fa-tshirt"></i>
-                            <span>Prendas para dotaciones y regalos corporativos&nbsp; &nbsp;</span>
+                            <span>Amplia variedad de tallas y colores disponibles</span>
                         </li>
                         <li>
-                            <i class="fas fa-expand-alt"></i>
-                            <span>Excelente elasticidad y recuperación de forma</span>
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Técnicas de estampado: vinilo, sublimación y serigrafía</span>
                         </li>
                         <li>
-                            <i class="fas fa-wind"></i>
-                            <span>Transpirable y cómoda para todo tipo de clima</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-palette"></i>
-                            <span>Ideal para todo tipo de técnicas de estampado</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-ruler-combined"></i>
-                            <span>Tallas disponibles: S, M, L, XL, XXL</span>
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Pedidos desde 1 unidad hasta grandes cantidades</span>
                         </li>
                         <li>
                             <i class="fas fa-medal"></i>
-                            <span>Alta durabilidad y resistencia al lavado</span>
+                            <span>Materiales premium que garantizan durabilidad</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-users"></i>
+                            <span>Perfectas para equipos, eventos y regalos corporativos</span>
                         </li>
                     </ul>
                     
-                    <p style="margin-top: 20px; font-weight: 500; color: var(--dark);">
-                        Perfecta para: Uso diario, equipos deportivos, uniformes empresariales, eventos y regalos corporativos.
-                    </p>
+                    <button class="btn" style="margin-top: 20px;">Solicitar Cotización</button>
                 </div>
                 
                 <div class="info-image">
-                    Licra + Algodón
+                    Técnicas de Estampado
                 </div>
             </div>
-        </section> -->
+        </section>
     </div>
 
     <!-- Footer -->
@@ -1355,7 +1390,8 @@
                 <ul class="footer-links">
                     <li><a href="index.html#inicio">Inicio</a></li>
                     <li><a href="acerca-de.html">Acerca de</a></li>
-                    <!--<li><a href="camisetas.html">Catálogo</a></li>-->
+                    <li><a href="mugs.html">Catálogo</a></li>
+                    <!--<li><a href="index.html#clientes">Nuestros Clientes</a></li> -->
                     <li><a href="index.html#contacto">Contacto</a></li>
                 </ul>
             </div>
@@ -1479,11 +1515,12 @@
 				}
 			});
 		});
-
+		
         // Selector de Color con Mockup
         const colorOptions = document.querySelectorAll('.color-option');
         const mockupImage = document.getElementById('mockupImage');
         const selectedColorName = document.getElementById('selectedColorName');
+        const selectedColorCode = document.getElementById('selectedColorCode');
         const personalizeBtn = document.querySelector('.selected-color-info .btn');
 
         colorOptions.forEach(option => {
@@ -1497,26 +1534,40 @@
                 // Obtener datos del color seleccionado
                 const colorName = this.getAttribute('data-color');
                 const imageUrl = this.getAttribute('data-image');
+                const colorCode = this.getAttribute('data-code');
                 
                 // Actualizar mockup e información
                 mockupImage.src = imageUrl;
                 selectedColorName.textContent = `Color: ${colorName.charAt(0).toUpperCase() + colorName.slice(1)}`;
+                // selectedColorCode.textContent = `Código: ${colorCode}`;
                 
                 // Actualizar enlace de WhatsApp
-                personalizeBtn.href = `https://wa.me/573213280637?text=Hola,%20quiero%20personalizar%20una%20camiseta%20licra%20algodón%20en%20el%20color%20${colorName.toUpperCase()}`;
+                personalizeBtn.href = `https://wa.me/573213280637?text=Hola,%20quiero%20personalizar%20una%20camiseta%20en%20el%20color%20${colorName.toUpperCase()}`;
             });
         });
 
-        // Efecto hover en items de galería
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
+        // Botones de personalización
+        document.querySelectorAll('.btn').forEach(button => {
+            if (button.textContent.includes('Personalizar') && !button.classList.contains('selected-color-info')) {
+                button.addEventListener('click', function() {
+                    const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+                    const whatsappUrl = `https://wa.me/573213280637?text=Hola,%20me%20interesa%20personalizar%20el%20producto:%20${encodeURIComponent(productTitle)}`;
+                    window.open(whatsappUrl, '_blank');
+                });
+            }
         });
+
+        // Botón de cotización
+        document.querySelectorAll('.btn').forEach(button => {
+    	if (button.textContent.toLowerCase().includes('cotización')) {
+        button.addEventListener('click', function() {
+            window.open(
+                'https://wa.me/573213280637?text=Hola,%20necesito%20una%20cotización%20para%20camisetas%20personalizadas',
+                '_blank'
+            );
+        });
+    }
+});
     </script>
 </body>
 </html>

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zona Creativa Medellín - Dotaciones y prendas corporativas</title>
+    <title>Mugs Personalizados en Medellín | Mugs para Regalos y Empresas | Zona Creativa</title>
 	
-	<meta name="description" content="Zona Creativa Colombia - Productos personalizados de alta calidad. Mugs, camisetas, accesorios y regalos corporativos diseñados especialmente para ti.">
-	<meta name="keywords" content="productos personalizados, mugs, camisetas, regalos corporativos, Medellín, Colombia">
+	<meta name="description" content="Mugs personalizados en Medellín. Mugs clásicos, mágicos y con tapa. Diseños exclusivos para regalos, cumpleaños, eventos y empresas.">
+	<meta name="keywords" content="mugs personalizados Medellín, mugs empresariales Medellín, tazas personalizadas Medellín, tazas, mugs">
 	<meta name="author" content="Zona Creativa">
 	<meta name="robots" content="index, follow">
 
@@ -16,26 +16,26 @@
 	<meta property="og:image" content="imagenes/Logo-Zona-Creativa.png">
 	<meta property="og:url" content="https://www.zonacreativaco.com">
 	<meta property="og:type" content="website">
-
+	
+	<script type="application/ld+json">
+	{
+	 "@context":"https://schema.org",
+	 "@type":"Product",
+	 "name":"Mugs",
+	 "description":"Mug personalizado de 11 oz",
+	 "brand":{
+	   "@type":"LocalBusiness",
+	   "name":"Zona Creativa Medellín"
+	 }
+	}
+	</script>
+    
 	<!-- Favicon -->
 		<link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
-		<link rel="apple-touch-icon" href="imagenes/favicon-180.png">
-		<link rel="mask-icon" href="imagenes/favicon-mask.svg" color="#a964ff">
 	<!-- Para dispositivos Apple -->
 		<link rel="apple-touch-icon" href="imagenes/favicon.png">
-	
-	<!-- Preconectar a CDN -->
-	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
-	<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-
-	<!-- Font Awesome CDN con atributos de performance -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-      integrity="sha512-..." 
-      crossorigin="anonymous" 
-      referrerpolicy="no-referrer"
-      media="print" 
-      onload="this.media='all'">
-	
+		
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -44,16 +44,18 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        :root {
-            --primary: #3498db;
-            --secondary: #9b59b6;
-            --accent: #e74c3c;
-            --dark: #2c3e50;
-            --light: #f5f7fa;
-            --text: #333;
-            --text-light: #7f8c8d;
-        }
-
+		:root {
+			--primary: #3498db;
+			--dark: #130f1c;
+			--light: #f5f5f7;
+			--border: #e8e8e8;
+			--shadow: rgba(19, 15, 28, 0.12);
+			--text: #333;
+			--text-light: #7f8c8d;
+			--secondary: #9b59b6;
+			--accent: #e74c3c;
+		}
+		
         body {
             background: var(--light);
             color: var(--text);
@@ -80,14 +82,14 @@
         }
 
         .logo-img {
-            height: 50px;
-            width: auto;
-        }
+    		height: 50px; /* Ajusta según necesites */
+    		width: auto;
+		}
 
-        .logo {
-            display: flex;
-            align-items: center;
-        }
+		.logo {
+    		display: flex;
+    		align-items: center;
+		}
 
         /* Menú de navegación PARA ESCRITORIO */
         .desktop-nav {
@@ -477,9 +479,9 @@
 	}
 }
 
-        /* Hero Section */
+        /* Hero Section de Categoría */
         .category-hero {
-            background: linear-gradient(135deg, #0086ff, #0041a3);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             padding: 80px 0;
             text-align: center;
@@ -505,215 +507,331 @@
             padding: 0 20px;
         }
 
-        /* Navegación de Categorías */
-        .category-nav {
+        /* Filtros */
+        .filters-section {
             background: white;
-            padding: 20px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
-            text-align: center;
         }
 
-        .category-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .category-link {
-            padding: 10px 20px;
-            border: 2px solid var(--primary);
-            border-radius: 25px;
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .category-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .category-link.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Selector de Color con Mockup */
-        .color-selector-section {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .color-selector-section h2 {
-            color: var(--dark);
-            margin-bottom: 30px;
-            font-size: 2rem;
-        }
-
-        .mockup-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        @media (min-width: 768px) {
-            .mockup-container {
-                flex-direction: row;
-                justify-content: center;
-                align-items: flex-start;
-            }
-        }
-
-        .mockup-preview {
-            flex: 1;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        .mockup-image {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease;
-        }
-
-        .mockup-image:hover {
-            transform: scale(1.1);
-        }
-
-        .color-options-container {
-            flex: 1;
-            max-width: 500px;
-        }
-
-        .color-options-grid {
+        .filters-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
             margin-bottom: 20px;
         }
 
-        .color-option {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 3px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
-        .color-option:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .color-option.selected {
-            border-color: var(--dark);
-            transform: scale(1.1);
-        }
-
-        .color-option.selected::after {
-            content: '✓';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        .selected-color-info {
-            background: var(--light);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .selected-color-info h3 {
+        .filter-group label {
+            font-weight: 500;
             color: var(--dark);
-            margin-bottom: 10px;
         }
 
-        /* Galería de Trabajos */
-        .gallery-section {
+        .filter-group select {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .filter-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), #2980b9);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+		
+		/*esta sección corresponder al css del contenedor de las imágenes e info */
+.contenedor-producto{
+    max-width:1100px;
+    margin:0 auto;
+    padding:40px 20px;
+}	
+	
+.detalle-producto{
+    display:grid;
+    grid-template-columns:
+        100px
+        1fr
+        400px;
+
+    gap:25px;
+}
+
+.miniaturas{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.miniaturas img{
+    width:100%;
+    cursor:pointer;
+    border-radius:10px;
+}
+
+.imagen-principal img{
+    width:100%;
+    max-width:450px;
+    height:auto;
+    border-radius:15px;
+}
+
+.info-producto{
+    padding:20px;
+}
+
+.colores{
+    display:flex;
+    gap:12px;
+    margin:15px 0;
+}
+
+.color{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:1px solid #ccc;
+}
+
+.blanco{
+    background:white;
+}
+
+.negro{
+    background:black;
+}
+
+.rojo{
+    background:red;
+}
+
+.azul{
+    background:#0d6efd;
+}
+
+/* boton whatsapp sencillo */
+.btn-cotizar{
+    display:block;
+    margin-top:25px;
+    background:#25D366;
+    color:white;
+    text-align:center;
+    padding:14px;
+    border-radius:12px;
+    text-decoration:none;
+}
+
+/* Nuevo botón azul */
+.btn-ver-muestras{
+    display:block;
+    margin-top:12px;
+    background:#2f8ac9;
+    color:white;
+    text-align:center;
+    padding:14px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:background 0.3s;
+}
+
+.btn-ver-muestras:hover{
+    background:#0b5ed7;
+}
+	
+@media (max-width: 768px){
+
+    .detalle-producto{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .miniaturas{
+        flex-direction:row;
+        justify-content:center;
+        order:2;
+    }
+
+    .miniaturas img{
+        width:70px;
+    }
+
+    .imagen-principal{
+        order:1;
+        text-align:center;
+    }
+
+    .imagen-principal img{
+        max-width:300px;
+    }
+
+    .info-producto{
+        order:3;
+        padding:10px;
+    }
+
+}
+	
+
+        /* Grid de Productos */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
             margin-bottom: 60px;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 12px;
+        .product-card {
+            background: white;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            cursor: pointer;
-            background: white;
+            position: relative;
         }
 
-        .gallery-item:hover {
+        .product-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .gallery-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-image {
-            transform: scale(1.05);
-        }
-
-        .gallery-overlay {
+        .product-badge {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
             color: white;
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
         }
 
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
+        /* Reemplaza el estilo actual de .product-image por este: */
+		.product-image {
+   			width: 100%;
+    		height: 250px;
+    		background: #f8f9fa; /* Color de fondo por si la imagen no carga */
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		position: relative;
+    		overflow: hidden;
+		}
+
+		.product-image img {
+    		width: 100%;
+    		height: 100%;
+    		object-fit: cover; /* Esto hace que la imagen cubra el espacio sin distorsionarse */
+    		object-position: center;
+    		transition: transform 0.3s ease;
+		}
+
+		.product-card:hover .product-image img {
+    		transform: scale(1.05); /* Efecto zoom al hover */
+		}
+
+        .product-info {
+            padding: 25px;
         }
 
-        .gallery-overlay h4 {
-            margin-bottom: 5px;
-            font-size: 1.2rem;
+        .product-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 10px;
         }
 
-        .gallery-overlay p {
+        .product-description {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .product-features li {
+            padding: 5px 0;
+            color: var(--text-light);
             font-size: 0.9rem;
-            opacity: 0.9;
-            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-features li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Botones adicionales */
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: white;
         }
 
         /* Información de la Categoría */
@@ -767,42 +885,22 @@
             text-align: center;
         }
 
-        .info-image {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            height: 300px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
+		/* video de mugs basicos */
+	    .info-image {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 800 / 600;
         }
 
-        /* Botones */
-        .btn {
-            display: inline-block;
-            background: linear-gradient(to right, var(--primary), #2980b9);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
-        }
-
-        .btn-container {
-            text-align: center;
-            margin: 40px 0;
+        .info-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
 
         /* Footer */
@@ -946,31 +1044,16 @@
                 font-size: 2.2rem;
             }
             
-            .color-selector-section {
-                padding: 20px;
+            .filters-grid {
+                grid-template-columns: 1fr;
             }
             
-            .color-options-grid {
-                grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-                gap: 10px;
+            .filter-actions {
+                justify-content: center;
             }
             
-            .color-option {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .category-links {
-                gap: 10px;
-            }
-            
-            .category-link {
-                padding: 8px 16px;
-                font-size: 0.9rem;
+            .products-grid {
+                grid-template-columns: 1fr;
             }
             
             .info-grid {
@@ -1002,20 +1085,16 @@
             .category-hero p {
                 font-size: 1rem;
             }
-            
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 <body>
     <!-- WhatsApp flotante -->
-    <a href="https://wa.me/573213280637?text=Hola,%20me%20interesan%20las%20camisetas%20licra%20algodón%20personalizadas" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/573213280637?text=Hola,%20me%20interesan%20tus%20mugs%20personalizados" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Header -->
+    <!-- Header CORREGIDO con menú hamburguesa -->
     <header>
         <div class="header-container">
             <a href="index.html" class="logo">
@@ -1053,7 +1132,7 @@
                     <li><a href="index.html#contacto">Contacto</a></li>
                 </ul>
                 
-                <a href="https://instagram.com/zonacreativa.med" class="social-icon" target="_blank">
+                <a href="https://instagram.com/zonacreativa.med" class="social-icon" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-instagram"></i>
                 </a>
             </nav>
@@ -1152,196 +1231,286 @@
     <!-- Hero Section -->
     <section class="category-hero">
         <div class="container">
-            <h1>Camisetas Estampadas y Bordadas</h1>
-            <p>En esta sección podrás ver nuestros trabajos para prendas corporativas</p>
+            <h1>Llaveros personalizables</h1>
+            <!--<p>Fabricamos mugs personalizados en Medellín con envíos en toda el área metropolitana y a toda Colombia.</p>-->
         </div>
     </section>
 
     <div class="container">
-        <!-- Navegación de Categorías -->
-         <section class="category-nav">
-            <div class="category-links">
-                <!-- <a href="prendas-corporativas.html" class="category-link active">Prendas Corporativas</a>
-                <a href="mugs-corporativos.html" class="category-link">Mugs Corporativos</a>
-				<a href="termos-corporativos.html" class="category-link">Termos Corporativos</a>
-                <a href="agendas-corporativas.html" class="category-link">Agendas y Libretas</a>
-				<!--<a href="chompas.html" class="category-link">Chompas</a> -->
-                <a href="souvenirs-corporativos.html" class="category-link">Volver a Souvenirs Corporativos</a>
-            </div>
-        </section> 
+        <!-- Grid de Productos -->
+        <section>
+            <h2 style="margin-bottom: 30px; color: var(--dark); text-align: center;">Nuestros llaveros destacados</h2>
+			
+			<div class="contenedor-producto">
+	
+	<!--esta sección contiene los botones para regresar e ir a las otras páginas 
+	<nav class="nav-productos">
 
-        <!-- Selector de Color con Mockup -->
-        <!-- <section class="color-selector-section">
-            <h2>Elige el Color de tu Camiseta</h2>
-            <p style="margin-bottom: 30px; color: var(--text-light);">Selecciona un color para ver cómo se vería tu camiseta licra algodón personalizada</p>
-            
-            <div class="mockup-container">
-                <div class="mockup-preview">
-                    <img id="mockupImage" src="imagenes/camisetas/muestras-colores/mockup-camiseta-negra.jpg" alt="Mockup de camiseta licra algodón" class="mockup-image">
-                    <div style="margin-top: 15px;">
-                        <h3 id="selectedColorName" style="color: var(--dark);">Color: Negro</h3>
-                    </div>
-                </div>
-                
-                <div class="color-options-container">
-                    <div class="color-options-grid">
-                        Negro
-                        <div class="color-option selected" data-color="negro" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-negra.jpg" data-code="#2c3e50" style="background: #2c3e50;"></div>
-                        
-                        Gris oscuro
-                        <div class="color-option" data-color="gris oscuro" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-gris-oscuro.jpg" data-code="#34495e" style="background: #34495e;"></div>
-                        
-                        Rojo
-                        <div class="color-option" data-color="rojo" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-roja.jpg" data-code="#e74c3c" style="background: #e74c3c;"></div>
-                        
-                        Azul
-                        <div class="color-option" data-color="azul" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-azul.jpg" data-code="#3498db" style="background: #3498db;"></div>
-                        
-                        Verde
-                        <div class="color-option" data-color="verde" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-verde.jpg" data-code="#2ecc71" style="background: #2ecc71;"></div>
-                        
-                        Amarillo mostaza
-                        <div class="color-option" data-color="amarillo" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-amarillo-mostaza.jpg" data-code="#f1c40f" style="background: #f1c40f;"></div>
-                        
-                        Blanco 
-                        <div class="color-option" data-color="blanco" data-image="imagenes/camisetas/muestras-colores/mockup-camiseta-blanca.jpg" data-code="#ffffff" style="background: #ffffff; border: 1px solid #ddd;"></div>
-                    </div>
-                    
-                    <div class="selected-color-info">
-                        <h3>¿Te gusta este color?</h3>
-                        <p>Una vez que hayas elegido el color perfecto para tu camiseta licra algodón, puedes proceder a personalizarla con tu diseño.</p>
-                        <a href="https://wa.me/573213280637?text=Hola,%20quiero%20personalizar%20una%20camiseta%20licra%20algodón%20en%20el%20color%20NEGRO" class="btn" style="margin-top: 15px;">
-                            Personalizar con este Color
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section> -->
+    <a href="camisetas2.html">← Volver</a>
 
-        <!-- Galería de Trabajos -->
-        <section class="gallery-section">
-            <h2 style="margin-bottom: 30px; color: var(--dark); text-align: center;">Prendas personalizadas para empresas</h2>
-            
-            <div class="gallery-grid">
-                <!-- Trabajo 1 -->
-                <div class="gallery-item">
-                    <img src="imagenes/prendas/polo-estampada.webp" alt="Prendas para dotación" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4>Polos Estampadas</h4>
-                        <p>Estampación DTF</p>
-                    </div>
-                </div>
+    <a href="basica-licra-algodon1.html"
+       class="activo">
+       Camisetas
+    </a>
 
-                <!-- Trabajo 2 -->
-                <div class="gallery-item">
-                    <img src="imagenes/prendas/antifluido-bordada.webp" alt="Prendas para dotación" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4>Tela Antifluido</h4>
-                        <p>Logo bordado</p>
-                    </div>
-                </div>
+    <a href="polo1.html">
+       Polos
+    </a>
 
-                <!-- Trabajo 3 -->
-                <div class="gallery-item">
-                    <img src="imagenes/prendas/camiseta-estampada.webp" alt="Prendas para dotación" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4>Camisetas algodón</h4>
-                        <p>Estampación DTF</p>
-                    </div>
-                </div>
+    <a href="chompa1.html">
+       Chompas
+    </a>
 
-                <!-- Trabajo 4 
-                <div class="gallery-item">
-                    <img src="imagenes/camisetas/trabajos/licra-algodon-4.jpg" alt="Camiseta licra algodón diseño creativo" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4>Diseño Creativo</h4>
-                        <p>Estampado completo</p>
-                    </div>
-                </div> -->
-
-                <!-- Trabajo 5 
-                <div class="gallery-item">
-                    <img src="imagenes/camisetas/trabajos/licra-algodon-5.jpg" alt="Camiseta licra algodón aniversario" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4>Aniversario</h4>
-                        <p>Diseño conmemorativo</p>
-                    </div>
-                </div> -->
-
-                <!-- Trabajo 6 
-                <div class="gallery-item">
-                    <img src="imagenes/camisetas/trabajos/licra-algodon-6.jpg" alt="Camiseta licra algodón familiar" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h4>Familiar</h4>
-                        <p>Diseños para familia</p>
-                    </div>
-                </div> -->
-            </div>
-        
-			<div class="btn-container">
-                <a href="https://wa.me/573213280637?text=Hola,%20quiero%20personalizar%20una%20camiseta%20licra%20algodón" class="btn" target="_blank">
-                    Cotiza por Whatsapp
-                </a>
-            </div>
-		</section>
-
-        <!-- Información de la Categoría 
-        <section class="category-info">
-            <div class="info-grid">
-                <div class="info-content">
-                    <h2>Comodidad y Calidad en Cada Prenda</h2>
-                    <p>Nuestras camisetas licra algodón combinan lo mejor de ambos materiales: la suavidad del algodón y la elasticidad de la licra. Perfectas para uso diario, deporte o eventos especiales.</p>
-                    
-                    <ul class="info-features">
-                        <li>
-                            <i class="fas fa-tshirt"></i>
-                            <span>Prendas para dotaciones y regalos corporativos&nbsp; &nbsp;</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-expand-alt"></i>
-                            <span>Excelente elasticidad y recuperación de forma</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-wind"></i>
-                            <span>Transpirable y cómoda para todo tipo de clima</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-palette"></i>
-                            <span>Ideal para todo tipo de técnicas de estampado</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-ruler-combined"></i>
-                            <span>Tallas disponibles: S, M, L, XL, XXL</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-medal"></i>
-                            <span>Alta durabilidad y resistencia al lavado</span>
-                        </li>
-                    </ul>
-                    
-                    <p style="margin-top: 20px; font-weight: 500; color: var(--dark);">
-                        Perfecta para: Uso diario, equipos deportivos, uniformes empresariales, eventos y regalos corporativos.
-                    </p>
-                </div>
-                
-                <div class="info-image">
-                    Licra + Algodón
-                </div>
-            </div>
-        </section> -->
+ 	<a href="buzo1.html">
+       Buzo
+    </a>
+</nav>-->
+	
+<section class="detalle-producto" data-llavero="1">
+    <div class="miniaturas">
+        <img src="imagenes/llaveros/llavero-wave-01-01.webp" onclick="cambiarImagen(this, 'imagenActual1')">
+        <img src="imagenes/llaveros/llavero-wave-02-01.webp" onclick="cambiarImagen(this, 'imagenActual1')">
+        <img src="imagenes/llaveros/llavero-wave-03-01.webp" onclick="cambiarImagen(this, 'imagenActual1')">
+        <img src="imagenes/llaveros/llavero-wave-04-01.webp" onclick="cambiarImagen(this, 'imagenActual1')">
+    </div>
+    <div class="imagen-principal">
+        <img id="imagenActual1" src="imagenes/llaveros/llavero-wave-01-01.webp">
     </div>
 
+    <div class="info-producto">
+
+        <h1>Llavero Wave Sublimable</h1>
+
+        <p>
+          Llavero con diseño elegante, ideal para obsequiar, se puede personalizar. </p>
+
+      <h3>Características</h3>
+
+        <ul>
+            <li>Material: Metal.</li>
+            <li>Medidas: 4,5 x 2,3 cms.</li>
+            <li>Técnica de personalización: Sublimación en un solo lado.</li>
+            <li>Área de personalización: 3 x 1,8 cms.</li>
+			<li>Empaque: Caja negra individual.</li>
+        </ul>
+
+        <a href="https://wa.me/573213280637?"
+               class="btn-cotizar" target="_blank"> 
+               Escríbenos para personalizar ahora
+        </a>
+
+        <!-- Nuevo botón azul que lleva trabajos realizados 
+        <a href="Buzo.html"
+               class="btn-ver-muestras">
+               Mira nuestros trabajos
+        </a> -->
+	</div>
+
+</section>
+
+	
+</div>
+			
+<div class="contenedor-producto">
+	
+<section class="detalle-producto" data-llavero="2">
+    <div class="miniaturas">
+        <img src="imagenes/llaveros/llavero-lisboa-01-01.webp" onclick="cambiarImagen(this, 'imagenActual2')">
+        <img src="imagenes/llaveros/llavero-lisboa-02-01.webp" onclick="cambiarImagen(this, 'imagenActual2')">
+        <img src="imagenes/llaveros/llavero-lisboa-03-01.webp" onclick="cambiarImagen(this, 'imagenActual2')">
+        <!--<img src="imagenes/llaveros/llavero-wave-04-01.webp" onclick="cambiarImagen(this, 'imagenActual2')">-->
+    </div>
+    <div class="imagen-principal">
+        <img id="imagenActual2" src="imagenes/llaveros/llavero-lisboa-01-01.webp">
+    </div>
+
+    <div class="info-producto">
+
+        <h1>Llavero Lisboa</h1>
+
+        <p>
+          Llaverso con diseño elegante, ideal para obsequiar, superficie con efecto espejo para personalizar por ambas caras. </p>
+
+      <h3>Características</h3>
+
+        <ul>
+            <li>Material: Metal.</li>
+            <li>Medidas: 8,2 cms (con argolla) x 2,8 cms.</li>
+            <li>Técnica de personalización: Sublimación en ambos lados.</li>
+            <li>Área de personalización: 3 x 2 cms.</li>
+			<li>Empaque: Caja negra individual.</li>
+        </ul>
+
+        <a href="https://wa.me/573213280637?"
+               class="btn-cotizar" target="_blank"> 
+               Escríbenos para personalizar ahora
+        </a>
+
+        <!-- Nuevo botón azul que lleva trabajos realizados 
+        <a href="Buzo.html"
+               class="btn-ver-muestras">
+               Mira nuestros trabajos
+        </a> -->
+	</div>
+
+</section>
+
+	
+</div>
+			
+<div class="contenedor-producto">
+	
+<section class="detalle-producto" data-llavero="2">
+    <div class="miniaturas">
+        <img src="imagenes/llaveros/llavero-planet-360-01-01.webp" onclick="cambiarImagen(this, 'imagenActual3')">
+        <img src="imagenes/llaveros/llavero-planet-360-02-01.webp" onclick="cambiarImagen(this, 'imagenActual3')">
+        <img src="imagenes/llaveros/llavero-planet-360-03-01.webp" onclick="cambiarImagen(this, 'imagenActual3')">
+        <!--<img src="imagenes/llaveros/llavero-wave-04-01.webp" onclick="cambiarImagen(this, 'imagenActual2')">-->
+    </div>
+    <div class="imagen-principal">
+        <img id="imagenActual3" src="imagenes/llaveros/llavero-planet-360-01-01.webp">
+    </div>
+
+    <div class="info-producto">
+
+        <h1>Llavero Planet 360</h1>
+
+        <p>
+          Llavero con diseño elegante y funcional, destaca su capacidad de giro de 360°. </p>
+
+      <h3>Características</h3>
+
+        <ul>
+            <li>Material: Metal y bamboo.</li>
+            <li>Medidas: 7,5 cms (con argolla) x 3,5 cms.</li>
+            <li>Técnica de personalización: Sublimación en ambos lados.</li>
+            <li>Área de personalización: 2,5 x 2,5 cms.</li>
+			<li>Empaque: Caja negra individual.</li>
+        </ul>
+
+        <a href="https://wa.me/573213280637?"
+               class="btn-cotizar" target="_blank"> 
+               Escríbenos para personalizar ahora
+        </a>
+
+        <!-- Nuevo botón azul que lleva trabajos realizados 
+        <a href="Buzo.html"
+               class="btn-ver-muestras">
+               Mira nuestros trabajos
+        </a> -->
+	</div>
+
+</section>
+
+	
+</div>		
+
+<div class="contenedor-producto">
+	
+<section class="detalle-producto" data-llavero="2">
+    <div class="miniaturas">
+        <img src="imagenes/llaveros/llavero-portugal-01-01.webp" onclick="cambiarImagen(this, 'imagenActual4')">
+        <img src="imagenes/llaveros/llavero-planet-360-02-01.webp" onclick="cambiarImagen(this, 'imagenActual4')">
+        <img src="imagenes/llaveros/llavero-planet-360-03-01.webp" onclick="cambiarImagen(this, 'imagenActual4')">
+        <!--<img src="imagenes/llaveros/llavero-wave-04-01.webp" onclick="cambiarImagen(this, 'imagenActual2')">-->
+    </div>
+    <div class="imagen-principal">
+        <img id="imagenActual4" src="imagenes/llaveros/llavero-portugal-01-01.webp">
+    </div>
+
+    <div class="info-producto">
+
+        <h1>Llavero Portugal</h1>
+
+        <p>
+          Llavero con diseño elegante de forma circular, destaca su superficie con efecto espejo que se puede personalizar. </p>
+
+      <h3>Características</h3>
+
+        <ul>
+            <li>Material: Metal y bamboo.</li>
+            <li>Medidas: 7,5 cms (con argolla) x 3,5 cms.</li>
+            <li>Técnica de personalización: Sublimación en ambos lados.</li>
+            <li>Área de personalización: 2,5 x 2,5 cms.</li>
+			<li>Empaque: Caja negra individual.</li>
+        </ul>
+
+        <a href="https://wa.me/573213280637?"
+               class="btn-cotizar" target="_blank"> 
+               Escríbenos para personalizar ahora
+        </a>
+
+        <!-- Nuevo botón azul que lleva trabajos realizados 
+        <a href="Buzo.html"
+               class="btn-ver-muestras">
+               Mira nuestros trabajos
+        </a> -->
+	</div>
+
+</section>
+
+	
+</div>	
+			
+			
+<div class="contenedor-producto">
+	
+<section class="detalle-producto" data-llavero="2">
+    <div class="miniaturas">
+        <img src="imagenes/llaveros/llavero-porta-foto-acrilico-01-01.webp" onclick="cambiarImagen(this, 'imagenActual5')">
+        <img src="imagenes/llaveros/llavero-porta-foto-acrilico-02-01.webp" onclick="cambiarImagen(this, 'imagenActual5')">
+        <img src="imagenes/llaveros/llavero-porta-foto-acrilico-03-01.webp" onclick="cambiarImagen(this, 'imagenActual5')">
+        <!--<img src="imagenes/llaveros/llavero-wave-04-01.webp" onclick="cambiarImagen(this, 'imagenActual2')">-->
+    </div>
+    <div class="imagen-principal">
+        <img id="imagenActual5" src="imagenes/llaveros/llavero-porta-foto-acrilico-01-01.webp">
+    </div>
+
+    <div class="info-producto">
+
+        <h1>Llavero Porta foto acrílico</h1>
+
+        <p>
+          Llavero personalizable en acrílico rectangular. </p>
+
+      <h3>Características</h3>
+
+        <ul>
+            <li>Material: Acrílico.</li>
+            <li>Medidas: 5,5 cms x 3,5 cms.</li>
+            <li>Técnica de personalización: Impresión digital en propalcote 115g (por ambos lados).</li>
+            <li>Área de personalización: 2,5 x 2,5 cms.</li>
+			<li>Empaque: bolsa pequeña individual.</li>
+        </ul>
+
+        <a href="https://wa.me/573213280637?"
+               class="btn-cotizar" target="_blank"> 
+               Escríbenos para personalizar ahora
+        </a>
+
+        <!-- Nuevo botón azul que lleva trabajos realizados 
+        <a href="Buzo.html"
+               class="btn-ver-muestras">
+               Mira nuestros trabajos
+        </a> -->
+	</div>
+
+	</section>
+</div>	
+</section>
+	</div>
+ 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-column">
-                <h3>Zona Creativa</h3>
+                <h3>Zona Creativa&nbsp;</h3>
                 <p>Especialistas en productos personalizados de alta calidad para todos tus eventos y necesidades.</p>
                 <div class="social-links">
                     <a href="https://instagram.com/zonacreativa.med" target="_blank">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://wa.me/573213280637" target="_blank">
+                    <a href="https://wa.me/573213280637" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                     <a href="mailto:zonacreativa.med@gmail.com">
@@ -1353,10 +1522,11 @@
             <div class="footer-column">
                 <h3>Enlaces Rápidos</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="#inicio">Inicio</a></li>
                     <li><a href="acerca-de.html">Acerca de</a></li>
-                    <!--<li><a href="camisetas.html">Catálogo</a></li>-->
-                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="souvenirs-corporativos.html">Empresas</a></li>
+                    <li><a href="mugs.html">Personas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </div>
             
@@ -1479,44 +1649,11 @@
 				}
 			});
 		});
-
-        // Selector de Color con Mockup
-        const colorOptions = document.querySelectorAll('.color-option');
-        const mockupImage = document.getElementById('mockupImage');
-        const selectedColorName = document.getElementById('selectedColorName');
-        const personalizeBtn = document.querySelector('.selected-color-info .btn');
-
-        colorOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                // Remover clase selected de todas las opciones
-                colorOptions.forEach(opt => opt.classList.remove('selected'));
-                
-                // Agregar clase selected a la opción clickeada
-                this.classList.add('selected');
-                
-                // Obtener datos del color seleccionado
-                const colorName = this.getAttribute('data-color');
-                const imageUrl = this.getAttribute('data-image');
-                
-                // Actualizar mockup e información
-                mockupImage.src = imageUrl;
-                selectedColorName.textContent = `Color: ${colorName.charAt(0).toUpperCase() + colorName.slice(1)}`;
-                
-                // Actualizar enlace de WhatsApp
-                personalizeBtn.href = `https://wa.me/573213280637?text=Hola,%20quiero%20personalizar%20una%20camiseta%20licra%20algodón%20en%20el%20color%20${colorName.toUpperCase()}`;
-            });
-        });
-
-        // Efecto hover en items de galería
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
+		
+	function cambiarImagen(img, idImagen) {
+    document.getElementById(idImagen).src = img.src;
+}
+	
     </script>
 </body>
 </html>
