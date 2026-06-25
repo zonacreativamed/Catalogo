@@ -19,9 +19,8 @@
 
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
-	<link rel="apple-touch-icon" href="imagenes/favicon-180.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="imagenes/favicon-180.png">
 	<link rel="mask-icon" href="imagenes/favicon-mask.svg" color="#a964ff">
-	<link rel="apple-touch-icon" href="imagenes/favicon.png">
 	
 	<!-- Preconectar a CDN -->
 	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -74,14 +73,6 @@
 			--accent: #e74c3c;
 		}
 
-		/* CORRECCIÓN RÁPIDA MÓVIL */
-		@media (max-width: 768px) {
-			.carousel { height: 520px !important; }
-			.slide-content h2 { font-size: 1.6rem !important; line-height: 1.2 !important; }
-			.slide-content p { line-height: 1.3 !important; font-size: 0.95rem !important; }
-			.btn-combo { display: inline-block !important; margin-top: 15px !important; padding: 10px 18px !important; font-size: 0.85rem !important; }
-			body, p { line-height: 1.4 !important; }
-}
         body {
             background: var(--light);
             color: var(--text);
@@ -510,7 +501,7 @@
         }
         .slide-content {
             text-align: center;
-            max-width: 800px;
+            max-width: 550px;
             padding: 20px;
         }
 
@@ -518,12 +509,15 @@
             font-size: 3rem;
             margin-bottom: 15px;
             color: white;
+            font-weight: 800;
         }
 
         .slide-content p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: white;
             font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 10px;
         }
 
         .carousel-slide.active {
@@ -590,47 +584,21 @@
 			background:#20ba5a;
 		}
 		
-		.slide-content{
-			max-width:550px;
-		}
-
-		.slide-content h2{
-			font-size:3rem;
-			margin-bottom:15px;
-			font-weight:800;
-		}
-
-		.slide-content p{
-			font-size:1.2rem;
-			line-height:1.6;
-			margin-bottom:10px;
-		}
-		
-		/* esto es para que el botón del carrusel funcione */
+		/* Pointer events del carrusel */
 		.carousel-slide {
-			pointer-events: auto; /* Asegura que los clics lleguen al slide */
+			pointer-events: none;
 		}
-
-		.slide-content {
-			pointer-events: auto; /* Asegura que el contenido reciba clics */
-			position: relative;
-			z-index: 10;
-		}
-
-		.btn-combo {
-			position: relative;
-			z-index: 20;
-			display: inline-block; /* Ya lo tienes, pero asegura */
-			cursor: pointer;
-		}
-
-		/* Esto evita que el carrusel "robe" clics mientras se anima */
 		.carousel-slide.active {
 			pointer-events: auto;
 		}
-
-		.carousel-slide:not(.active) {
-			pointer-events: none; /* Solo el slide activo recibe clics */
+		.slide-content {
+			position: relative;
+			z-index: 10;
+		}
+		.btn-combo {
+			position: relative;
+			z-index: 20;
+			cursor: pointer;
 		}
 
 		/* Contenido principal */
@@ -1074,11 +1042,14 @@
 
         @media (max-width: 768px) {
             .carousel {
-                height: 300px;
+                height: 520px;
             }
             .carousel-slide {
                 font-size: 1.8rem;
             }
+            .slide-content h2 { font-size: 1.6rem; line-height: 1.2; }
+            .slide-content p { line-height: 1.3; font-size: 0.95rem; }
+            .btn-combo { margin-top: 15px; padding: 10px 18px; font-size: 0.85rem; }
             .contact-section {
                 padding: 30px;
             }
@@ -1138,10 +1109,8 @@
                         <a href="#catalogo">Personas <i class="fas fa-chevron-down"></i></a>
                         <ul class="submenu">
                             <li><a href="mugs.html">Mugs Personalizados</a></li>
-                            <li><a href="camisetas.html">Camisetas y Chompas</a></li>
+                            <li><a href="camisetas.html">Camisetas y Buzos</a></li>
                             <li><a href="llaveros.html">Llaveros</a></li>
-                            <!--<li><a href="fechas-especiales.html">Fechas Especiales</a></li>
-                            <li><a href="publicitarios.html">Productos Publicitarios</a></li> -->
                         </ul>
                     </li>
                     
@@ -1221,9 +1190,7 @@
                 <ul class="mobile-submenu" role="list">
                     <li class="mobile-submenu-item"><a href="mugs.html" class="mobile-submenu-link"><i class="fas fa-mug-hot"></i> Mugs Personalizados</a></li>
                     <li class="mobile-submenu-item"><a href="camisetas.html" class="mobile-submenu-link"><i class="fas fa-tshirt"></i> Camisetas y Chompas</a></li>
-                    <!--<li class="mobile-submenu-item"><a href="accesorios.html" class="mobile-submenu-link"><i class="fas fa-key"></i> Accesorios</a></li>
-                    <li class="mobile-submenu-item"><a href="fechas-especiales.html" class="mobile-submenu-link"><i class="fas fa-calendar-alt"></i> Fechas Especiales</a></li>
-                    <li class="mobile-submenu-item"><a href="publicitarios.html" class="mobile-submenu-link"><i class="fas fa-bullhorn"></i> Productos Publicitarios</a></li> -->
+                    <li class="mobile-submenu-item"><a href="llaveros.html" class="mobile-submenu-link"><i class="fas fa-key"></i> Llaveros</a></li>
                 </ul>
             </li>
             
@@ -1256,7 +1223,6 @@
 			   rel="noopener noreferrer">
 				Quiero mi Combo Colombia
 			</a>
-			<!--<p>Mugs, camisetas, chompas y regalos únicos diseñados para expresar tu estilo, celebrar momentos especiales o sorprender a alguien importante.</p> -->
         </div>
         </div>
 
@@ -1299,8 +1265,6 @@
                 <button class="filter-btn" data-filter="mugs">Mugs</button>
                 <button class="filter-btn" data-filter="camisetas">Camisetas</button>
                 <button class="filter-btn" data-filter="publicitarios">Publicitarios</button>
-                <!--<button class="filter-btn" data-filter="accesorios">Accesorios</button>
-                <button class="filter-btn" data-filter="combos">Combos</button> -->
             </div>
     
             <div class="works-gallery">
@@ -1339,7 +1303,7 @@
                     <img src="imagenes/mugs/mug-basico/mug-7.webp" alt="Mug básico imagen">
                     <div class="work-overlay">
                         <h4>Mug Básico</h4>
-                        <p>Acompaña a la seleción con tu bebida favorita</p>
+                        <p>Acompaña a la selección con tu bebida favorita</p>
                     </div>
                 </div>
                 <div class="work-item" data-category="publicitarios">
@@ -1425,7 +1389,7 @@
                
             </div>
         </section>
-
+	</div>
 <!-- Sección Contacto -->
         <section id="contacto">
             <h2 class="section-title">Contáctanos</h2>
