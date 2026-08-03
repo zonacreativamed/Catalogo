@@ -1,0 +1,664 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zona Creativa Medellín - Productos Personalizados</title>
+	
+	<meta name="description" content="Zona Creativa Colombia - Productos personalizados de alta calidad. Mugs, camisetas, accesorios y regalos corporativos diseñados especialmente para ti.">
+	<meta name="keywords" content="productos personalizados, mugs, camisetas, regalos corporativos, Medellín, Colombia">
+	<meta name="author" content="Zona Creativa">
+	<meta name="robots" content="index, follow">
+
+	<!-- Open Graph para redes sociales -->
+	<meta property="og:title" content="Zona Creativa - Productos Personalizados">
+	<meta property="og:description" content="Tu destino para productos personalizados de alta calidad">
+	<meta property="og:image" content="imagenes/Logo-Zona-Creativa.png">
+	<meta property="og:url" content="https://www.zonacreativaco.com">
+	<meta property="og:type" content="website">
+
+	<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
+		<link rel="apple-touch-icon" href="imagenes/favicon-180.png">
+		<link rel="mask-icon" href="imagenes/favicon-mask.svg" color="#a964ff">
+	<!-- Para dispositivos Apple -->
+		<link rel="apple-touch-icon" href="imagenes/favicon.png">
+	
+	<!-- Preconectar a CDN -->
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+	<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+	<!-- Font Awesome CDN con atributos de performance -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      integrity="sha512-..." 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer"
+      media="print" 
+      onload="this.media='all'">
+	
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #3498db;
+            --secondary: #9b59b6;
+            --accent: #e74c3c;
+            --dark: #2c3e50;
+            --light: #f5f7fa;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+
+
+/*esta sección corresponder al css del logo y su contenedor */
+.header-producto{
+    text-align:center;
+    padding:25px 0;
+    border-bottom:1px solid #eee;
+    margin-bottom:10px;
+}
+
+.logo{
+    max-width:200px;
+    height:auto;
+}
+	
+/*esta sección es el CSS de los botones para regresar e ir a las otras páginas */
+.nav-productos{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.nav-productos a{
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:8px;
+    background:#f3f3f3;
+    color:#333;
+    font-weight:600;
+}
+
+.nav-productos a:hover{
+    background:#e5e5e5;
+}
+
+.nav-productos .activo{
+    background:#000;
+    color:#fff;
+}
+/*esta sección corresponder al css del contenedor de las imágenes e info */
+.contenedor-producto{
+    max-width:1100px;
+    margin:0 auto;
+    padding:40px 20px;
+}	
+	
+.detalle-producto{
+    display:grid;
+    grid-template-columns:
+        100px
+        1fr
+        400px;
+
+    gap:25px;
+}
+
+.miniaturas{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.miniaturas img{
+    width:100%;
+    cursor:pointer;
+    border-radius:10px;
+}
+
+.imagen-principal img{
+    width:100%;
+    max-width:450px;
+    height:auto;
+    border-radius:15px;
+}
+
+.info-producto{
+    padding:20px;
+}
+
+.colores{
+    display:flex;
+    gap:12px;
+    margin:15px 0;
+}
+
+.color{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:1px solid #ccc;
+}
+
+.blanco{
+    background:white;
+}
+
+.negro{
+    background:black;
+}
+
+.rojo{
+    background:red;
+}
+
+.azul{
+    background:#0d6efd;
+}
+
+/* boton whatsapp sencillo */
+.btn-cotizar{
+    display:block;
+    margin-top:25px;
+    background:#25D366;
+    color:white;
+    text-align:center;
+    padding:14px;
+    border-radius:12px;
+    text-decoration:none;
+}
+
+/* Nuevo botón azul */
+.btn-ver-muestras{
+    display:block;
+    margin-top:12px;
+    background:#2f8ac9;
+    color:white;
+    text-align:center;
+    padding:14px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:background 0.3s;
+}
+
+.btn-ver-muestras:hover{
+    background:#0b5ed7;
+}
+	
+@media (max-width: 768px){
+
+    .detalle-producto{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .miniaturas{
+        flex-direction:row;
+        justify-content:center;
+        order:2;
+    }
+
+    .miniaturas img{
+        width:70px;
+    }
+
+    .imagen-principal{
+        order:1;
+        text-align:center;
+    }
+
+    .imagen-principal img{
+        max-width:300px;
+    }
+
+    .info-producto{
+        order:3;
+        padding:10px;
+    }
+
+}
+	
+/* Estilos específicos para polos */
+        .polo-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+	
+	/* Contenedor Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+	
+	/* Galería de Trabajos */
+        .gallery-section {
+            margin-bottom: 60px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: white;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+	
+	/* Hero Section */
+        .category-hero {
+            background: linear-gradient(135deg, #4fb76c, #015521);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .category-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .category-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+	
+.footer-producto{
+    margin-top:60px;
+    padding:30px;
+    text-align:center;
+    background:#f8f8f8;
+    border-top:1px solid #eee;
+}
+
+.footer-producto p{
+    margin:6px 0;
+}
+			
+/* ===== MODAL PARA GALERÍA ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.92);
+    cursor: pointer;
+    animation: fadeInModal 0.3s ease;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-contenido {
+    margin: auto;
+    display: block;
+    max-width: 92%;
+    max-height: 92%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+    object-fit: contain;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    color: #fff;
+    font-size: 48px;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 100000;
+    transition: transform 0.3s ease, color 0.3s ease;
+    line-height: 1;
+}
+
+.cerrar-modal:hover {
+    color: #ccc;
+    transform: rotate(90deg);
+}
+
+/* Texto descriptivo dentro del modal (opcional) */
+.modal-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 25px;
+    border-radius: 30px;
+    backdrop-filter: blur(4px);
+    text-align: center;
+    max-width: 80%;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .cerrar-modal {
+        top: 15px;
+        right: 20px;
+        font-size: 36px;
+    }
+    .modal-contenido {
+        max-width: 96%;
+        max-height: 85%;
+    }
+    .modal-caption {
+        font-size: 0.9rem;
+        padding: 8px 18px;
+        bottom: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+<header class="header-producto">
+
+    <a href="index.html">
+        <img src="imagenes/logo-zona-creativa.png"
+             alt="Zona Creativa"
+             class="logo">
+    </a>
+
+</header>
+<div class="contenedor-producto">
+	
+	<!--esta sección contiene los botones para regresar e ir a las otras páginas -->
+	<nav class="nav-productos">
+
+    <a href="camisetas2.html">← Volver</a>
+
+    <a href="basica-licra-algodon1.html"
+       class="activo">
+       Camisetas
+    </a>
+
+    <a href="polo1.html">
+       Polos
+    </a>
+
+    <a href="chompa1.html">
+       Chompas
+    </a>
+
+    <!--<a href="buzo1.html">
+       Buzo
+    </a> -->
+</nav>
+	
+<section class="detalle-producto">
+
+    <div class="miniaturas">
+
+        <img src="imagenes/camisetas/buzo.webp" alt="Foto frontal prenda"
+             onclick="cambiarImagen(this)">
+
+        <img src="imagenes/camisetas/buzo-lateral.webp" alt="Foto lateral prenda"
+             onclick="cambiarImagen(this)">
+
+        <img src="imagenes/camisetas/buzo-detalle.webp" alt="detalles prenda"
+             onclick="cambiarImagen(this)">
+
+    </div>
+
+    <div class="imagen-principal">
+
+        <img id="imagenActual"
+             src="imagenes/camisetas/buzo.webp" alt="Imagen Principal">
+	</div>
+
+
+    <div class="info-producto">
+		<h1>Buzo</h1>
+		<p>buzo ideal para personalizar,
+            eventos corporativos, dotaciones y
+      campañas publicitarias.</p>
+		<h3>Características</h3>
+
+        <ul>
+            <li>Algodón perchado</li>
+            <li>Cuello reforzado</li>
+            <li>Costura doble</li>
+        </ul>
+
+        <h3>Colores disponibles</h3>
+
+        <div class="colores">
+
+            <span class="color blanco"></span>
+            <span class="color negro"></span>
+            <span class="color rojo"></span>
+            <span class="color azul"></span>
+
+        </div>
+
+        <h3>Tallas</h3>
+
+        <p>S - M - L - XL - XXL</p>
+
+        <a href="https://wa.me/573213280637?"
+               class="btn-cotizar" target="_blank"> 
+               Escríbenos para personalizar ahora
+        </a>
+
+        <!-- Nuevo botón azul que lleva a Buzo.html -->
+        <a href="Buzo.html"
+               class="btn-ver-muestras">
+               Mira nuestros trabajos
+        </a>
+	</div>
+
+</section>
+	
+<div class="container">
+       <!-- Galería de Trabajos -->
+	<section class="gallery-section">
+		<h2 style="margin-bottom: 30px; color: var(--dark); text-align: center;">Nuestros Buzos Personalizados</h2>
+
+		<div class="gallery-grid">
+			<!-- Trabajo 1 -->
+			<div class="gallery-item" onclick="abrirModal('imagenes/prendas/buzo-estampado-mafalda.webp', 'Corporativo Ejecutivo - Uniforme empresarial')">
+				<div class="polo-badge">Buzo</div>
+				<img src="imagenes/prendas/buzo-estampado-mafalda.webp" alt="Polo personalizado empresarial" class="gallery-image" loading="lazy">
+				<div class="gallery-overlay">
+					<h4>Estampado Mafalda</h4>
+					<p>Buzo Personalizado</p>
+				</div>
+			</div>
+
+			<!-- Trabajo 2 
+			<div class="gallery-item" onclick="abrirModal('imagenes/prendas/polo-bordada.webp', 'Evento Especial - Diseño para evento empresarial')">
+				<div class="polo-badge">Buzo</div>
+				<img src="imagenes/prendas/polo-bordada.webp" alt="Polo personalizado evento" class="gallery-image" loading="lazy">
+				<div class="gallery-overlay">
+					<h4>Bordado</h4>
+					<p>Diseño para conferencia</p>
+				</div>
+			</div>-->
+
+			<!-- Trabajo 3
+			<div class="gallery-item" onclick="abrirModal('imagenes/camisetas/trabajos/polo-3.jpg', 'Equipo de Trabajo - Coordinado profesional')">
+				<div class="polo-badge">Polo</div>
+				<img src="imagenes/camisetas/trabajos/polo-3.jpg" alt="Polo personalizado equipo" class="gallery-image" loading="lazy">
+				<div class="gallery-overlay">
+					<h4>Equipo de Trabajo</h4>
+					<p>Coordinado profesional</p>
+				</div>
+			</div>
+
+			<!-- Trabajo 4 
+			<div class="gallery-item" onclick="abrirModal('imagenes/camisetas/trabajos/polo-4.jpg', 'Estilo Golf - Diseño deportivo elegante')">
+				<div class="polo-badge">Polo</div>
+				<img src="imagenes/camisetas/trabajos/polo-4.jpg" alt="Polo personalizado golf" class="gallery-image" loading="lazy">
+				<div class="gallery-overlay">
+					<h4>Estilo Golf</h4>
+					<p>Diseño deportivo elegante</p>
+				</div>
+			</div>
+
+			<!-- Trabajo 5
+			<div class="gallery-item" onclick="abrirModal('imagenes/camisetas/trabajos/polo-5.jpg', 'Institucional - Para organizaciones')">
+				<div class="polo-badge">Polo</div>
+				<img src="imagenes/camisetas/trabajos/polo-5.jpg" alt="Polo personalizado institucional" class="gallery-image" loading="lazy">
+				<div class="gallery-overlay">
+					<h4>Institucional</h4>
+					<p>Para organizaciones</p>
+				</div>
+			</div>
+
+			<!-- Trabajo 6 
+			<div class="gallery-item" onclick="abrirModal('imagenes/camisetas/trabajos/polo-6.jpg', 'Bordado- Detalles en bordado')">
+				<div class="polo-badge">Polo</div>
+				<img src="imagenes/camisetas/trabajos/polo-6.jpg" alt="Polo personalizado bordado" class="gallery-image" loading="lazy">
+				<div class="gallery-overlay">
+					<h4>Bordado</h4>
+					<p>Detalles en bordado</p>
+				</div>
+			</div>-->
+		</div>
+	</section>
+
+    </div>
+
+	<!-- ===== MODAL ===== -->
+	<div id="miModal" class="modal" onclick="cerrarModal()">
+		<span class="cerrar-modal" onclick="event.stopPropagation(); cerrarModal();">&times;</span>
+		<img class="modal-contenido" id="imagenModal" alt="Imagen ampliada">
+		<div class="modal-caption" id="modalCaption"></div>
+	</div>
+	
+<footer class="footer-producto">
+
+    <p>
+        © 2026 Zona Creativa
+    </p>
+
+    <p>
+        Personalización de prendas,
+        publicidad y diseño gráfico.
+    </p>
+
+</footer>
+	
+<script>
+    // Función para cambiar imagen principal en el detalle del producto
+    function cambiarImagen(img) {
+        document.getElementById("imagenActual").src = img.src;
+    }
+
+    // ===== FUNCIONES DEL MODAL =====
+    function abrirModal(src, caption) {
+        const modal = document.getElementById("miModal");
+        const imgModal = document.getElementById("imagenModal");
+        const captionEl = document.getElementById("modalCaption");
+
+        imgModal.src = src;
+        captionEl.textContent = caption || "";
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"; // Evita scroll en fondo
+    }
+
+    function cerrarModal() {
+        const modal = document.getElementById("miModal");
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // Restaura scroll
+        // Limpia la imagen para liberar memoria
+        document.getElementById("imagenModal").src = "";
+    }
+
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "Escape") {
+            cerrarModal();
+        }
+    });
+
+    // Cerrar si se hace click fuera de la imagen (ya está en el onclick del modal)
+    // También evitar que el click en la imagen cierre el modal
+    document.getElementById("imagenModal").addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+</script>
+</body>
+</html>
