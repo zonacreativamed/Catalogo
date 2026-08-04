@@ -136,15 +136,79 @@
 
 .colores{
     display:flex;
+    flex-wrap: wrap;      /* Permite que los elementos pasen a la siguiente línea */
     gap:12px;
     margin:15px 0;
+    max-width: 280px;     /* Ajusta según el tamaño que quieras (5 círculos de 35px + gaps) */
 }
 
-.color{
-    width:35px;
-    height:35px;
-    border-radius:50%;
-    border:1px solid #ccc;
+.color {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Tooltip por hover (PC) */
+.color::after {
+    content: attr(data-color);
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.color:hover::after {
+    opacity: 1;
+}
+
+/* Tooltip por click/tap (JS) */
+.color-tooltip {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    z-index: 1000;
+    animation: fadeInUp 0.3s ease;
+    pointer-events: none;
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateX(-50%) translateY(5px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(-50%) translateY(0); 
+    }
+}
+
+/* Ocultar tooltip de hover en móviles (opcional) */
+@media (max-width: 768px) {
+    .color::after {
+        display: none;  /* Oculta el hover en móviles */
+    }
 }
 
 .blanco{
@@ -155,12 +219,76 @@
     background:black;
 }
 
+.gris_claro{
+    background:#d2d2d2;
+}
+
+.gris_oscuro{
+    background:#62666e;
+}
+
 .rojo{
     background:red;
 }
 
 .azul{
-    background:#0d6efd;
+    background:blue;
+}
+
+.azul-petroleo{
+    background:#0c5678;
+}
+
+.azul_oscuro{
+    background:#111184;
+}
+
+.verde_botella{
+    background:#236d55;
+}
+
+.lila{
+    background:#b0acd4;
+}
+
+.guayaba{
+    background:#e0a4aa;
+}
+
+.camel{
+    background:#f5efe7;
+}
+
+.vinotinto{
+    background:#802a37;
+}
+
+.beige{
+    background:#faf0e6;
+}
+
+.cafe{
+    background:#824e37;
+}
+
+.caqui{
+    background:#d6ae9c;
+}
+
+.mostaza{
+    background:#eab618;
+}
+
+.morado{
+    background:#763773;
+}
+
+.verde_antioquia{
+    background:#289548;
+}
+
+.amarillo{
+    background:yellow;
 }
 
 /* boton whatsapp sencillo */
@@ -450,21 +578,20 @@
 
     <a href="camisetas2.html">← Volver</a>
 
-    <!-- <a href="basica-licra-algodon1.html"
-       class="activo">
-       Camiseta
-    </a> -->
+    <a href="basica-licra-algodon1.html" class="activo">
+       Licra Algodón
+    </a>
 
     <a href="polo1.html">
-       Polo
+       Polos
     </a>
 
     <a href="chompa1.html">
-       Chompa
+       Chompas
     </a>
 
     <a href="buzo1.html">
-       Buzo
+       Buzos
     </a>
 </nav>
 	
@@ -514,11 +641,46 @@
 
         <div class="colores">
 
-            <span class="color blanco"></span>
-            <span class="color negro"></span>
-            <span class="color rojo"></span>
-            <span class="color azul"></span>
+            <span class="color blanco" data-color="Blanco" onclick="mostrarColor(this)" style="background: #ffffff;"></span>
+			
+			<span class="color negro" data-color="Negro" onclick="mostrarColor(this)" style="background: #000000;"></span>
+			
+			<span class="color gris_claro" data-color="Gris Claro" onclick="mostrarColor(this)" style="background: #d2d2d2;"></span>
+			
+			<span class="color gris_oscuro" data-color="Gris Oscuro" onclick="mostrarColor(this)" style="background:#62666e;"></span>
+			
+			<span class="color rojo" data-color="Rojo" onclick="mostrarColor(this)" style="background: red;"></span>
+			
+			<span class="color azul" data-color="Azul Rey" onclick="mostrarColor(this)" style="background: blue;"></span>
+			
+			<span class="color azul_oscuro" data-color="Azul Oscuro" onclick="mostrarColor(this)" style="background: #111184;"></span>
 
+			<span class="color azul_oscuro" data-color="Azul Oscuro" onclick="mostrarColor(this)" style="background: #0c5678;"></span>
+
+            <span class="color verde_botella" data-color="Verde Botella" onclick="mostrarColor(this)" style="background: #236d55;"></span>
+			
+			<span class="color lila" data-color="Lila" onclick="mostrarColor(this)" style="background: #b0acd4;"></span>
+			
+            <span class="color guayaba" data-color="Guayaba" onclick="mostrarColor(this)" style="background: #e0a4aa;"></span>
+			
+            <span class="color camel" data-color="Camel" onclick="mostrarColor(this)" style="background: #f5efe7;"></span>
+			
+			<span class="color vinotinto" data-color="Vinotinto" onclick="mostrarColor(this)" style="background: #802a37;"></span>
+			
+            <span class="color beige" data-color="Beige" onclick="mostrarColor(this)" style="background: #faf0e6;"></span>
+			
+            <span class="color cafe" data-color="Café" onclick="mostrarColor(this)" style="background: #824e37;"></span>
+			
+			<span class="color caqui" data-color="Caqui" onclick="mostrarColor(this)" style="background: #d6ae9c;"></span>
+			
+            <span class="color mostaza" data-color="Mostaza" onclick="mostrarColor(this)" style="background: #eab618;"></span>
+			
+            <span class="color morado" data-color="Morado" onclick="mostrarColor(this)" style="background: #763773;"></span>
+			
+			<span class="color verde_antioquia" data-color="Verde Antioquia" onclick="mostrarColor(this)" style="background: #289548;"></span>
+			
+			<span class="color amarillo" data-color="Amarillo" onclick="mostrarColor(this)" style="background: yellow;"></span>
+			
         </div>
 
         <h3>Tallas</h3>
@@ -552,15 +714,15 @@
 				</div>
 			</div>
 
-			<!-- Trabajo 2 
-			<div class="gallery-item" onclick="abrirModal('imagenes/prendas/polo-bordada.webp', 'Evento Especial - Diseño para evento empresarial')">
-				<div class="polo-badge">Polo</div>
-				<img src="imagenes/prendas/polo-bordada.webp" alt="Polo personalizado evento" class="gallery-image" loading="lazy">
+			<!-- Trabajo 2 -->
+			<div class="gallery-item" onclick="abrirModal('imagenes/prendas/licra-algodon-f1.webp', 'Evento Especial - Diseño para evento empresarial')">
+				<div class="polo-badge">Básica Licra Algodón</div>
+				<img src="imagenes/prendas/licra-algodon-f1.webp" alt="Polo personalizado evento" class="gallery-image" loading="lazy">
 				<div class="gallery-overlay">
-					<h4>Bordado</h4>
-					<p>Diseño para conferencia</p>
+					<h4>Estampado Fórmula 1</h4>
+					<p>Camiseta personalizada espalda</p>
 				</div>
-			</div>-->
+			</div>
 
 			<!-- Trabajo 3
 			<div class="gallery-item" onclick="abrirModal('imagenes/camisetas/trabajos/polo-3.jpg', 'Equipo de Trabajo - Coordinado profesional')">
@@ -664,6 +826,26 @@
     document.getElementById("imagenModal").addEventListener('click', function(e) {
         e.stopPropagation();
     });
+	
+	//muestra el nombre del color durante 2 segundos//
+	function mostrarColor(el) {
+    // Eliminar tooltip anterior (si existe)
+    const oldTooltip = document.querySelector('.color-tooltip');
+    if (oldTooltip) oldTooltip.remove();
+
+    // Crear nuevo tooltip
+    const tooltip = document.createElement('div');
+    tooltip.className = 'color-tooltip';
+    tooltip.textContent = el.getAttribute('data-color');
+    el.appendChild(tooltip);
+
+    // Eliminar después de 2.5 segundos
+    setTimeout(() => {
+        if (tooltip.parentNode) {
+            tooltip.remove();
+        }
+    }, 2500);
+}
 </script>
 </body>
 </html>

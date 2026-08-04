@@ -136,15 +136,79 @@
 
 .colores{
     display:flex;
+    flex-wrap: wrap;      /* Permite que los elementos pasen a la siguiente línea */
     gap:12px;
     margin:15px 0;
+    max-width: 280px;     /* Ajusta según el tamaño que quieras (5 círculos de 35px + gaps) */
 }
 
-.color{
-    width:35px;
-    height:35px;
-    border-radius:50%;
-    border:1px solid #ccc;
+.color {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Tooltip por hover (PC) */
+.color::after {
+    content: attr(data-color);
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.color:hover::after {
+    opacity: 1;
+}
+
+/* Tooltip por click/tap (JS) */
+.color-tooltip {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    z-index: 1000;
+    animation: fadeInUp 0.3s ease;
+    pointer-events: none;
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateX(-50%) translateY(5px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(-50%) translateY(0); 
+    }
+}
+
+/* Ocultar tooltip de hover en móviles (opcional) */
+@media (max-width: 768px) {
+    .color::after {
+        display: none;  /* Oculta el hover en móviles */
+    }
 }
 
 .blanco{
@@ -155,12 +219,32 @@
     background:black;
 }
 
+.gris_claro{
+    background:#d2d2d2;
+}
+
+.gris_oscuro{
+    background:#62666e;
+}
+
 .rojo{
     background:red;
 }
 
 .azul{
-    background:#0d6efd;
+    background:blue;
+}
+
+.lila{
+    background:#b0acd4;
+}
+
+.palo-rosa{
+    background:#e3aaaa;
+}
+
+.verde-menta{
+    background:#f5efe7;
 }
 
 /* boton whatsapp sencillo */
@@ -449,9 +533,12 @@
 
     <a href="camisetas2.html">← Volver</a>
 
-    <a href="basica-licra-algodon1.html"
-       class="activo">
-       Camisetas
+    <a href="basica-licra-algodon1.html">
+       Licra Algodón
+    </a>
+
+    <a href="polo1.html" class="activo">
+       Polos
     </a>
 
     <a href="chompa1.html">
@@ -459,12 +546,8 @@
     </a>
 
     <a href="buzo1.html">
-       Buzos
-    </a>
-
-    <!-- <a href="buzo1.html">
        Buzo
-    </a> -->
+    </a>
 </nav>
 	
 <section class="detalle-producto">
@@ -513,11 +596,24 @@
 
         <div class="colores">
 
-            <span class="color blanco"></span>
-            <span class="color negro"></span>
-            <span class="color rojo"></span>
-            <span class="color azul"></span>
-
+            <span class="color blanco" data-color="Blanco" onclick="mostrarColor(this)" style="background: #ffffff;"></span>
+			
+			<span class="color negro" data-color="Negro" onclick="mostrarColor(this)" style="background: #000000;"></span>
+			
+			<span class="color gris_claro" data-color="Gris Claro" onclick="mostrarColor(this)" style="background: #d2d2d2;"></span>
+			
+			<span class="color gris_oscuro" data-color="Gris Oscuro" onclick="mostrarColor(this)" style="background:#62666e;"></span>
+			
+			<span class="color rojo" data-color="Rojo" onclick="mostrarColor(this)" style="background: red;"></span>
+			
+			<span class="color azul" data-color="Azul Rey" onclick="mostrarColor(this)" style="background: blue;"></span>
+			
+			<span class="color lila" data-color="Lila" onclick="mostrarColor(this)" style="background: #b0acd4;"></span>
+			
+            <span class="color palo-rosa" data-color="Palo de Rosa" onclick="mostrarColor(this)" style="background: #e3aaaa;"></span>
+			
+            <span class="color verde-menta" data-color="Verde Menta" onclick="mostrarColor(this)" style="background: #9fd5d1;"></span>
+			
         </div>
 
         <h3>Tallas</h3>
@@ -668,6 +764,26 @@
     document.getElementById("imagenModal").addEventListener('click', function(e) {
         e.stopPropagation();
     });
+	
+	//muestra el nombre del color durante 2 segundos//
+	function mostrarColor(el) {
+    // Eliminar tooltip anterior (si existe)
+    const oldTooltip = document.querySelector('.color-tooltip');
+    if (oldTooltip) oldTooltip.remove();
+
+    // Crear nuevo tooltip
+    const tooltip = document.createElement('div');
+    tooltip.className = 'color-tooltip';
+    tooltip.textContent = el.getAttribute('data-color');
+    el.appendChild(tooltip);
+
+    // Eliminar después de 2.5 segundos
+    setTimeout(() => {
+        if (tooltip.parentNode) {
+            tooltip.remove();
+        }
+    }, 2500);
+}
 </script>
 </body>
 </html>
