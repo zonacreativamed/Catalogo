@@ -667,6 +667,68 @@
     		margin-bottom: 60px;
 		}
 
+		/* ===== Carrusel de Logos Clientes ===== */
+	.logos-marquee {
+		position: relative;
+		overflow: hidden;
+		padding: 30px 0;
+		margin-bottom: 40px;
+		/* Difuminado en los bordes (efecto premium) */
+		-webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+		mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+	}
+
+	.logos-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: scroll-logos 35s linear infinite;
+    /* ❌ quitamos gap */
+	}
+
+	.logos-marquee:hover .logos-track {
+		animation-play-state: paused;
+	}
+
+	.logos-track img {
+    height: 70px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.65;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0;
+    /* ✅ el espacio ahora es parte de cada imagen */
+    margin-right: 60px;
+	}
+
+	.logos-track img:hover {
+		filter: grayscale(0%);
+		opacity: 1;
+		transform: scale(1.08);
+	}
+
+	@keyframes scroll-logos {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.logos-track {
+			gap: 40px;
+			animation-duration: 25s;
+		}
+		.logos-track img {
+			height: 50px;
+			max-width: 120px;
+		}
+		.logos-marquee {
+			padding: 20px 0;
+		}
+	}
+		
 		.work-item {
     		position: relative;
     		border-radius: 12px;
@@ -1389,6 +1451,32 @@
                
             </div>
         </section>
+		<!-- Sección Nuestros Clientes -->
+		<section id="clientes">
+			<h2 class="section-title">Empresas que confían en nosotros</h2>
+			<p class="section-subtitle">Hemos trabajado con marcas y negocios de diferentes sectores en Medellín y Colombia</p>
+
+			<div class="logos-marquee">
+				<div class="logos-track">
+					<!-- Bloque 1 (original) -->
+					<img src="imagenes/clientes/cliente-1.png" alt="Cliente 1" loading="lazy">
+					<img src="imagenes/clientes/cliente-2.png" alt="Cliente 2" loading="lazy">
+					<img src="imagenes/clientes/cliente-3.png" alt="Cliente 3" loading="lazy">
+					<img src="imagenes/clientes/cliente-4.png" alt="Cliente 4" loading="lazy">
+					<img src="imagenes/clientes/cliente-5.png" alt="Cliente 5" loading="lazy">
+					<img src="imagenes/clientes/cliente-6.png" alt="Cliente 6" loading="lazy">
+
+					<!-- Bloque 2 (duplicado para efecto infinito) -->
+					<img src="imagenes/clientes/cliente-1.png" alt="" aria-hidden="true" loading="lazy">
+					<img src="imagenes/clientes/cliente-2.png" alt="" aria-hidden="true" loading="lazy">
+					<img src="imagenes/clientes/cliente-3.png" alt="" aria-hidden="true" loading="lazy">
+					<img src="imagenes/clientes/cliente-4.png" alt="" aria-hidden="true" loading="lazy">
+					<img src="imagenes/clientes/cliente-5.png" alt="" aria-hidden="true" loading="lazy">
+					<img src="imagenes/clientes/cliente-6.png" alt="" aria-hidden="true" loading="lazy">
+				</div>
+			</div>
+			<hr>
+		</section>
 	</div>
 <!-- Sección Contacto -->
         <section id="contacto">
